@@ -21,13 +21,13 @@ exports.json = function(url, querys, opts) {
             })
             res.on('end', () =>  {
                 try{
-                    console.log(str)
+                    // console.log(str)
                     var data = JSON.parse(str)
-                    console.log(data)
+                    // console.log(data)
                     ok(data)
                 }catch(e){
-                    console.log(e)
-                    console.log(str.substr(0, 260))
+                    // console.log(e)
+                    // console.log(str.substr(0, 260))
                     err("res str is not json: "+str)
                 }
             })
