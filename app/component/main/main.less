@@ -31,6 +31,36 @@ html, body{
                 vertical-align: middle;
                 width: 100px;
                 word-break: break-all;
+                u{
+                    display: inline-block;
+                    width: 30px;
+                }
+            }
+            p.wide{
+                width: 180px;
+            }
+            p.block{
+                width: auto;
+                display: block;
+            }
+        }
+        .more{
+            display: block;
+            padding: 20px 0;
+            text-align: center;
+            .button{
+                display: inline-block;
+                background: cadetblue;
+                color: #fff;
+                font-size: 12px;
+                line-height: 14px;
+                height: 14px;
+                padding: 6px 18px;
+                border-radius: 4px;
+                cursor: pointer;
+                &:hover{
+                    box-shadow: 1px 1px 8px #bbb;
+                }
             }
         }
     }

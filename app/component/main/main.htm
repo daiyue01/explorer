@@ -10,13 +10,15 @@
             <div class="con">
                 <div class="item" v-for="one in blocks">
                     <p>{{one.height}}</p>
-                    <p>{{one.hash}}</p>
-                    <p>{{new Date(one.time*1000).toLocaleString()}}</p>
-                    <p>{{one.txs}}</p>
-                    <p>{{one.bits}}</p>
-                    <p>{{one.rewards.amount}}</p>
-                    <p>{{one.rewards.address}}</p>
-                    <p>{{one.rewards.message}}</p>
+                    <p title="播报方">{{one.rewards.message}}</p>
+                    <p title="交易数量">{{one.txs}}</p>
+                    <p title="目标难度值">{{one.bits}}</p>
+                    <p title="区块奖励">{{one.rewards.amount}}</p>
+                    <p class="wide">{{new Date(one.time*1000).toLocaleString()}}</p>
+                    <p class="block">{{one.hash}}<u></u>{{one.rewards.address}}</p>
+                </div>
+                <div class="more" v-show="showMoreBtn">
+                    <a class="button" @click="queryMoreDatas">查看更多</a>
                 </div>
             </div>
         </div>
