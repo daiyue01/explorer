@@ -10,7 +10,7 @@
             <div class="con">
                 <div class="item" v-for="one in blocks">
                     <p>{{one.height}}</p>
-                    <p title="播报方">{{one.rewards.message}}</p>
+                    <p title="播报方">{{one.rewards.message=='hacash.org'?'':one.rewards.message}}</p>
                     <p title="交易数量">{{one.txs}}</p>
                     <p title="目标难度值">{{one.bits}}</p>
                     <p title="区块奖励">{{one.rewards.amount}}</p>
