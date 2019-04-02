@@ -39,7 +39,7 @@ async function getBlocks(last, limit) {
     try{
         let jsonobj = await http_tool.json(config.miner_api_url+"/query", {
             action: "blocks",
-            start_height: parseInt(last) - parseInt(limit),
+            start_height: parseInt(last) - parseInt(limit) + 1,
             end_height: last,
         })
         // ok
