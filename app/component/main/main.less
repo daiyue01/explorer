@@ -21,7 +21,42 @@ html, body{
         .con{
             background-color: #fff;
             border-radius: 0 0 4px 4px;
-            padding: 16px;
+            padding: 20px 0;
+            text-align: center;
+            table{
+                display: inline-block;
+                border-collapse: collapse;
+                border: none;
+                tr{
+                    position: relative;
+                }
+                th, td {
+                    padding: 10px;
+                }
+                th{
+                    background: #f6f8f8;
+                    color: #899;
+                    font-weight: bold;
+                }
+                td{
+                    white-space: pre-wrap;
+                    word-break: break-all;
+                    border-bottom: 1px solid #ddd;
+                    &.gray{
+                        color: gray;
+                    }
+                    &.blue{
+                        color: dodgerblue;  
+                    }
+                    &.sienna{
+                      color: sienna;  
+                    }
+                    &.dts{
+                        color: darkseagreen;
+                        cursor: pointer;
+                    }
+                }
+            }
         }
         .item{
             padding: 15px 0;
@@ -76,6 +111,48 @@ html, body{
     .container{
         padding: 0%;
         width: 100%;
+    }
+    .wrap{
+        .con{
+            padding: 0;
+            table{
+                tr{
+                    display: block;
+                    position: relative;
+                }
+                tr.hd{
+                }
+                tr.row{
+                    padding-top: 1px;
+                    height: 60px;
+                    border-top: #ddd dotted 1px;
+                }
+                th{
+                    // opacity: 0;
+                    padding: 5px;
+                    background: none;
+                    &.mbn{
+                        display: none;
+                    }
+                }
+                td{
+                    display: block;
+                    position: absolute;
+                    left: 50px; top: 50px;
+                    border: none;
+                    padding: 0;
+                }
+                .t1{ top: 10px; left: 10px; }
+                .t2{ top: 10px; left: 60px; }
+                .t3{ top: 10px; left: 220px; }
+                .t4{ top: 10px; left: 240px; }
+                .t5{ top: 30px; left: 10; }
+                .t7{ top: 30px; left: 80px; }
+                .t6{ top: 30px; left: 160px; display: none; }
+                .t8{ top: 30px; left: 195px; }
+
+            }
+        }
     }
 }
 

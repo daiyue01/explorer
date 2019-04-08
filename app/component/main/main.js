@@ -34,7 +34,7 @@ var vAppBlocks = new Vue({
             if(this.blocks[0]){
                 this.showMoreBtn = false
                 var last = this.blocks[this.blocks.length-1].height - 1
-                this.queryNewDatas(last, 10)
+                this.queryNewDatas(last, 20)
             }
         }
     },
@@ -55,5 +55,5 @@ setInterval(function(){
 }, 1000)
 
 // 默认加载数据
-vAppBlocks.queryNewDatas(last_height, 10)
+vAppBlocks.queryNewDatas(last_height, 20)
 

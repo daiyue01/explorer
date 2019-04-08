@@ -8,15 +8,40 @@
         <div class="wrap">
             <h1 class="pt">最近出块<span>{{last_cuttime}}s 后自动更新</span></h1>
             <div class="con">
-                <div class="item" v-for="one in blocks">
+                <table>
+                    <tr class="hd">
+                        <th>高度</th>
+                        <th>哈希</th>
+                        <th>交易数</th>
+                        <th>难度值</th>
+                        <th>播报方</th>
+                        <th class="mbn">区块奖励</th>
+                        <th>奖励地址</th>
+                        <th>区块创建时间</th>
+                    </tr>
+                    <tr class="row" v-for="one in blocks">
+                        <td class="t1 blue">{{one.height}}</td>
+                        <td class="t2 gray dts" @click="prompt('区块哈希：', one.hash)">{{one.hash.substr(0,20)+'...'}}</td>
+                        <td class="t3">{{one.txs}}</td>
+                        <td class="t4 gray">{{one.bits}}</td>
+                        <td class="t5 sienna">{{one.rewards.message}}</td>
+                        <td class="t6">{{one.rewards.amount}}</td>
+                        <td class="t7 gray dts" @click="prompt('奖励地址：', one.rewards.address)">{{one.rewards.address.substr(0,12)+'...'}}</td>
+                        <td class="t8 gray">{{formatDate(new Date(one.time*1000), 'yyyy-MM-dd hh:mm:ss').replace('','')}}</td>
+                    </tr>
+                </table>
+                <!--
+                <div class="item" for="one in blocks">
                     <p>{{one.height}}</p>
                     <p title="播报方">{{one.rewards.message=='hacash.org'?'':one.rewards.message}}</p>
                     <p title="交易数量">{{one.txs}}</p>
                     <p title="目标难度值">{{one.bits}}</p>
                     <p title="区块奖励">{{one.rewards.amount}}</p>
                     <p class="wide">{{new Date(one.time*1000).toLocaleString()}}</p>
-                    <p class="block">{{one.hash}}<u></u>{{one.rewards.address}}</p>
+                    <p class="block">{{one.hash}}</p>
+                    <p class="block">{{one.rewards.address}}</p>
                 </div>
+                -->
                 <div class="more" v-show="showMoreBtn">
                     <a class="button" @click="queryMoreDatas">查看更多</a>
                 </div>

@@ -25,8 +25,7 @@ queryLastBlock()
 ////////////////////////////////////////////////
 
 
-let blockdatas = []
-let blocklastheight = 0
+let blockdatacaches = {} // 数据缓存
 
 async function getBlocks(last, limit) {
     if( !last || !limit ){
@@ -36,6 +35,11 @@ async function getBlocks(last, limit) {
         limit -= last - lastblockdata.height
         last = lastblockdata.height
     }
+    // 检查缓存
+    let cachekey = last+'_'+limit
+    if( blockdatacaches[cachekey] ){
+        return blockdatacaches[cachekey]
+    }
     try{
         let jsonobj = await http_tool.json(config.miner_api_url+"/query", {
             action: "blocks",
@@ -43,6 +47,10 @@ async function getBlocks(last, limit) {
             end_height: last,
         })
         // ok
+        blockdatacaches[cachekey] = jsonobj
+        setTimeout(function(){
+            delete blockdatacaches[cachekey]
+        }, 1000*60*5)
         return jsonobj
     }catch(e){
         return []
