@@ -32,13 +32,13 @@ function getBlocksFromCache(last, limit) {
     // console.log(blockdatacache_maps)
     let start = last - limit + 1
     let results = []
-    for(let i=last; i>=start; i--){
+    for(let i=start; i<=last; i++){
         let one = blockdatacache_maps[''+i]
         // console.log(one)
         if( ! one ){
-            return null
+            return i // ret start_height
         }
-        results.push( one )
+        results.unshift( one )
     }
     // console.log("results", results.length)
     return results
@@ -54,15 +54,19 @@ async function getBlocks(last, limit) {
     }
     // 从缓存取数据
     let caches = getBlocksFromCache(last, limit)
-    if( caches ){
+    if( typeof caches == "object" ){
         // console.log("getBlocksFromCache", last, limit)
         return caches
     }
+    let start_height = parseInt(last) - parseInt(limit) + 1
+    if( typeof caches == "number" ){
+        start_height = caches
+    }
     try{
-        // console.log("await http_tool.json(config.miner_api_url", last, limit)
+        // console.log("await http_tool.json(config.miner_api_url", "end_height:", last, "start_height:", start_height, "limit:", last-start_height+1)
         let jsonobj = await http_tool.json(config.miner_api_url+"/query", {
             action: "blocks",
-            start_height: parseInt(last) - parseInt(limit) + 1,
+            start_height: start_height,
             end_height: last,
         })
         let datas = jsonobj.datas
@@ -80,7 +84,8 @@ async function getBlocks(last, limit) {
             }
             // console.log("delete blocks cache key", delete_keys.join(','))
         }, 1000*60*24*3) // 保存三天内的数据 288*3
-        return datas
+        // 再次从缓存取数据
+        return getBlocksFromCache(last, limit)
     }catch(e){
         return []
     }
