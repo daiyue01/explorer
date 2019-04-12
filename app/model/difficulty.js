@@ -72,7 +72,7 @@ exports.charts = async function()
         let len = parseInt(DIFFICULTY_BUFFER.length/4)
         for(let i=0; i<len; i++){
             let num = DIFFICULTY_BUFFER.readUInt32BE( i*4 )
-            difficulty_charts_nums_cache.push(parseInt((4294967294-num)/10000000))
+            difficulty_charts_nums_cache.push(parseInt((4294967294-num)/100000))
         }
         setTimeout(() => {
             difficulty_charts_nums_cache = null
