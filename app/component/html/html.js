@@ -15,6 +15,19 @@ function getScrollTop() {
     else if (document.body) { scrollPos = document.body.scrollTop; }   
     return scrollPos;   
 } 
+function getStyle(obj, attr) 
+{ 
+    if(obj.currentStyle) 
+    { 
+        return obj.currentStyle[attr]; 
+    } 
+    else 
+    { 
+        return getComputedStyle(obj,false)[attr]; 
+    } 
+} 
+
+/////////////////////////////////////////////////
 
 
 function tppl(tpl, data){
@@ -44,6 +57,9 @@ function tppl(tpl, data){
   }
   return data ? fn(data) : fn;
 }
+
+
+///////////////////////////////////////////////////////
 
 
 function apicallex(r, okcall, errcall) {

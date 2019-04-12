@@ -2,6 +2,7 @@
  *
  */
 
+const fs = require('fs')
 const path = require('path')
 
 const routes = require('./routes.js');
@@ -81,7 +82,7 @@ function loadLanguageItem(langs, dir, bsk) {
 
 ////////////////////// loader //////////////////////
 
-
+// require
 global.appload = function(path) {
     if(path=="config"){
         return require("../config.js")
@@ -94,6 +95,15 @@ global.appload = function(path) {
         path += '.js'
     }
     return require(path)
+}
+
+// 文件操作
+global.appabs = function(ph) {
+    // others
+    if( !ph.startsWith('../') && !ph.startsWith('./') ){
+        ph = './app/' + ph
+    }
+    return path.resolve(ph)
 }
 
 

@@ -57,3 +57,70 @@ setInterval(function(){
 // 默认加载数据
 vAppBlocks.queryNewDatas(last_height, 20)
 
+
+
+
+////////////////////////////////////////////////
+
+
+
+function drawDifficultyCharts(data){
+    // 绘制算力曲线
+    //获取Canvas对象(画布)
+    var cvs = document.getElementById("dfcts_canvas");
+    //简单地检测当前浏览器是否支持Canvas对象，以免在一些不支持html5的浏览器中提示语法错误
+    if(cvs.getContext){  
+        //获取对应的CanvasRenderingContext2D对象(画笔)
+        cvs.width = parseInt(getStyle(cvs, "width"))
+        var ctx = cvs.getContext("2d")
+        ctx.lineWidth = 1;
+        // 坐标轴距离画布上右下左的边距
+        var padding = {
+            top: 10,
+            right: 10,
+            bottom: 10,
+            left: 10
+        }
+        // 求坐标轴原点的坐标
+        var origin = {
+            x: padding.left,
+            y: cvs.height - padding.bottom
+        }
+        // 求坐标轴默认可显示数据的范围
+        var coordMaxX = cvs.width - padding.left - padding.right;
+        var coordMaxY = cvs.height - padding.top - padding.bottom ;
+
+        // var data = [ 100, 200, 400, 600, 1200, 1800, 1000, 500, 20 ];
+ 
+        // 求数据缩放的比例
+        var ratioX = coordMaxX / data.length;
+        var ratioY = coordMaxY / Math.max.apply( null, data );
+ 
+        // 根据比例，对元数据进行缩放
+        var ratioData = data.map( function( val, index ) {
+            return val * ratioY;
+        });
+ 
+        // 画折线
+        ctx.beginPath();
+        ratioData.forEach( function( val, index ) {
+            ctx.lineTo( origin.x + ( index * ratioX), origin.y - val );
+        });
+        ctx.stroke();
+        
+
+    }
+}
+
+// 加载算力难度值
+apiget("/api/difficulty/charts", {}, function(data){
+    console.log(data)
+    drawDifficultyCharts(data.nums)
+})
+
+
+
+setTimeout(function(){
+    // drawDifficultyCharts([1,3,5,7,9,6,3,1])
+}, 1000)
+
