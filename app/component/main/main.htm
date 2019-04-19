@@ -9,7 +9,7 @@
             <canvas id="dfcts_canvas">
                 您的浏览器不支持canvas标签。
             </canvas>
-            <p class="tt">算力难度指数</p>
+            <p class="tt">算力难度波动</p>
         </div>
     </div>
 </div>
@@ -34,7 +34,7 @@
                         <td class="t1 blue">{{one.height}}</td>
                         <td class="t2 gray dts" @click="prompt('区块哈希：', one.hash)">{{one.hash.substr(0,20)+'...'}}</td>
                         <td class="t3">{{one.txs}}</td>
-                        <td class="t4 gray">{{one.bits}}</td>
+                        <td class="t4 gray">{{one.bitstr}}</td>
                         <td class="t5 sienna">{{one.rewards.message}}</td>
                         <td class="t6">{{one.rewards.amount}}</td>
                         <td class="t7 gray dts" @click="prompt('奖励地址：', one.rewards.address)">{{one.rewards.address.substr(0,12)+'...'}}</td>

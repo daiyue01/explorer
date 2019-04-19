@@ -75,6 +75,7 @@ async function getBlocks(last, limit) {
         for(let i in datas){
             let k = datas[i].height+''
             delete_keys.push(k)
+            datas[i].bitstr = getDealBitStr(datas[i].bits)
             blockdatacache_maps[k] = datas[i]
         }
         // 定时清除缓存
@@ -89,6 +90,15 @@ async function getBlocks(last, limit) {
     }catch(e){
         return []
     }
+}
+
+
+function getDealBitStr(bits) {
+    let buf = Buffer.allocUnsafe(4)
+    buf.writeUInt32BE(bits, 0)
+    let n1 = 255 - buf.readUInt8(0)
+    let n2 = 16777215 - ( buf.readUInt16BE(1) * 256 + buf.readUInt8(3) )
+    return '2^' + n1 + '×' + n2
 }
 
 

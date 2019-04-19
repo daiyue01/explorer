@@ -35,7 +35,7 @@ function loadDifficultyDatas(){
             }
             // console.log(bits)
             let buf = Buffer.alloc(4)
-            buf.writeUInt32BE(bits)
+            buf.writeUInt32BE(bits, 0)
             // console.log(buf)
             bufappend.push(buf)
         }
@@ -70,14 +70,20 @@ exports.charts = async function()
     if(!difficulty_charts_nums_cache){
         difficulty_charts_nums_cache = []
         let len = parseInt(DIFFICULTY_BUFFER.length/4)
-        for(let i=0; i<len; i++){
-            let num = DIFFICULTY_BUFFER.readUInt32BE( i*4 )
-            difficulty_charts_nums_cache.push(parseInt((4294967294-num)/10000000))
+        for(let i=30; i<len; i++){
+            let base = 256 - DIFFICULTY_BUFFER.readUInt8(i*4)
+            let num = 16777215 - (DIFFICULTY_BUFFER.readUInt16BE(i*4+1) * 256 + DIFFICULTY_BUFFER.readUInt8(i*4+3) )
+            let value = parseInt( Math.pow(2, base) * num / 10000 / 10000 )
+            // console.log(base, num)
+            difficulty_charts_nums_cache.push( value )
+            // let num = DIFFICULTY_BUFFER.readUInt32BE( i*4 )
+            // difficulty_charts_nums_cache.push(parseInt((4294967294-num)/10000000))
         }
         setTimeout(() => {
             difficulty_charts_nums_cache = null
         }, 1000*33);
     }
+    // console.log(difficulty_charts_nums_cache)
     return {
         step: 1,
         start: 1,
