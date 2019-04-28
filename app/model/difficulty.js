@@ -3,16 +3,19 @@
  * 
  */
 const fs = require("fs")
-
-
 const model_block = appload('model/block')
 
+
+
 let DIFFICULTY_BUFFER = Buffer.from("")
+
+let difficulty_charts_nums_cache = null
 
 function loadDifficultyDatas(){
     // 从磁盘加载数据
     let buffilepath = appabs("datas/difficulty_charts.dat")
     fs.open(buffilepath, "r+", async function(err, fd){
+        // console.log("fs.open")
         if(err){
             console.log(err)
             console.log("[ Cannot read difficulty charts data file. ]")
@@ -25,7 +28,7 @@ function loadDifficultyDatas(){
             return console.log("difficulty charts file data error.")
         }
         // 循环请求难度变动的区块信息
-        let step = (DIFFICULTY_BUFFER/4)
+        let step = (DIFFICULTY_BUFFER.length/4)
         , bufappend = []
         while(true){
             step++
@@ -39,15 +42,23 @@ function loadDifficultyDatas(){
             // console.log(buf)
             bufappend.push(buf)
         }
-        bufappend = Buffer.concat(bufappend)
-        // 写入文件
-        fs.appendFileSync(fd, bufappend)
-        DIFFICULTY_BUFFER = Buffer.concat([DIFFICULTY_BUFFER, bufappend])
-        // console.log(DIFFICULTY_BUFFER)
+        if(bufappend.length > 0){
+            difficulty_charts_nums_cache = null // 删除缓存
+            bufappend = Buffer.concat(bufappend)
+            // 写入文件
+            fs.appendFileSync(fd, bufappend)
+            DIFFICULTY_BUFFER = Buffer.concat([DIFFICULTY_BUFFER, bufappend])
+            // console.log(DIFFICULTY_BUFFER)
+        }
         // 加载难度
         async function loaddfct(step){
             let realhei = step*288
+            let lasthei = (await model_block.getLastBlock()).height
+            if(realhei > lasthei){
+                return null
+            }
             let blks = await model_block.getBlocks(realhei, 1)
+            // console.log(step, blks)
             if( blks && blks[0] ){
                 return blks[0].bits
             }else{
@@ -56,15 +67,13 @@ function loadDifficultyDatas(){
         }
     })
 }
-loadDifficultyDatas()
-setInterval(loadDifficultyDatas, 1000*60*60*3)
+setTimeout(loadDifficultyDatas, 1000)
+setInterval(loadDifficultyDatas, 1000*60*60*1)
 
 
 //////////////////////////////////////
 
 
-
-let difficulty_charts_nums_cache = null
 exports.charts = async function()
 {
     if(!difficulty_charts_nums_cache){
@@ -81,7 +90,7 @@ exports.charts = async function()
         }
         setTimeout(() => {
             difficulty_charts_nums_cache = null
-        }, 1000*33);
+        }, 1000*60*29);
     }
     // console.log(difficulty_charts_nums_cache)
     return {
