@@ -35,7 +35,7 @@
                         <td class="t2 gray dts" @click="prompt('区块哈希：', one.hash)">{{one.hash.substr(0,20)+'...'}}</td>
                         <td class="t3">{{one.txs}}</td>
                         <td class="t4 gray">{{one.bitstr}}</td>
-                        <td class="t5 sienna">{{one.rewards.message}}</td>
+                        <td class="t5 sienna">{{one.rewards.message=='unknow'?'':one.rewards.message}}</td>
                         <td class="t6">{{one.rewards.amount}}</td>
                         <td class="t7 gray dts" @click="prompt('奖励地址：', one.rewards.address)">{{one.rewards.address.substr(0,12)+'...'}}</td>
                         <td class="t8 gray">{{formatDate(new Date(one.time*1000), 'yyyy-MM-dd hh:mm:ss').replace('','')}}</td>
