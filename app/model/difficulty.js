@@ -81,7 +81,7 @@ exports.charts = async function()
         let len = parseInt(DIFFICULTY_BUFFER.length/4)
         for(let i=40; i<len; i++){
             let base = 256 - DIFFICULTY_BUFFER.readUInt8(i*4)
-            let num = /*16777215 - */(DIFFICULTY_BUFFER.readUInt8(i*4+1)*256*256 + DIFFICULTY_BUFFER.readUInt8(i*4+2)*256 + DIFFICULTY_BUFFER.readUInt8(i*4+3) )
+            let num = 16777215 - (DIFFICULTY_BUFFER.readUInt8(i*4+1)*256*256 + DIFFICULTY_BUFFER.readUInt8(i*4+2)*256 + DIFFICULTY_BUFFER.readUInt8(i*4+3) )
             let value = parseInt( Math.pow(2, base) * num / 10000 / 10000 )
             // console.log(base, num)
             difficulty_charts_nums_cache.push( value )
