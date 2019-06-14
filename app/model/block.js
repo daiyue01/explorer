@@ -94,11 +94,12 @@ async function getBlocks(last, limit) {
 
 
 function getDealBitStr(bits) {
-    let buf = Buffer.allocUnsafe(4)
-    buf.writeUInt32BE(bits, 0)
-    let n1 = 255 - buf.readUInt8(0)
-    let n2 = 16777215 - ( buf.readUInt16BE(1) * 256 + buf.readUInt8(3) )
-    return '2^' + n1 + '×' + n2
+    return bits
+    // let buf = Buffer.allocUnsafe(4)
+    // buf.writeUInt32BE(bits, 0)
+    // let n1 = 255 - buf.readUInt8(0)
+    // let n2 = 16777215 - ( buf.readUInt16BE(1) * 256 + buf.readUInt8(3) )
+    // return '2^' + n1 + '×' + n2
 }
 
 
