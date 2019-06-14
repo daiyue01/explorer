@@ -1,9 +1,21 @@
 
+
+var vAppDfcts = new Vue({
+    el: '#dfcts',
+    data: {
+        hashpower: '0 H/s',
+    },
+    methods:{
+    }
+})
+
+
 var vAppBlocks = new Vue({
     el: '#blocks',
     data: {
         last_height: last_height,
         last_cuttime: 66,
+        hashpower: '0 H/s',
         blocks: [],
 
         showMoreBtn: false,
@@ -39,6 +51,8 @@ var vAppBlocks = new Vue({
         }
     },
 })
+
+
 
 // 定时更新 last heigth
 setInterval(function(){
@@ -114,7 +128,8 @@ function drawDifficultyCharts(data){
 
 // 加载算力难度值
 apiget("/api/difficulty/charts", {}, function(data){
-    console.log(data)
+    // console.log(data)
+    vAppDfcts.hashpower = data.hashpower
     drawDifficultyCharts(data.nums)
 })
 
