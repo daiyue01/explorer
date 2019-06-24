@@ -85,21 +85,45 @@ setInterval(loadDifficultyDatas, 1000*60*60*1)
 */
 
 
+
 var hashpower = null
 exports.charts = async function()
 {
-    if(!difficulty_charts_nums_cache){
+    function rdi8(idx){
+        return DIFFICULTY_BUFFER.readUInt8(idx)
+    }
 
+
+    if(!difficulty_charts_nums_cache){
         difficulty_charts_nums_cache = []
         let len = parseInt(DIFFICULTY_BUFFER.length/4)
         let last_value = 0
-        for(let i=40; i<len; i++){
-            let base = 256 - DIFFICULTY_BUFFER.readUInt8(i*4)
-            let num = 16777215 - (DIFFICULTY_BUFFER.readUInt8(i*4+1)*256*256 + DIFFICULTY_BUFFER.readUInt8(i*4+2)*256 + DIFFICULTY_BUFFER.readUInt8(i*4+3) )
+        
+        for(let i=len-120; i<len; i++){
+
+            // let fff = 'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff'
+            // let bignumff = new BigNumber(fff, 16) 
+            // let nnn = diffToBignumber(rdi8(i*4+0), rdi8(i*4+1), rdi8(i*4+2), rdi8(i*4+3))
+            // let oknum = nnn // bignumff.minus( nnn )
+            // console.log(oknum.toString())
+            // let value = parseInt( oknum.div( new BigNumber('1.1e+66')  ) )
+            // console.log(value)
+
+            // let mmmstr = bignumff.minus( nnn ).toString(16)
+            // let okstr = mmmstr.substr(0, 8) + '0'.repeat(fff.length-mmmstr.length)
+            // let oknum = new BigNumber(okstr, 16) 
+            // console.log( bignumff.toString(16) )
+            // console.log( nnn.toString(16) )
+            // console.log( oknum.toString(16) )
+            // console.log( oknum.toString(10) )
+            let base = 255 - rdi8(i*4)
+            let num =  (rdi8(i*4+1)*256/**256*/ + rdi8(i*4+2)*256 + rdi8(i*4+3) )
             last_value = Math.pow(2, base) * num
             let value = parseInt( last_value / 10000 / 10000 )
+            // console.log(value)
             // console.log(base, num)
             difficulty_charts_nums_cache.push( value )
+            // difficulty_charts_nums_cache.push( rdi8(i*4+0)*256*256*256 + rdi8(i*4+1)*256*256 + rdi8(i*4+2)*256 + rdi8(i*4+3) )
             
             // let num = DIFFICULTY_BUFFER.readUInt32BE( i*4 )
             // difficulty_charts_nums_cache.push(parseInt((4294967294-num)/10000000))
@@ -129,6 +153,67 @@ exports.charts = async function()
         nums: difficulty_charts_nums_cache,
     }
 }
+
+
+function diffToBignumber(n1, n2, n3, n4) {
+    // console.log(n1, n2, n3, n4)
+    let bits = []
+    let prezero = 255 - n1
+    while(prezero>0){
+        bits.push(0)
+        prezero--
+    }
+    bits = bits.concat( ByteToBits(n2) )
+    bits = bits.concat( ByteToBits(n3) )
+    bits = bits.concat( ByteToBits(n4) )
+    let subend = 256 - bits.length
+    while(subend>0){
+        bits.push(0)
+        subend--
+    }
+    let seglen = 256 / 8
+    let resbytes = Buffer.alloc(seglen)
+    for(let i=0; i<seglen; i++){
+        resbytes[i] = BitsToByte( bits.slice(i*8, i*8+8) ) 
+    }
+    // console.log(resbytes.join(','))
+    // console.log(resbytes.toString('hex'))
+    return new BigNumber(resbytes.toString('hex'), 16) 
+    // return resbytes
+}
+
+
+// 256进制变2进制
+function BitsToByte(bits) {
+	let b = 0
+	b += (1) * bits[7]
+	b += (2) * bits[6]
+	b += (4) * bits[5]
+	b += (8) * bits[4]
+	b += (16) * bits[3]
+	b += (32) * bits[2]
+	b += (64) * bits[1]
+	b += (128) * bits[0]
+	return b
+}
+
+
+
+
+function ByteToBits(b) {
+	return [
+		((b >> 7) & 0x1),
+		((b >> 6) & 0x1),
+		((b >> 5) & 0x1),
+		((b >> 4) & 0x1),
+		((b >> 3) & 0x1),
+		((b >> 2) & 0x1),
+		((b >> 1) & 0x1),
+		((b >> 0) & 0x1),
+    ]
+}
+
+
 
 
 
