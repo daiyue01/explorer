@@ -91,10 +91,10 @@ function drawDifficultyCharts(data){
         ctx.lineWidth = 1;
         // 坐标轴距离画布上右下左的边距
         var padding = {
-            top: 10,
-            right: 10,
-            bottom: 10,
-            left: 10
+            top: 2,
+            right: 2,
+            bottom: 2,
+            left: 2
         }
         // 求坐标轴原点的坐标
         var origin = {
@@ -115,6 +115,9 @@ function drawDifficultyCharts(data){
         var ratioData = data.map( function( val, index ) {
             return val * ratioY;
         });
+
+        // 画网格
+        drawGrid(ctx, '#ccc', 20, 50);
  
         // 画折线
         ctx.beginPath();
@@ -122,6 +125,8 @@ function drawDifficultyCharts(data){
             ctx.lineTo( origin.x + ( index * ratioX), origin.y - val );
         });
         ctx.stroke();
+
+        
         
 
     }
@@ -137,6 +142,34 @@ apiget("/api/difficulty/charts", {}, function(data){
 
 
 setTimeout(function(){
-    // drawDifficultyCharts([1,3,5,7,9,6,3,1])
+    // drawDifficultyCharts([9,1,5,8,4,3,5,7,6,4,5])
 }, 1000)
 
+
+
+// 画网格
+
+function drawGrid(context, color, stepx, stepy) {
+    context.save()
+    // context.fillStyle = 'white';
+    // console.log(context);
+    //context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+    context.setLineDash([2,6]);
+    context.lineWidth = 0.5;
+    context.strokeStyle = color;
+    for (var i = stepx; i < context.canvas.width; i += stepx) {
+        context.beginPath();
+        context.moveTo(i, 0);
+        context.lineTo(i, context.canvas.height);
+        context.closePath();
+        context.stroke();
+    }
+    for (var j = stepy; j < context.canvas.height; j += stepy) {
+        context.beginPath();
+        context.moveTo(0, j);
+        context.lineTo(context.canvas.width, j);
+        context.closePath();
+        context.stroke();
+    }
+    context.restore();
+}

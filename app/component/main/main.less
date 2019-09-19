@@ -5,10 +5,11 @@ html, body{
 
 
 #dfcts_canvas{
-
+    display: block;
     height: 100px;
     width: 100%;
     border: 1px solid #ddd;
+    border-top: none;
     background: #fff
 }
 
@@ -17,13 +18,18 @@ html, body{
     .wrap{
         position: relative;
         .tt{
-            position: absolute;
-            top: 10px; left: 10px;
-            color: #bbb;
+            display: block;
+            // position: absolute;
+            // top: 10px; left: 10px;
+            color: #aaa;
             font-size: 12px;
-            span{
-                font-size: 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-bottom-color: #eee;
+            width: 100%;
+            p{
                 display: block;
+                padding: 2px 5px;
             }
         }
     }
