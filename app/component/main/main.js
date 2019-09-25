@@ -1,5 +1,56 @@
 
 
+var vAppTransfers = new Vue({
+    el: '#transfers',
+    data: {
+        transfers: [],
+        refreshTip: "↺刷新",
+        refreshBtn: true,
+    },
+    methods:{
+        queryTransferDatas: function(){
+            var that = this
+            apiget("/api/transfer/logs", {}, function(data){
+                that.transfers = data
+            })
+        },
+        refresh: function(){
+            var that = this
+            that.transfers = []
+            that.refreshBtn = false
+            setTimeout(function(){
+                that.refreshBtn = true
+                that.refreshTip = "数据已更新！";
+                setTimeout(function(){
+                    that.refreshTip = "↺刷新";
+                }, 3000)
+                that.queryTransferDatas()
+            }, 300)
+        },
+    }
+})
+
+// 请求数据
+vAppTransfers.queryTransferDatas()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////
+
+
+
 var vAppDfcts = new Vue({
     el: '#dfcts',
     data: {

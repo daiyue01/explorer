@@ -3,9 +3,19 @@ const config = {
     watch_restart_timeout: 7,
     lang: 'zh', // 默认语言
 
+    // 使用的 mysql 数据库
+    mysqldb: {
+        connectionLimit : 10,
+        host     : '127.0.0.1',
+        user     : 'root',
+        password : '',
+        database : 'hacash_trsdb',
+    },
+
     ///////////////////////////////
 
     miner_api_url: "http://127.0.0.1:3338",
+
 }
 
 

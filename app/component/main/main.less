@@ -36,7 +36,7 @@ html, body{
 }
 
 
-#blocks{
+#blocks, #transfers{
 
     .wrap{
         background-color: #f3f4f7;
@@ -45,7 +45,7 @@ html, body{
             color: #233;
             font-size: 14px;
             padding: 10px 16px;
-            span{
+            span.tv{
                 padding-top: 2px;
                 float: right;
                 font-size: 10px;
@@ -137,11 +137,45 @@ html, body{
 }
 
 
+#transfers {
+    .refresh{
+        display: block;
+        float: right;
+        color: dodgerblue;
+        &:hover{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+    .con{
+        table{
+            td{
+                border-bottom: 1px solid #eee;
+            }
+        }
+    }
+    tr .t0{ color: #555; }
+    tr .t1{ color: tan; }
+    tr .t2{ color: darkseagreen; }
+    tr .t3 b{
+        display: block;
+        float: right;
+        padding: 0px 3px;
+        border-radius: 4px;
+        background: #fff; 
+        border: 1px cadetblue solid;
+        color: cadetblue; 
+        font-weight: bold;
+    }
+    tr .t4{ color: #999; }
+}
+
+
 
 
 @media screen and (max-width: 512px) {
 
-#blocks{
+#blocks, #transfers{
     .container{
         padding: 0%;
         width: 100%;
@@ -176,6 +210,16 @@ html, body{
                     border: none;
                     padding: 0;
                 }
+
+            }
+        }
+    }
+}
+
+#blocks{
+    .wrap{
+        .con{
+            table{
                 .t1{ top: 10px; left: 10px; }
                 .t2{ top: 10px; left: 60px; }
                 .t3{ top: 10px; left: 220px; }
@@ -184,10 +228,27 @@ html, body{
                 .t7{ top: 30px; left: 80px; }
                 .t6{ top: 30px; left: 160px; display: none; }
                 .t8{ top: 30px; left: 195px; }
-
             }
         }
     }
 }
+
+#transfers{
+    .wrap{
+        .con{
+            table{
+                tr.row{
+                    height: 75px;
+                }
+                .t1{ top: 10px; left: 10px; }
+                .t2{ top: 26px; left: 10px; }
+                .t0{ top: 46px; left: auto; right: 95px; color: lightsteelblue; }
+                .t3{ top: 46px; left: 10px; }
+                .t4{ top: 46px; left: auto; right: 15px; }
+            }
+        }
+    }
+}
+
 
 }

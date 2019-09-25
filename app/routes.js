@@ -7,6 +7,8 @@ module.exports = {
 
     '/api/block/last': 'api/block/last',
     '/api/block/list': 'api/block/list',
+    
+    '/api/transfer/logs': 'api/transfer/logs',
 
     '/api/difficulty/charts': 'api/difficulty/charts',
 

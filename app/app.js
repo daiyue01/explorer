@@ -5,6 +5,8 @@
 const fs = require('fs')
 const path = require('path')
 
+const mysql = require('mysql');
+
 const routes = require('./routes.js');
 const viewer = require('./viewer.js');
 const config = require('../config.js');
@@ -78,6 +80,19 @@ function loadLanguageItem(langs, dir, bsk) {
 }
 
 
+///////////////////// mysql 数据库 /////////////////////
+global.MysqlDB_Pool = null
+global.MysqlPool = function() {
+    if(global.MysqlDB_Pool == null) {
+        global.MysqlDB_Pool = mysql.createPool(config.mysqldb)
+        global.MysqlDB_Pool.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+            if (error) throw error; // 数据库连接不成功则报错
+            // console.log('The solution is: ', results[0].solution);
+        });
+    }
+    return global.MysqlDB_Pool
+}
+
 
 
 ////////////////////// loader //////////////////////
@@ -107,3 +122,7 @@ global.appabs = function(ph) {
 }
 
 
+
+// 默认加载的 model
+appload('model/initmysql')
+appload('model/transferlog')
