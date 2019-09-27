@@ -1,0 +1,35 @@
+
+<div id="address" class="ppage" ref="address" data-address="[:=address:]" >
+    <div class="container">
+        <p class="crumb"><a href="/">首页</a><i>/</i><span>地址 - [:=address:]</span></p>
+        <div class="pcard info">
+            <h3 class="hdtt">概要</h3>
+            <div class="content">
+                <p class="amount">余额：<b>[:=amount:]</b></p>
+            </div>
+        </div>
+        <div class="pcard transfers">
+            <h3 class="hdtt">⇌ 转账 <i>（不含Coinbase）</i></h3>
+            <div class="content">
+                <div class="ttp">
+                    <label><input @click="dotrstype" name="trstype" v-model='trstype' type="radio" value="all" checked />全部</label> 
+                    <label><input @click="dotrstype" name="trstype" v-model='trstype' type="radio" value="in" />转入</label> 
+                    <label><input @click="dotrstype" name="trstype" v-model='trstype' type="radio" value="out" />转出</label> 
+                </div>
+                <div class="datas">
+                    <div class="row" v-for="one in transfers">
+                        <p><label>区块：</label><b>{{one[0]}}</b></p>
+                        <p><label>From：</label><b v-html="one[1]"></b></p>
+                        <p><label>To： </label><b v-html="one[2]"></b></p>
+                        <p><label>数额：</label><b class="amt">{{one[3]}}</b></p>
+                        <p><label>时间：</label><b>{{formatDate(new Date(one[4]*1000), 'MM-dd hh:mm')}}</b></p>
+                    </div>
+                </div>
+                <div class="ok" v-show="!ifmore">- 加载完毕 -</div>
+                <div class="more" v-show="ifmore">
+                    <button @click="domoretrs">查看更多</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

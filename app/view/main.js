@@ -19,7 +19,7 @@ exports.components = [
 exports.datas = async function(query, callback, req, res)
 {
     callback(null, {
-        pagetitle: "BLOCK.hacash.org 区块浏览器",
+        pagetitle: "Hacash 区块浏览器 BLOCK.hacash.org",
         last_height: (await module_block.getLastBlock()).height,
     }, req, res)
 }

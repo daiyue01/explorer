@@ -6,17 +6,26 @@ var vAppTransfers = new Vue({
         transfers: [],
         refreshTip: "↺刷新",
         refreshBtn: true,
+        showMoreBtn: false,
+        page: 1,
+        limit: 15,
     },
     methods:{
         queryTransferDatas: function(){
             var that = this
-            apiget("/api/transfer/logs", {}, function(data){
-                that.transfers = data
+            apiget("/api/transfer/logs", {
+                page: that.page,
+                limit: that.limit,
+            }, function(data){
+                that.transfers = that.transfers.concat(data)
+                that.page++
+                that.showMoreBtn = data.length==that.limit ? true : false
             })
         },
         refresh: function(){
             var that = this
             that.transfers = []
+            that.page = 1
             that.refreshBtn = false
             setTimeout(function(){
                 that.refreshBtn = true
@@ -55,7 +64,6 @@ var vAppDfcts = new Vue({
     el: '#dfcts',
     data: {
         hashpower: '0 H/s',
-        pagelimit: 20,
     },
     methods:{
     }
@@ -69,6 +77,7 @@ var vAppBlocks = new Vue({
         last_cuttime: 66,
         hashpower: '0 H/s',
         blocks: [],
+        pagelimit: 11,
 
         showMoreBtn: false,
     },
@@ -98,7 +107,7 @@ var vAppBlocks = new Vue({
             if(this.blocks[0]){
                 this.showMoreBtn = false
                 var last = this.blocks[this.blocks.length-1].height - 1
-                this.queryNewDatas(last, vAppDfcts.pagelimit)
+                this.queryNewDatas(last, vAppBlocks.pagelimit)
             }
         }
     },
@@ -121,7 +130,7 @@ setInterval(function(){
 }, 1000)
 
 // 默认加载数据
-vAppBlocks.queryNewDatas(last_height, vAppDfcts.pagelimit)
+vAppBlocks.queryNewDatas(last_height, vAppBlocks.pagelimit)
 
 
 

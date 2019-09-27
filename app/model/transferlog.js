@@ -11,10 +11,26 @@ const model_initmysql = appload('model/initmysql')
 
 
 
-
-exports.getLasts = async function(limit)
+// 按条件查询
+exports.getList = async function(address, type, start, limit, id_desc)
 {
-    let ret = await model_initmysql.sql_execute(`SELECT * FROM transferlog ORDER BY id DESC LIMIT ` + limit)
+    let pool = model_initmysql.pool()
+    let wheres = []
+    if (address) {
+        if (type=='all') {
+            wheres.push('fromaddr='+pool.escape(address)+' OR toaddr='+pool.escape(address))  
+        }else if (type=='in') {
+            wheres.push('toaddr='+pool.escape(address))  
+        }else if (type=='out') {
+            wheres.push('fromaddr='+pool.escape(address))  
+        }
+    }
+    if (wheres.length) {
+        wheres = ' WHERE ' + wheres.join(' AND ')
+    }
+    let sql = `SELECT * FROM transferlog ` + wheres +(id_desc?' ORDER BY id DESC ':'')+ ` LIMIT ` + start + `,` + limit
+    // console.log(sql)
+    let ret = await model_initmysql.sql_execute(sql)
     return ret
 }
 

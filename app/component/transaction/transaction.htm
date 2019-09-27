@@ -1,0 +1,54 @@
+
+<div id="trs" class="ppage" ref="block" data-trshx="[:=trshx:]" >
+    <div class="container">
+        <p class="crumb"><a href="/">首页</a><i>/</i><span>交易 - [:=trshx:]</span></p>
+        [:if(this.trsinfo){:]
+        <div class="pcard block">
+            <h3 class="hdtt">所属区块</h3>
+            <div class="content">
+                <p class="row r1"><label>高度：</label><b><a class="height" href="/block/[:=trsinfo.block.height:]" target="_blank">[:=trsinfo.block.height:]</a></p>
+                <p class="row"><label>时间戳：</label><b>
+                    [:=trsinfo.block.timestamp:]
+                    <i class="time">（{{formatDate(new Date([:=trsinfo.block.timestamp:]*1000), 'yyyy-MM-dd hh:mm:ss')}}）</i>
+                    </b>
+                </p>
+            </div>
+        </div>
+        <div class="pcard info">
+            <h3 class="hdtt">交易概要</h3>
+            <div class="content">
+                <p class="row r1"><label>类型：</label><b>[:=trsinfo.type:]</b></p>
+                <p class="row"><label>哈希：</label><b class="hx">[:=trshx:]</b></p>
+                <p class="row"><label>主地址：</label><a target="_blank" href="/address/[:=trsinfo.address:]">[:=trsinfo.address:]</a></p>
+                <p class="row"><label>手续费：</label><b>[:=trsinfo.fee:]</b></p>
+                <p class="row"><label>时间戳：</label><b>
+                    [:=trsinfo.timestamp:]
+                    <i class="time">（{{formatDate(new Date([:=trsinfo.timestamp:]*1000), 'yyyy-MM-dd hh:mm:ss')}}）</i>
+                    </b>
+                </p>
+                <p class="row"><label>Action：</label><b>[:=trsinfo.actioncount:]</b></p>
+            </div>
+        </div>
+        <div class="pcard actions">
+            <h3 class="hdtt">❖ Actions</h3>
+            <div class="content">
+            [: for(var i in trsinfo.actions){ var one=trsinfo.actions[i]; :]
+            [: if(one.k==1){ :]
+                <p class="row r[:=(++i):]">
+                    <span class="kind">[普通转账]</span>
+                    <label>目标地址：</label><a target="_blank" href="/address/[:=one.to:]">[:=one.to:]</a> 
+                    <label>金额：</label><b>[:=one.amount:]</b> 
+                </p>
+            [: }else{ :]
+                <p class="row r[:=(++i):] other">[kind=[:=one.k:]] 其它种类 action</p>
+            [: } :]
+            [: } :]
+            </div>
+        </div>
+        [:}else{:]
+        <div class="notfind">
+            <p>对不起，找不到要查询的交易</p>
+        </div>
+        [:}:]
+    </div>
+</div>

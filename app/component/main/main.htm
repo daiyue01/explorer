@@ -24,21 +24,21 @@
                         <th>高度</th>
                         <th>哈希</th>
                         <th>交易数</th>
-                        <th>难度目标</th>
+                        <th class="mbn">难度目标</th>
                         <th>播报方</th>
                         <th class="mbn">区块奖励</th>
                         <th>奖励地址</th>
-                        <th>区块创建时间</th>
+                        <th>时间</th>
                     </tr>
                     <tr class="row" v-for="one in blocks">
-                        <td class="t1 blue">{{one.height}}</td>
-                        <td class="t2 gray dts" @click="prompt('区块哈希：', one.hash)">{{one.hash.substr(0,20)+'...'}}</td>
+                        <td class="t1 hei">{{one.height}}</td>
+                        <td class="t2 gray dts"><a target="_blank" :title="one.hash" :href="'/block/'+one.hash">{{one.hash.substr(0,20)+'...'}}</a></td>
                         <td class="t3">{{one.txs}}</td>
                         <td class="t4 gray">{{one.bitstr}}</td>
                         <td class="t5 sienna">{{one.rewards.message=='unknown'?'':one.rewards.message}}</td>
                         <td class="t6">{{one.rewards.amount}}</td>
-                        <td class="t7 gray dts" @click="prompt('奖励地址：', one.rewards.address)">{{one.rewards.address.substr(0,12)+'...'}}</td>
-                        <td class="t8 gray">{{formatDate(new Date(one.time*1000), 'yyyy-MM-dd hh:mm:ss').replace('','')}}</td>
+                        <td class="t7 gray dts"><a target="_blank" :title="one.rewards.address" :href="'/address/'+one.rewards.address">{{one.rewards.address.substr(0,12)+'...'}}</a></td>
+                        <td class="t8 gray">{{formatDate(new Date(one.time*1000), 'MM-dd hh:mm:ss').replace('','')}}</td>
                     </tr>
                 </table>
                 <!--
@@ -53,7 +53,7 @@
                     <p class="block">{{one.rewards.address}}</p>
                 </div>
                 -->
-                <div class="more" v-show="showMoreBtn">
+                <div class="pmore" v-show="showMoreBtn">
                     <a class="button" @click="queryMoreDatas">查看更多</a>
                 </div>
             </div>
@@ -83,6 +83,9 @@
                         <td class="t4">{{formatDate(new Date(one[4]*1000), 'MM-dd hh:mm')}}</td>
                     </tr>
                 </table>
+                <div class="pmore" v-show="showMoreBtn">
+                    <a class="button" @click="queryTransferDatas">查看更多</a>
+                </div>
             </div>
         </div>
     </div>    

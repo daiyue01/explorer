@@ -1,0 +1,46 @@
+
+<div id="block" class="ppage" ref="block" data-blockid="[:=blockid:]" >
+    <div class="container">
+        <p class="crumb"><a href="/">首页</a><i>/</i><span>区块 - [:=blockid:]</span></p>
+        [:if(this.blockinfo){:]
+        <div class="pcard info">
+            <h3 class="hdtt">区块概要</h3>
+            <div class="content">
+                <p class="row r1"><label>高度：</label><b>[:=blockinfo.height:]</b></p>
+                <p class="row"><label>哈希值：</label><b class="hx">[:=blockinfo.hash:]</b></p>
+                <p class="row"><label>默克尔根：</label><b class="hx">[:=blockinfo.mrklroot:]</b></p>
+                <p class="row"><label>上一区块：</label><b class="hx"><a href="/block/[:=blockinfo.prevhash:]">[:=blockinfo.prevhash:]</a></b></p>
+                <p class="row"><label>难度目标：</label><b>[:=blockinfo.difficulty:]</b></p>
+                <p class="row"><label>随机数：</label><b>[:=blockinfo.nonce:]</b></p>
+                <p class="row"><label>时间戳：</label><b>
+                    [:=blockinfo.timestamp:]
+                    <i class="time">（{{formatDate(new Date([:=blockinfo.timestamp:]*1000), 'yyyy-MM-dd hh:mm:ss')}}）</i>
+                    </b>
+                </p>
+                <p class="row"><label>区块奖励：</label><b>[:=blockinfo.reward:]</b></p>
+                <p class="row"><label>奖励地址：</label><b class="reward"><a target="_blank" href="/address/[:=blockinfo.rwdaddr:]">[:=blockinfo.rwdaddr:]</a></b></p>
+                <p class="row"><label>交易数量：</label><b>[:=blockinfo.txcount:]</b></p>
+            </div>
+        </div>
+        <div class="pcard trslist">
+            <h3 class="hdtt">⇆ 交易列表</h3>
+            <div class="content">
+            [: for(var i in blockinfo.trshxs){ var one=blockinfo.trshxs[i]; :]
+                [: if(i==0){ :]
+                <p class="row r1"><label>[:=(++i):]</label><b>[:=one:]</b></p>
+                [:}else{:]
+                <p class="row"><label>[:=(++i):]</label><a target="_blank" href="/tx/[:=one:]">[:=one:]</a></p>
+                [:}:]
+            [:}:]
+            </div>
+        </div>
+        [:}else{:]
+        <div class="notfind">
+            <p>对不起，找不到要查询的区块</p>
+        </div>
+        [:}:]
+    </div>
+</div>
+
+
+

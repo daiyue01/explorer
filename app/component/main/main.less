@@ -36,6 +36,27 @@ html, body{
 }
 
 
+div.pmore{
+    display: block;
+    padding: 20px 0;
+    text-align: center;
+    .button{
+        display: inline-block;
+        background: cadetblue;
+        color: #fff;
+        font-size: 12px;
+        line-height: 14px;
+        height: 14px;
+        padding: 6px 18px;
+        border-radius: 4px;
+        cursor: pointer;
+        &:hover{
+            box-shadow: 1px 1px 8px #bbb;
+        }
+    }
+}
+
+
 #blocks, #transfers{
 
     .wrap{
@@ -79,15 +100,18 @@ html, body{
                     &.gray{
                         color: gray;
                     }
-                    &.blue{
-                        color: dodgerblue;  
+                    &.hei{
+                        color: #899;  
                     }
                     &.sienna{
                       color: sienna;  
                     }
-                    &.dts{
+                    &.dts a{
                         color: darkseagreen;
                         cursor: pointer;
+                    }
+                    &.dts a:hover{
+                        text-decoration: underline;
                     }
                 }
             }
@@ -111,25 +135,6 @@ html, body{
             p.block{
                 width: auto;
                 display: block;
-            }
-        }
-        .more{
-            display: block;
-            padding: 20px 0;
-            text-align: center;
-            .button{
-                display: inline-block;
-                background: cadetblue;
-                color: #fff;
-                font-size: 12px;
-                line-height: 14px;
-                height: 14px;
-                padding: 6px 18px;
-                border-radius: 4px;
-                cursor: pointer;
-                &:hover{
-                    box-shadow: 1px 1px 8px #bbb;
-                }
             }
         }
     }
@@ -220,14 +225,14 @@ html, body{
     .wrap{
         .con{
             table{
-                .t1{ top: 10px; left: 10px; }
+                .t1{ top: 10px; left: 0px; }
                 .t2{ top: 10px; left: 60px; }
-                .t3{ top: 10px; left: 220px; }
-                .t4{ top: 10px; left: 240px; }
-                .t5{ top: 30px; left: 10; }
-                .t7{ top: 30px; left: 80px; }
+                .t3{ top: 10px; left: auto; right: 0px; }
+                .t4{ top: 10px; left: 240px; display: none;  }
+                .t5{ top: 30px; left: 0px; }
+                .t7{ top: 30px; left: 60px; }
                 .t6{ top: 30px; left: 160px; display: none; }
-                .t8{ top: 30px; left: 195px; }
+                .t8{ top: 30px; left: auto; right: 0px; }
             }
         }
     }
