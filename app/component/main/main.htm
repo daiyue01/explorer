@@ -77,8 +77,8 @@
                     </tr>
                     <tr class="row" v-for="one in transfers">
                         <td class="t0">{{one[0]}}</td>
-                        <td class="t1">{{one[1]}}</td>
-                        <td class="t2">{{one[2]}}</td>
+                        <td class="t1"><a target="_blank" :href="'/address/'+one[1]">{{one[1]}}</a></td>
+                        <td class="t2"><a target="_blank" :href="'/address/'+one[2]">{{one[2]}}</a></td>
                         <td class="t3"><b>{{one[3]}}</b></td>
                         <td class="t4">{{formatDate(new Date(one[4]*1000), 'MM-dd hh:mm')}}</td>
                     </tr>
