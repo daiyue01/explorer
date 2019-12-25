@@ -39,6 +39,12 @@
                     <label>目标地址：</label><a target="_blank" href="/address/[:=one.to:]">[:=one.to:]</a> 
                     <label>金额：</label><b>[:=one.amount:]</b> 
                 </p>
+            [: }else if(one.k==4){ :]
+                <p class="row r[:=(++i):]">
+                    <span class="kind">[挖出钻石]</span>
+                    <label>字面值：</label><b>[:=one.name:]</b> 
+                    <label>奖励地址：</label><a target="_blank" href="/address/[:=one.address:]">[:=one.address:]</a> 
+                </p>
             [: }else{ :]
                 <p class="row r[:=(++i):] other">[kind=[:=one.k:]] 其它种类 action</p>
             [: } :]

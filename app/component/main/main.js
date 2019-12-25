@@ -1,5 +1,34 @@
 
 
+
+var vAppDiamondCreateTxs = new Vue({
+    el: '#diamondcreatetxs',
+    data: {
+        period:"",
+        txs: [],
+    },
+    methods:{
+        queryDatas: function(){
+            var that = this
+            apiget("/api/diamond/createtxs", {
+            }, function(data){
+                that.txs = data.datas
+                that.period = data.period
+            })
+        },
+
+    }
+})
+
+// 请求数据
+vAppDiamondCreateTxs.queryDatas()
+
+
+
+
+//////////////////////////////////////
+
+
 var vAppTransfers = new Vue({
     el: '#transfers',
     data: {

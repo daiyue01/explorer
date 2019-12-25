@@ -19,11 +19,12 @@ exports.components = [
 exports.datas = async function(query, callback, req, res)
 {
     // 查询交易
+    let trshx = req.params.trshx.toLocaleLowerCase()
     let trsinfo = null
     try{
         let jsonobj = await http_tool.json(config.miner_api_url+"/query", {
             action: "trsintro",
-            id: req.params.trshx,
+            id: trshx,
         })
         // console.log(jsonobj)
         if(jsonobj.block){
@@ -35,8 +36,8 @@ exports.datas = async function(query, callback, req, res)
     }
     // 返回
     callback(null, {
-        pagetitle: "Hacash 交易 " + req.params.trshx,
-        trshx: req.params.trshx,
+        pagetitle: "Hacash 交易 " + trshx,
+        trshx: trshx,
         trsinfo: trsinfo,
     }, req, res)
 }

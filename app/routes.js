@@ -10,6 +10,8 @@ module.exports = {
 
     '/api/block/last': 'api/block/last',
     '/api/block/list': 'api/block/list',
+
+    '/api/diamond/createtxs': 'api/diamond/createtxs',
     
     '/api/transfer/logs': 'api/transfer/logs',
     '/api/transfer/last': 'api/transfer/last',

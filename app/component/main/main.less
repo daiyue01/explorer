@@ -57,7 +57,7 @@ div.pmore{
 }
 
 
-#blocks, #transfers{
+#blocks, #transfers, #diamondcreatetxs{
 
     .wrap{
         background-color: #f3f4f7;
@@ -142,6 +142,44 @@ div.pmore{
 }
 
 
+
+#diamondcreatetxs{
+    .wrap{
+        .con{
+            table{
+                td{
+                    border-bottom: none;
+                    border-top: 1px solid #eee;
+                }
+                td.t2 {
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: cadetblue;
+                }
+                td.addr {
+                    word-break: break-all;
+                    width: 140px;
+                    color: darkgrey;
+                    font-size: 12px;
+                    line-height: 14px;
+                }
+                td.addr.f {
+                    color: darkseagreen;
+                }
+                td.hx {
+                    word-break: break-all;
+                    width: 230px;
+                    font-size: 10px;
+                    color: darkgrey;
+                    line-height: 14px;
+                }
+            }
+        }
+    }
+
+}
+
+
 #transfers {
     .refresh{
         display: block;
@@ -179,6 +217,34 @@ div.pmore{
 
 
 @media screen and (max-width: 512px) {
+
+#diamondcreatetxs{
+    .container{
+        padding: 0%;
+        width: 100%;
+    }
+    .wrap{
+        .con{
+            padding: 0;
+            table{
+                tr{
+                    td{
+                        padding: 5px;
+                    }
+                    td.addr{
+                        width: 40px !important;
+                    }
+                    td.hx{
+                        width: 90px !important;
+                    }
+                    .hd {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
 
 #blocks, #transfers{
     .container{
