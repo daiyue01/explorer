@@ -17,7 +17,7 @@
 <div id="diamondcreatetxs" >
     <div class="container">
         <div class="wrap">
-            <h1 class="pt">周期 {{period}} 最新挖出待确认钻石手续费报价表：</h1>
+            <h1 class="pt">周期 {{period}} 最新挖出待确认钻石手续费竞价排序表：</h1>
             <div class="con">
                 <table>
                     <tr class="hd">
@@ -25,8 +25,8 @@
                         <th>钻石字面值</th>
                         <th>交易哈希</th>
                         <th class="hd">奖励地址</th>
-                        <th>手续费竞价地址</th>
-                        <th>手续费报价</th>
+                        <th>手续费地址</th>
+                        <th>手续费出价</th>
                     </tr>
                     <tr class="row" v-for="tx in txs">
                         <td class="t1">{{tx[0]}}</td>
