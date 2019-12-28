@@ -29,14 +29,16 @@ exports.datas = async function(query, callback, req, res)
         })
         // let datas = jsonobj.datas
         // console.log(jsonobj)
-        diamond = jsonobj
+        if( jsonobj.name ) {
+            diamond = jsonobj
+        }
     }catch(e){
         console.log(e)
         diamond = "[error]" + e.toString()
     }
     // 返回
     callback(null, {
-        pagetitle: "Hacash 钻石 " + req.params.diamond,
+        pagetitle: "Hacash 钻石 " + req.params.name,
         name: req.params.name,
         diamond: diamond,
     }, req, res)
