@@ -18,6 +18,7 @@ module.exports = {
     '/api/transfer/last': 'api/transfer/last',
 
     '/api/difficulty/charts': 'api/difficulty/charts',
+    '/api/difficulty/powpower': 'api/difficulty/powpower',
 
     '/api/address/amount': 'api/address/amount',
 

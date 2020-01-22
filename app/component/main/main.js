@@ -228,6 +228,12 @@ apiget("/api/difficulty/charts", {}, function(data){
     drawDifficultyCharts(data.nums)
 })
 
+// 加载算力值
+apiget("/api/difficulty/powpower", {}, function(data){
+    // console.log(data)
+    vAppDfcts.hashpower = data.show
+})
+
 
 
 setTimeout(function(){
