@@ -32,7 +32,17 @@ CREATE TABLE `settings` (
     `timestamp` int(4) unsigned NOT NULL DEFAULT '0',
     PRIMARY KEY (`id`),
     KEY `blockheight` (`blockheight`,`fromaddr`,`toaddr`)
-  ) ENGINE=InnoDB AUTO_INCREMENT=9615 DEFAULT CHARSET=utf8;
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+  CREATE TABLE `diamondcount` (
+    `address` char(34) NOT NULL,
+    `count` int(4) unsigned NOT NULL DEFAULT 0,
+    PRIMARY KEY (`address`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
