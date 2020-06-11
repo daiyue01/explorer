@@ -27,6 +27,7 @@ var vAppAddress = new Vue({
             apiget("/api/transfer/logs", {
                 address: that.address,
                 type: that.trstype,
+                page: that.trspage,
                 limit: that.trslimit,
             }, function(data){
                 let myaddr = that.address.substr(0,7) + '…'
