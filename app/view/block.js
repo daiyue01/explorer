@@ -20,12 +20,13 @@ exports.components = [
 exports.datas = async function(query, callback, req, res)
 {
     // 查询区块
+    let blockid = req.params.blockid.toLocaleLowerCase()
     let blockinfo = null
     try{
         let jsonobj = await http_tool.json(config.miner_api_url+"/query", {
             action: "blockintro",
             gettrshxs: true,
-            id: req.params.blockid,
+            id: blockid,
         })
         if(jsonobj.height > 0){
             blockinfo = jsonobj 
@@ -37,8 +38,8 @@ exports.datas = async function(query, callback, req, res)
 
     // 返回
     callback(null, {
-        pagetitle: "Hacash 区块 " + req.params.blockid,
-        blockid: req.params.blockid,
+        pagetitle: "Hacash 区块 " + blockid,
+        blockid: blockid,
         blockinfo: blockinfo,
     }, req, res)
 }

@@ -9,7 +9,7 @@ const config = appload('config')
 exports.components = [
     'header',
 
-    'transaction',
+    'diamond',
 
     'footer',
 ]
@@ -18,27 +18,29 @@ exports.components = [
 
 exports.datas = async function(query, callback, req, res)
 {
-    // 查询交易
-    let trshx = req.params.trshx.toLocaleLowerCase()
-    let trsinfo = null
+    // console.log(query)
+    // console.log(req.params)
+    // 查询钻石
+    let diamond = null
     try{
         let jsonobj = await http_tool.json(config.miner_api_url+"/query", {
-            action: "trsintro",
-            id: trshx,
+            action: "diamond",
+            name: req.params.name,
         })
+        // let datas = jsonobj.datas
         // console.log(jsonobj)
-        if(jsonobj.block){
-            trsinfo = jsonobj 
+        if( jsonobj.name ) {
+            diamond = jsonobj
         }
     }catch(e){
         console.log(e)
-        // amount = "[error]"
+        diamond = "[error]" + e.toString()
     }
     // 返回
     callback(null, {
-        pagetitle: "Hacash 交易 " + trshx,
-        trshx: trshx,
-        trsinfo: trsinfo,
+        pagetitle: "Hacash 钻石 " + req.params.name,
+        name: req.params.name,
+        diamond: diamond,
     }, req, res)
 }
 

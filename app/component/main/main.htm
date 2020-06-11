@@ -6,10 +6,38 @@
 <div id="dfcts" >
     <div class="container">
         <div class="wrap">
-            <div class="tt"><p>近180天算力相对波动：</p></div>
+            <div class="tt"><p>实时全网算力：<b>{{hashpower}}</b>，近180天算力相对波动：</p></div>
             <canvas id="dfcts_canvas">
                 您的浏览器不支持canvas标签。
             </canvas>
+        </div>
+    </div>
+</div>
+
+<div id="diamondcreatetxs" >
+    <div class="container">
+        <div class="wrap">
+            <h1 class="pt">周期 {{period}} 最新挖出待确认钻石手续费竞价排序表：</h1>
+            <div class="con">
+                <table>
+                    <tr class="hd">
+                        <th>#</th>
+                        <th>钻石字面值</th>
+                        <th>交易哈希</th>
+                        <th class="hd">奖励地址</th>
+                        <th>手续费地址</th>
+                        <th>手续费出价</th>
+                    </tr>
+                    <tr class="row" v-for="tx in txs">
+                        <td class="t1">{{tx[0]}}</td>
+                        <td class="t2 diamond">{{tx[3]}}</td>
+                        <td class="t5 hx">{{tx[1]}}</td>
+                        <td class="t3 addr hd">{{tx[4]}}</td>
+                        <td class="t4 addr f">{{tx[2]}}</td>
+                        <td class="t5">{{tx[5]}}</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </div>

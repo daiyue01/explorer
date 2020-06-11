@@ -24,11 +24,20 @@ const AllMysqlTableSchema = {
                 KEY (blockheight, fromaddr, toaddr)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
     `,
+    // 钻石数量统计
+    "diamondcount": `
+        CREATE TABLE diamondcount (
+            address char(34) NOT NULL,
+            count int(4) unsigned NOT NULL DEFAULT 0,
+                PRIMARY KEY (address)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    `,
 }
 
 // 配置默认值初始化
 const DefaultSettingsValue = {
     "transferlog_scan_block_height": "0", // 扫描已完成的区块高度
+    "diamondcount_scan_diamond_number": "0", // 扫描已完成的钻石序号
 }
 
 

@@ -67,10 +67,12 @@ function loadDifficultyDatas(){
         async function loaddfct(step){
             let realhei = step*288
             let lasthei = (await model_block.getLastBlock()).height
+            // console.log(lasthei)
             if(realhei > lasthei){
                 return null
             }
             let blks = await model_block.getBlocks(realhei, 1)
+            // console.log(blks)
             // console.log(step, blks)
             if( blks && blks[0] ){
                 return blks[0].bits
@@ -114,7 +116,11 @@ exports.charts = async function()
 
             let jjj = 0;
             let kkk = 0
-        for(let i=len-180; i<len; i++){
+            let i=len-180
+            if (i < 0) {
+                i = 0;
+            }
+        for(; i<len; i++){
             let nnn = diffToBignumber(rdi8(i*4+0), rdi8(i*4+1), rdi8(i*4+2), rdi8(i*4+3))
             // console.log( nnn.toString() )
             // 判断 哈希次数增长 1 ～ 16 次

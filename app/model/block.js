@@ -69,6 +69,8 @@ async function getBlocks(last, limit) {
             start_height: start_height,
             end_height: last,
         })
+        // console.log( "------------")
+        // console.log( jsonobj.datas)
         let datas = jsonobj.datas
         // ok 保存数据至缓存
         let delete_keys = []
