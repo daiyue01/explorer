@@ -5,6 +5,7 @@ module.exports = {
     '/block/:blockid': 'block',
     '/tx/:trshx': 'transaction',
     '/diamond/:name': 'diamond',
+    '/channel/:id': 'id',
 
     '/api/lang': 'api/lang',
     'POST/api/lang': 'api/lang',
