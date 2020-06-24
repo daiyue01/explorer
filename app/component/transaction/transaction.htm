@@ -39,6 +39,20 @@
                     <label>目标地址：</label><a target="_blank" href="/address/[:=one.to:]">[:=one.to:]</a> 
                     <label>金额：</label><b>[:=one.amount:]</b> 
                 </p>
+            [: }else if(one.k==2){ :]
+                <p class="row r[:=(++i):]">
+                    <span class="kind">[开启结算通道]</span>
+                    <label>通道id：</label><a target="_blank" href="/channel/[:=one.channel_id:]">[:=one.channel_id:]</a>
+                    <label>地址1：</label><a target="_blank" href="/address/[:=one.left_addr:]">[:=one.left_addr:]</a> 
+                    <label>金额1：</label><b>[:=one.left_amt:]</b> 
+                    <label>地址2：</label><a target="_blank" href="/address/[:=one.right_addr:]">[:=one.right_addr:]</a> 
+                    <label>金额2：</label><b>[:=one.right_amt:]</b> 
+                </p>
+            [: }else if(one.k==3){ :]
+                <p class="row r[:=(++i):]">
+                    <span class="kind">[关闭结算通道]</span>
+                    <label>通道id：</label><a target="_blank" href="/channel/[:=one.channel_id:]">[:=one.channel_id:]</a>
+                </p>
             [: }else if(one.k==4){ :]
                 <p class="row r[:=(++i):]">
                     <span class="kind">[挖出钻石]</span>

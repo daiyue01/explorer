@@ -16,8 +16,11 @@ var vAppHeader = new Vue({
                     // alert("钻石序号")
                     window.open('/diamond/'+ss.substr(1))
                  }else if (ss.length>=31&&ss.length<=34) {
-                        // alert("账户地址")
-                        window.open('/address/'+ss)
+                    // alert("账户地址")
+                    window.open('/address/'+ss)
+                }else if (ss.length==32&&ss.replace(/[0-9a-f]+/gi,'')=='') {
+                    // alert("通道id")
+                    window.open('/channel/'+ss)
                 }else if (ss.length==64&&ss.replace(/[0-9a-f]+/gi,'')=='') {
                     if(ss.substr(0,4)=='0000'){
                         // alert("区块哈希")
