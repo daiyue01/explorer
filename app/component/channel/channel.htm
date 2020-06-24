@@ -7,7 +7,7 @@
             <h3 class="hdtt">↹ 通道详情</h3>
             <div class="content">
                 <p class="row"><label>ID：</label><b>[:=id:]</b></p>
-                <p class="row"><label>状态：</label><b class='stat [:parseInt(channel.is_closed)==1?"":"open":]'>[:=parseInt(channel.is_closed)==1 ? "已关闭" :"开启中" :]</b></p>
+                <p class="row"><label>状态：</label><b class='stat [:=parseInt(channel.is_closed)==1?"":"open":]'>[:=parseInt(channel.is_closed)==1 ? "已关闭" :"开启中" :]</b></p>
                 <p class="row"><label>左地址：</label><a target="_blank" href="/address/[:=channel.left_address:]">[:=channel.left_address:]</a></p>
                 <p class="row"><label>左金额：</label><b class="amt">[:=channel.left_amount:]</b></p>
                 <p class="row"><label>右地址：</label><a target="_blank" href="/address/[:=channel.right_address:]">[:=channel.right_address:]</a></p>
