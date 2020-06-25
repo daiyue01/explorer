@@ -13,6 +13,7 @@ module.exports = {
     block: "Block",
     from: "From",
     to: "To",
+    amount: "Amt",
     time: "Time",
 
 

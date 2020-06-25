@@ -1,33 +1,30 @@
 module.exports = {
 
+    transaction: "Transaction",
 
-    ____: "",
+    belong_block: "Belong Block",
+    block_height: "Block Height",
+    timestamp: "Timestamp",
+    trs_intro: "Transaction Intro",
+    trs_type: "Type",
+    trs_hash: "Hash",
+    trs_main_address: "Main Adress",
+    trs_fee: "Fee",
 
-    transaction: "交易",
+    act_simple_trs: "Simple Pay",
+    act_target_address: "Target Address",
+    act_amount: "Amount",
+    act_open_channel: "Open Settlement Channel",
+    act_channel_id: "Channel ID",
+    act_addr: "Address",
+    act_amt: "Amount",
+    act_close_channel: "Close Settlement Channel",
+    act_mining_diamond: "Mining Diamond",
+    act_diamond_value: "Name/Value",
+    act_diamond_reward_address: "Reward Address",
+    act_other: "Other Kind",
 
-    belong_block: "所属区块",
-    block_height: "区块高度",
-    timestamp: "时间戳",
-    trs_intro: "交易概要",
-    trs_type: "类型",
-    trs_hash: "哈希",
-    trs_main_address: "主地址",
-    trs_fee: "手续费",
-
-    act_simple_trs: "普通转账",
-    act_target_address: "目标地址",
-    act_amount: "金额",
-    act_open_channel: "开启结算通道",
-    act_channel_id: "通道id",
-    act_addr: "地址",
-    act_amt: "金额",
-    act_close_channel: "关闭结算通道",
-    act_mining_diamond: "挖出钻石",
-    act_diamond_value: "字面值",
-    act_diamond_reward_address: "奖励地址",
-    act_other: "其它种类",
-
-    notfind: "对不起，找不到要查询的交易",
+    notfind: "Sorry, not find.",
     
 
 

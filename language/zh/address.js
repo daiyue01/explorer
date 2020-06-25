@@ -13,6 +13,7 @@ module.exports = {
     block: "区块",
     from: "From",
     to: "To",
+    amount: "Amount",
     time: "时间",
 
 
