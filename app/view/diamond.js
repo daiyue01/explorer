@@ -38,7 +38,7 @@ exports.datas = async function(query, callback, req, res)
     }
     // 返回
     callback(null, {
-        pagetitle: "Hacash 钻石 " + req.params.name,
+        pagetitle: "Hacash Diamond " + req.params.name,
         name: req.params.name,
         diamond: diamond,
     }, req, res)

@@ -38,7 +38,7 @@ exports.datas = async function(query, callback, req, res)
     }
     // 返回
     callback(null, {
-        pagetitle: "Hacash 结算通道 " + req.params.id,
+        pagetitle: "Hacash Settlement Channel " + req.params.id,
         id: req.params.id,
         channel: channel,
     }, req, res)

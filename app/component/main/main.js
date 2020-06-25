@@ -33,7 +33,7 @@ var vAppTransfers = new Vue({
     el: '#transfers',
     data: {
         transfers: [],
-        refreshTip: "↺刷新",
+        refreshTip: "↺Refresh",
         refreshBtn: true,
         showMoreBtn: false,
         page: 1,
@@ -58,9 +58,9 @@ var vAppTransfers = new Vue({
             that.refreshBtn = false
             setTimeout(function(){
                 that.refreshBtn = true
-                that.refreshTip = "数据已更新！";
+                that.refreshTip = "Data ok!";
                 setTimeout(function(){
-                    that.refreshTip = "↺刷新";
+                    that.refreshTip = "↺Refresh";
                 }, 3000)
                 that.queryTransferDatas()
             }, 300)

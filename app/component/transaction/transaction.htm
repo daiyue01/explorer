@@ -1,13 +1,17 @@
 
 <div id="trs" class="ppage" ref="block" data-trshx="[:=trshx:]" >
     <div class="container">
-        <p class="crumb"><a href="/">首页</a><i>/</i><span>交易 - [:=trshx:]</span></p>
+        <p class="crumb">
+            <a href="/">[:=lang.common.index_page || "首页":]</a>
+            <i>/</i>
+            <span>[:=lang.transaction.transaction || "交易":] - [:=trshx:]</span>
+        </p>
         [:if(this.trsinfo){:]
         <div class="pcard block">
-            <h3 class="hdtt">所属区块</h3>
+            <h3 class="hdtt">[:=lang.transaction.belong_block || "所属区块":]</h3>
             <div class="content">
-                <p class="row r1"><label>高度：</label><b><a class="height" href="/block/[:=trsinfo.block.height:]" target="_blank">[:=trsinfo.block.height:]</a></p>
-                <p class="row"><label>时间戳：</label><b>
+                <p class="row r1"><label>[:=lang.transaction.block_height || "区块高度":]:</label><b><a class="height" href="/block/[:=trsinfo.block.height:]" target="_blank">[:=trsinfo.block.height:]</a></p>
+                <p class="row"><label>[:=lang.transaction.timestamp || "时间戳":]:</label><b>
                     [:=trsinfo.block.timestamp:]
                     <i class="time">（{{formatDate(new Date([:=trsinfo.block.timestamp:]*1000), 'yyyy-MM-dd hh:mm:ss')}}）</i>
                     </b>
@@ -15,13 +19,13 @@
             </div>
         </div>
         <div class="pcard info">
-            <h3 class="hdtt">交易概要</h3>
+            <h3 class="hdtt">[:=lang.transaction.trs_intro || "交易概要":]</h3>
             <div class="content">
-                <p class="row r1"><label>类型：</label><b>[:=trsinfo.type:]</b></p>
-                <p class="row"><label>哈希：</label><b class="hx">[:=trshx:]</b></p>
-                <p class="row"><label>主地址：</label><a target="_blank" href="/address/[:=trsinfo.address:]">[:=trsinfo.address:]</a></p>
-                <p class="row"><label>手续费：</label><b>[:=trsinfo.fee:]</b></p>
-                <p class="row"><label>时间戳：</label><b>
+                <p class="row r1"><label>[:=lang.transaction.trs_type || "类型":]: </label><b>[:=trsinfo.type:]</b></p>
+                <p class="row"><label>[:=lang.transaction.trs_hash || "哈希":]: </label><b class="hx">[:=trshx:]</b></p>
+                <p class="row"><label>[:=lang.transaction.trs_main_address || "主地址":]: </label><a target="_blank" href="/address/[:=trsinfo.address:]">[:=trsinfo.address:]</a></p>
+                <p class="row"><label>[:=lang.transaction.trs_fee || "手续费":]: </label><b>[:=trsinfo.fee:]</b></p>
+                <p class="row"><label>[:=lang.transaction.timestamp || "时间戳":]: </label><b>
                     [:=trsinfo.timestamp:]
                     <i class="time">（{{formatDate(new Date([:=trsinfo.timestamp:]*1000), 'yyyy-MM-dd hh:mm:ss')}}）</i>
                     </b>
@@ -35,39 +39,39 @@
             [: for(var i in trsinfo.actions){ var one=trsinfo.actions[i]; :]
             [: if(one.k==1){ :]
                 <p class="row r[:=(++i):]">
-                    <span class="kind">[普通转账]</span>
-                    <label>目标地址：</label><a target="_blank" href="/address/[:=one.to:]">[:=one.to:]</a> 
-                    <label>金额：</label><b>[:=one.amount:]</b> 
+                    <span class="kind">[[:=lang.transaction.act_simple_trs || "普通转账":]]</span>
+                    <label>[:=lang.transaction.act_target_address || "目标地址":]: </label><a target="_blank" href="/address/[:=one.to:]">[:=one.to:]</a> 
+                    <label>[:=lang.transaction.act_amount || "金额":]: </label><b>[:=one.amount:]</b> 
                 </p>
             [: }else if(one.k==2){ :]
                 <p class="row r[:=(++i):]">
-                    <span class="kind">[开启结算通道]</span>
-                    <label>通道id：</label><a target="_blank" href="/channel/[:=one.channel_id:]">[:=one.channel_id:]</a>
-                    <label>地址1：</label><a target="_blank" href="/address/[:=one.left_addr:]">[:=one.left_addr:]</a> 
-                    <label>金额1：</label><b>[:=one.left_amt:]</b> 
-                    <label>地址2：</label><a target="_blank" href="/address/[:=one.right_addr:]">[:=one.right_addr:]</a> 
-                    <label>金额2：</label><b>[:=one.right_amt:]</b> 
+                    <span class="kind">[[:=lang.transaction.act_open_channel || "开启结算通道":]]</span>
+                    <label>[:=lang.transaction.act_channel_id || "通道id":]: </label><a target="_blank" href="/channel/[:=one.channel_id:]">[:=one.channel_id:]</a>
+                    <label>[:=lang.transaction.act_addr || "地址":] 1: </label><a target="_blank" href="/address/[:=one.left_addr:]">[:=one.left_addr:]</a> 
+                    <label>[:=lang.transaction.act_amt || "金额":] 1: </label><b>[:=one.left_amt:]</b> 
+                    <label>[:=lang.transaction.act_addr || "地址":] 2: </label><a target="_blank" href="/address/[:=one.right_addr:]">[:=one.right_addr:]</a> 
+                    <label>[:=lang.transaction.act_amt || "金额":] 2: </label><b>[:=one.right_amt:]</b> 
                 </p>
             [: }else if(one.k==3){ :]
                 <p class="row r[:=(++i):]">
-                    <span class="kind">[关闭结算通道]</span>
-                    <label>通道id：</label><a target="_blank" href="/channel/[:=one.channel_id:]">[:=one.channel_id:]</a>
+                    <span class="kind">[[:=lang.transaction.act_close_channel || "关闭结算通道":]]</span>
+                    <label>[:=lang.transaction.act_channel_id || "通道id":]:</label><a target="_blank" href="/channel/[:=one.channel_id:]">[:=one.channel_id:]</a>
                 </p>
             [: }else if(one.k==4){ :]
                 <p class="row r[:=(++i):]">
-                    <span class="kind">[挖出钻石]</span>
-                    <label>字面值：</label><b>[:=one.name:]</b> 
-                    <label>奖励地址：</label><a target="_blank" href="/address/[:=one.address:]">[:=one.address:]</a> 
+                    <span class="kind">[[:=lang.transaction.act_mining_diamond || "挖出钻石":]]</span>
+                    <label>[:=lang.transaction.act_diamond_value || "字面值":]: </label><a target="_blank" href="/diamond/[:=one.name:]">[:=one.name:]</a> 
+                    <label>[:=lang.transaction.act_diamond_reward_address || "奖励地址":]: </label><a target="_blank" href="/address/[:=one.address:]">[:=one.address:]</a> 
                 </p>
             [: }else{ :]
-                <p class="row r[:=(++i):] other">[kind=[:=one.k:]] 其它种类 action</p>
+                <p class="row r[:=(++i):] other">[kind=[:=one.k:]] [:=lang.transaction.act_other || "其它种类":] action</p>
             [: } :]
             [: } :]
             </div>
         </div>
         [:}else{:]
         <div class="notfind">
-            <p>对不起，找不到要查询的交易</p>
+            <p>[:=lang.transaction.notfind || "对不起，找不到要查询的交易":]</p>
         </div>
         [:}:]
     </div>

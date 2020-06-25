@@ -6,9 +6,14 @@
 <div id="dfcts" >
     <div class="container">
         <div class="wrap">
-            <div class="tt"><p>实时全网算力：<b>{{hashpower}}</b>，近180天算力相对波动：</p></div>
+            <div class="tt">
+                [:=
+                    lang.main.hash_power_title || 
+                    "<p>实时全网算力：<b>{{hashpower}}</b>，近180天算力相对波动：</p>"
+                :]
+            </div>
             <canvas id="dfcts_canvas">
-                您的浏览器不支持canvas标签。
+                Your browser does not support canvas tag.
             </canvas>
         </div>
     </div>
@@ -17,16 +22,21 @@
 <div id="diamondcreatetxs" >
     <div class="container">
         <div class="wrap">
-            <h1 class="pt">周期 {{period}} 最新挖出待确认钻石手续费竞价排序表：</h1>
+            <h1 class="pt">
+                [:=
+                    lang.main.diamond_mining_period ||
+                    "周期 {{period}} 最新挖出待确认钻石手续费竞价排序表："
+                :]
+            </h1>
             <div class="con">
                 <table>
                     <tr class="hd">
                         <th>#</th>
-                        <th>钻石字面值</th>
-                        <th>交易哈希</th>
-                        <th class="hd">奖励地址</th>
-                        <th>手续费地址</th>
-                        <th>手续费出价</th>
+                        <th>[:=lang.main.diamond_value || "钻石字面值":]</th>
+                        <th><!---->[:=lang.main.diamond_tx_hx || "交易哈希":]</th>
+                        <th class="hd"><!---->[:=lang.main.diamond_reward_address || "奖励地址":]</th>
+                        <th><!---->[:=lang.main.diamond_fee_address || "手续费地址":]</th>
+                        <th><!---->[:=lang.main.diamond_fee_up || "手续费出价":]</th>
                     </tr>
                     <tr class="row" v-for="tx in txs">
                         <td class="t1">{{tx[0]}}</td>
@@ -45,18 +55,21 @@
 <div id="blocks" >
     <div class="container">
         <div class="wrap">
-            <h1 class="pt">最近出块：<span class="tv">{{last_cuttime}}s 后自动更新</span></h1>
+            <h1 class="pt">
+                [:=lang.main.block_last || "最新出块":]: 
+                <span class="tv">{{last_cuttime}}s [:=lang.main.block_auto_update || "自动更新":]</span>
+            </h1>
             <div class="con">
                 <table>
                     <tr class="hd">
-                        <th>高度</th>
-                        <th>哈希</th>
-                        <th>交易数</th>
-                        <th class="mbn">难度目标</th>
-                        <th>播报方</th>
-                        <th class="mbn">区块奖励</th>
-                        <th>奖励地址</th>
-                        <th>时间</th>
+                        <th>[:=lang.main.block_height || "高度":]</th>
+                        <th>[:=lang.main.block_hash || "哈希":]</th>
+                        <th>[:=lang.main.block_trs_num || "交易数":]</th>
+                        <th class="mbn">[:=lang.main.block_difficulty_target || "难度目标":]</th>
+                        <th>[:=lang.main.block_miner_name || "播报方":]</th>
+                        <th class="mbn">[:=lang.main.block_reward_amt || "区块奖励":]</th>
+                        <th>[:=lang.main.block_reward_address || "奖励地址":]</th>
+                        <th>[:=lang.main.block_time || "时间":]</th>
                     </tr>
                     <tr class="row" v-for="one in blocks">
                         <td class="t1 hei">{{one.height}}</td>
@@ -69,20 +82,8 @@
                         <td class="t8 gray">{{formatDate(new Date(one.time*1000), 'MM-dd hh:mm:ss').replace('','')}}</td>
                     </tr>
                 </table>
-                <!--
-                <div class="item" for="one in blocks">
-                    <p>{{one.height}}</p>
-                    <p title="播报方">{{one.rewards.message=='hacash.org'?'':one.rewards.message}}</p>
-                    <p title="交易数量">{{one.txs}}</p>
-                    <p title="目标难度值">{{one.bits}}</p>
-                    <p title="区块奖励">{{one.rewards.amount}}</p>
-                    <p class="wide">{{new Date(one.time*1000).toLocaleString()}}</p>
-                    <p class="block">{{one.hash}}</p>
-                    <p class="block">{{one.rewards.address}}</p>
-                </div>
-                -->
                 <div class="pmore" v-show="showMoreBtn">
-                    <a class="button" @click="queryMoreDatas">查看更多</a>
+                    <a class="button" @click="queryMoreDatas">[:=lang.main.block_show_more || "查看更多":]</a>
                 </div>
             </div>
         </div>
@@ -93,15 +94,15 @@
 <div id="transfers" >
     <div class="container">
         <div class="wrap">
-            <h1 class="pt">最近转账：<span class="refresh" @click="refresh"  v-show="refreshBtn">{{refreshTip}}</span></h1>
+            <h1 class="pt">[:=lang.main.trs_last || "最近转账":]:<span class="refresh" @click="refresh"  v-show="refreshBtn">{{refreshTip}}</span></h1>
             <div class="con">
                 <table>
                     <tr class="hd">
-                        <th>区块高度</th>
-                        <th>From地址</th>
-                        <th>To地址</th>
-                        <th>金额</th>
-                        <th>确认时间</th>
+                        <th>[:=lang.main.trs_block_height || "区块高度":]</th>
+                        <th>[:=lang.main.trs_from || "From地址":]</th>
+                        <th>[:=lang.main.trs_to || "To地址":]</th>
+                        <th>[:=lang.main.trs_amount || "金额":]</th>
+                        <th>[:=lang.main.trs_time || "确认时间":]</th>
                     </tr>
                     <tr class="row" v-for="one in transfers">
                         <td class="t0">{{one[0]}}</td>
@@ -112,7 +113,7 @@
                     </tr>
                 </table>
                 <div class="pmore" v-show="showMoreBtn">
-                    <a class="button" @click="queryTransferDatas">查看更多</a>
+                    <a class="button" @click="queryTransferDatas">[:=lang.main.trs_show_more || "查看更多":]</a>
                 </div>
             </div>
         </div>

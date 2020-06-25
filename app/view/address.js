@@ -41,7 +41,7 @@ exports.datas = async function(query, callback, req, res)
 
     // 返回
     callback(null, {
-        pagetitle: "Hacash 地址 " + req.params.address,
+        pagetitle: "Hacash Address " + req.params.address,
         address: req.params.address,
         amount: amount,
         diamondcount: diamondcount,

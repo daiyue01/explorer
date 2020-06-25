@@ -36,7 +36,7 @@ exports.datas = async function(query, callback, req, res)
     }
     // 返回
     callback(null, {
-        pagetitle: "Hacash 交易 " + trshx,
+        pagetitle: "Hacash Transaction " + trshx,
         trshx: trshx,
         trsinfo: trsinfo,
     }, req, res)

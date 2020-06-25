@@ -33,7 +33,7 @@ var vAppHeader = new Vue({
                     // alert("区块高度")
                     window.open('/block/'+ss)
                 }else{
-                    alert("未识别的查询内容")
+                    alert("Unrecognized query content!")
                 }
                 
             }

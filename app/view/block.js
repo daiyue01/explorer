@@ -38,7 +38,7 @@ exports.datas = async function(query, callback, req, res)
 
     // 返回
     callback(null, {
-        pagetitle: "Hacash 区块 " + blockid,
+        pagetitle: "Hacash Block " + blockid,
         blockid: blockid,
         blockinfo: blockinfo,
     }, req, res)

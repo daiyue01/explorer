@@ -1,22 +1,22 @@
 
 <div id="channel" class="ppage" ref="channel" data-address="[:=id:]" >
     <div class="container">
-        <p class="crumb"><a href="/">首页</a><i>/</i><span>结算通道 - [:=id:]</span></p>
+        <p class="crumb"><a href="/">[:=lang.common.index_page || "首页":]</a><i>/</i><span>[:=lang.channel.channel || "结算通道":] - [:=id:]</span></p>
         [:if(this.channel){:]
         <div class="pcard info">
-            <h3 class="hdtt">↹ 通道详情</h3>
+            <h3 class="hdtt">↹ [:=lang.channel.channel_info || "通道详情":]</h3>
             <div class="content">
-                <p class="row"><label>ID：</label><b>[:=id:]</b></p>
-                <p class="row"><label>状态：</label><b class='stat [:=parseInt(channel.is_closed)==1?"":"open":]'>[:=parseInt(channel.is_closed)==1 ? "已关闭" :"开启中" :]</b></p>
-                <p class="row"><label>左地址：</label><a target="_blank" href="/address/[:=channel.left_address:]">[:=channel.left_address:]</a></p>
-                <p class="row"><label>左金额：</label><b class="amt">[:=channel.left_amount:]</b></p>
-                <p class="row"><label>右地址：</label><a target="_blank" href="/address/[:=channel.right_address:]">[:=channel.right_address:]</a></p>
-                <p class="row"><label>右金额：</label><b class="amt">[:=channel.right_amount:]</b></p>
+                <p class="row"><label>ID: </label><b>[:=id:]</b></p>
+                <p class="row"><label>[:=lang.channel.stat || "状态":]: </label><b class='stat [:=parseInt(channel.is_closed)==1?"":"open":]'>[:=parseInt(channel.is_closed)==1 ? (lang.channel.stat_closed||"已关闭") : (lang.channel.stat_openning||"开启中") :]</b></p>
+                <p class="row"><label>[:=lang.channel.left_addr || "左地址":]: </label><a target="_blank" href="/address/[:=channel.left_address:]">[:=channel.left_address:]</a></p>
+                <p class="row"><label>[:=lang.channel.left_amt || "左金额":]: </label><b class="amt">[:=channel.left_amount:]</b></p>
+                <p class="row"><label>[:=lang.channel.right_addr || "右地址":]: </label><a target="_blank" href="/address/[:=channel.right_address:]">[:=channel.right_address:]</a></p>
+                <p class="row"><label>[:=lang.channel.right_amt || "右金额":]: </label><b class="amt">[:=channel.right_amount:]</b></p>
             </div>
         </div>
         [:}else{:]
         <div class="notfind">
-            <p>对不起，通道暂不存在</p>
+            <p>[:=lang.channel.notfind || "对不起，通道暂不存在":]</p>
         </div>
         [:}:]
     </div>

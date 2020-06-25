@@ -1,34 +1,34 @@
 
 <div id="address" class="ppage" ref="address" data-address="[:=address:]" >
     <div class="container">
-        <p class="crumb"><a href="/">首页</a><i>/</i><span>地址 - [:=address:]</span></p>
+        <p class="crumb"><a href="/">[:=lang.common.index_page || "首页":]</a><i>/</i><span>[:=lang.address.address || "地址":] - [:=address:]</span></p>
         <div class="pcard info">
-            <h3 class="hdtt">概要</h3>
+            <h3 class="hdtt">[:=lang.address.address_intro || "概要":]</h3>
             <div class="content">
-                <p class="li">HAC余额：<b>[:=amount:]</b></p>
-                <p class="li">钻石数量：<b>[:=diamondcount:]</b></p>
+                <p class="li">[:=lang.address.hac_amt || "HAC余额":]: <b>[:=amount:]</b></p>
+                <p class="li">[:=lang.address.miner_dia_num || "挖出钻石数量":]: <b>[:=diamondcount:]</b></p>
             </div>
         </div>
         <div class="pcard transfers">
-            <h3 class="hdtt">⇌ 转账 <i>（不含Coinbase）</i></h3>
+            <h3 class="hdtt">⇌ [:=lang.address.trsamt || "转账":] <i> ([:=lang.address.notcoinbase || "不含Coinbase":])</i></h3>
             <div class="content">
                 <div class="ttp">
-                    <label><input @click="dotrstype" name="trstype" v-model='trstype' type="radio" value="all" checked />全部</label> 
-                    <label><input @click="dotrstype" name="trstype" v-model='trstype' type="radio" value="in" />转入</label> 
-                    <label><input @click="dotrstype" name="trstype" v-model='trstype' type="radio" value="out" />转出</label> 
+                    <label><input @click="dotrstype" name="trstype" v-model='trstype' type="radio" value="all" checked />[:=lang.address.address || "全部":]</label> 
+                    <label><input @click="dotrstype" name="trstype" v-model='trstype' type="radio" value="in" />[:=lang.address.in || "收款":]</label> 
+                    <label><input @click="dotrstype" name="trstype" v-model='trstype' type="radio" value="out" />[:=lang.address.out || "付款":]</label> 
                 </div>
                 <div class="datas">
                     <div class="row" v-for="one in transfers">
-                        <p><label>区块：</label><b>{{one[0]}}</b></p>
-                        <p><label>From：</label><b v-html="one[1]"></b></p>
-                        <p><label>To： </label><b v-html="one[2]"></b></p>
-                        <p><label>数额：</label><b class="amt">{{one[3]}}</b></p>
-                        <p><label>时间：</label><b>{{formatDate(new Date(one[4]*1000), 'MM-dd hh:mm')}}</b></p>
+                        <p><label>[:=lang.address.block || "区块":]：</label><b>{{one[0]}}</b></p>
+                        <p><label>[:=lang.address.from || "From":]：</label><b v-html="one[1]"></b></p>
+                        <p><label>[:=lang.address.to || "To":]： </label><b v-html="one[2]"></b></p>
+                        <p><label>[:=lang.address.address || "数额":]：</label><b class="amt">{{one[3]}}</b></p>
+                        <p><label>[:=lang.address.time || "时间":]：</label><b>{{formatDate(new Date(one[4]*1000), 'MM-dd hh:mm')}}</b></p>
                     </div>
                 </div>
-                <div class="ok" v-show="!ifmore">- 加载完毕 -</div>
+                <div class="ok" v-show="!ifmore">- [:=lang.address.load_ok || "加载完毕":] -</div>
                 <div class="more" v-show="ifmore">
-                    <button @click="domoretrs">查看更多</button>
+                    <button @click="domoretrs">[:=lang.address.show_more || "查看更多":]</button>
                 </div>
             </div>
         </div>
