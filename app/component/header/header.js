@@ -7,7 +7,7 @@ var vAppHeader = new Vue({
     methods:{
         choiseLang: function(lang) {
             setCookie("lang", lang, "/", 1000) 
-            // window.location.href += "" 
+            window.location.href += "" 
         },
         clickSearch: function(){
             var that = this,
