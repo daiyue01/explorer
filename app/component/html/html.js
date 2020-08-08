@@ -26,13 +26,15 @@ function getStyle(obj, attr)
         return getComputedStyle(obj,false)[attr]; 
     } 
 } 
-function setCookie (cname, cvalue, exdays) {
+function setCookie (cname, cvalue, path, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires=" + d.toUTCString();
-    console.info(cname + "=" + cvalue + "; " + expires);
-    document.cookie = cname + "=" + cvalue + "; " + expires;
-    console.info(document.cookie);
+    var path = "path=" + path;
+    var ck = cname + "=" + cvalue + "; " + expires + "; " + path
+    // console.info(ck);
+    document.cookie = ck;
+    // console.info(document.cookie);
 }
 
 /////////////////////////////////////////////////
