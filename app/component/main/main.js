@@ -12,6 +12,7 @@ var vAppDiamondCreateTxs = new Vue({
             var that = this
             apiget("/api/diamond/createtxs", {
             }, function(data){
+                console.log(data)
                 that.txs = data.datas
                 that.period = data.period
             })

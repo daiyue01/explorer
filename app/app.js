@@ -19,10 +19,15 @@ module.exports = function(app)
     // lang
     app.use(function(req, res, next){
         let ty = config.lang || 'en'
+          , langset
         if(req.cookies){
             ty = res.lang_type = req.cookies.lang || ty
+            if(req.cookies.lang) {
+                langset = req.cookies.lang
+            }
         }
         res.lang = loadLanguage(ty)
+        res.lang_manual_selection = langset // 表示手动选择的语言设定
         // console.log(res.lang)
         next()
     })

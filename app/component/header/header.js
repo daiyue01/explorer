@@ -5,6 +5,10 @@ var vAppHeader = new Vue({
         search_str: "",
     },
     methods:{
+        choiseLang: function(lang) {
+            setCookie("lang", lang, 1000) 
+            window.location.href += "" 
+        },
         clickSearch: function(){
             var that = this,
                 ss = that.search_str.replace(/\s+/i,'')

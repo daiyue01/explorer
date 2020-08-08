@@ -37,6 +37,7 @@
                         <th class="hd"><!---->[:=lang.main.diamond_reward_address || "奖励地址":]</th>
                         <th><!---->[:=lang.main.diamond_fee_address || "手续费地址":]</th>
                         <th><!---->[:=lang.main.diamond_fee_up || "手续费出价":]</th>
+                        <th><!---->[:=lang.main.diamond_status || "状态":]</th>
                     </tr>
                     <tr class="row" v-for="tx in txs">
                         <td class="t1">{{tx[0]}}</td>
@@ -45,7 +46,25 @@
                         <td class="t3 addr hd">{{tx[4]}}</td>
                         <td class="t4 addr f">{{tx[2]}}</td>
                         <td class="t5">{{tx[5]}}</td>
+                        <td class="t6 stat" v-if="tx[6]===0"><i class="ok">ok</i></td>
+                        <td class="t6 stat" v-if="tx[6]===1">
+                            <i class="err">invalid</i>
+                            <p>[:=lang.main.diamond_status_invalid_1 || "无效":]</p>
+                        </td>
                     </tr>
+                    <!-- <tr class="row">
+                        <td class="t1">123</td>
+                        <td class="t2 diamond">123</td>
+                        <td class="t5 hx">123</td>
+                        <td class="t3 addr hd">123</td>
+                        <td class="t4 addr f">123</td>
+                        <td class="t5">123</td>
+                        <td class="t6 stat"><i class="ok">ok</i></td>
+                        <td class="t6 stat">
+                            <i class="err">invalid</i>
+                            <u>[:=lang.main.diamond_status_invalid_1 || "无效":]</u>
+                        </td>
+                    </tr> -->
                 </table>
             </div>
         </div>

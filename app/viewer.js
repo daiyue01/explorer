@@ -59,8 +59,11 @@ exports.render = function(vname, query, req, res)
         if(err){
             res.end('[500] error: '+err)
         }
+        // console.log(req.url)
         // render
         let datas = Object.assign({
+            req: req,
+            lang_manual_selection: res.lang_manual_selection, // 手动选择的语言
             lang: res.lang, // 语言
             page_vname: vname,
         }, data)
