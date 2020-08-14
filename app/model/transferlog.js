@@ -69,7 +69,7 @@ async function startScanLog() {
             let datas = jsonobj.datas
             // 插入数据
             for (let i in datas) {
-                const one = datas[i].split(",")
+                const one = datas[i].split("|")
                 const arys = `blockheight = ${scanheight},`
                     + `fromaddr = "${one[0]}",`
                     + `toaddr = "${one[1]}",`
