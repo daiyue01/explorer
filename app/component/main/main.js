@@ -93,7 +93,8 @@ vAppTransfers.queryTransferDatas()
 var vAppDfcts = new Vue({
     el: '#dfcts',
     data: {
-        hashpower: '0 H/s',
+        target_hashpower: '0 H/s',
+        current_hashpower: '0 H/s',
     },
     methods:{
     }
@@ -105,7 +106,6 @@ var vAppBlocks = new Vue({
     data: {
         last_height: last_height,
         last_cuttime: 66,
-        hashpower: '0 H/s',
         blocks: [],
         pagelimit: 11,
 
@@ -225,14 +225,15 @@ function drawDifficultyCharts(data){
 // 加载算力难度值
 apiget("/api/difficulty/charts", {}, function(data){
     // console.log(data)
-    vAppDfcts.hashpower = data.hashpower
+    // vAppDfcts.hashpower = data.hashpower
     drawDifficultyCharts(data.nums)
 })
 
 // 加载算力值
 apiget("/api/difficulty/powpower", {}, function(data){
-    // console.log(data)
-    vAppDfcts.hashpower = data.show
+    console.log(data)
+    vAppDfcts.target_hashpower = data.target_show
+    vAppDfcts.current_hashpower = data.current_show
 })
 
 

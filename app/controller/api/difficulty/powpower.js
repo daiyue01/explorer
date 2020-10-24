@@ -9,7 +9,7 @@ module.exports = async function(req, res)
 {
     try{
         let jsonobj = await http_tool.json(config.miner_api_url+"/query", {
-            action: "powpower",
+            action: "hashrate",
         })
         // ok
         api.success(res, jsonobj)
