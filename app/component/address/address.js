@@ -2,7 +2,10 @@
 var vAppAddress = new Vue({
     el: '#address',
     data: {
-        amount: '~',
+        hacash_amount: '-',
+        satoshi_amount: '-',
+        diamond_amount: '-',
+        diamond_mined: '-',
         address: '',
         trstype: 'all',
         transfers: [],

@@ -23,7 +23,9 @@ exports.datas = async function(query, callback, req, res)
     // console.log(req.params)
     let addr = req.params.address 
     // 查询余额
-    let amount = "ㄜ0:0"
+    let hacash = "ㄜ0:0"
+    let satoshi = "0"
+    let diamond = "0"
     try{
         let jsonobj = await http_tool.json(config.miner_api_url+"/query", {
             action: "balance",
@@ -31,7 +33,9 @@ exports.datas = async function(query, callback, req, res)
         })
         // let datas = jsonobj.datas
         // console.log(jsonobj)
-        amount = jsonobj.total
+        hacash = jsonobj.total
+        satoshi = jsonobj.satoshis
+        diamond = jsonobj.diamond
     }catch(e){
         console.log(e)
         amount = "[error]"
@@ -43,8 +47,10 @@ exports.datas = async function(query, callback, req, res)
     callback(null, {
         pagetitle: "Hacash Address " + req.params.address,
         address: req.params.address,
-        amount: amount,
-        diamondcount: diamondcount,
+        hacash_amount: hacash,
+        satoshi_amount: satoshi,
+        diamond_amount: diamond,
+        diamond_mined: diamondcount,
     }, req, res)
 }
 

@@ -1,7 +1,7 @@
 module.exports = {
 
-    hash_power_title: "<p>Whole network target hashrate: <b>{{target_hashpower}}</b>, Current Hashrate: <b>{{current_hashpower}}</b>，Fluctuation in recent 180 days:</p>",
-    diamond_mining_period: "The ranking table of diamond fees waiting for confirm period {{period}}:",
+    hash_power_title: "<p>Whole network target hashrate: <b>{{target_hashpower}}</b>, Current Hashrate: <b>{{current_hashpower}}</b>，Fluctuation in all historys + recent 30 days:</p>",
+    diamond_mining_period: "The ranking table of diamond fees waiting for confirm period {{period}}, number {{number}} :",
     
     diamond_value: "Diamond Name",
     diamond_tx_hx: "Tx Hash",

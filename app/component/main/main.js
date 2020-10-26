@@ -1,10 +1,10 @@
 
 
-
 var vAppDiamondCreateTxs = new Vue({
     el: '#diamondcreatetxs',
     data: {
-        period:"",
+        period: 0,
+        number: 0,
         txs: [],
     },
     methods:{
@@ -15,6 +15,7 @@ var vAppDiamondCreateTxs = new Vue({
                 console.log(data)
                 that.txs = data.datas
                 that.period = data.period
+                that.number = data.number
             })
         },
 
@@ -223,10 +224,19 @@ function drawDifficultyCharts(data){
 }
 
 // 加载算力难度值
-apiget("/api/difficulty/charts", {}, function(data){
-    // console.log(data)
+// apiget("/api/difficulty/charts", {}, function(data){
+//     console.log(data)
+//     // vAppDfcts.hashpower = data.hashpower
+//     drawDifficultyCharts(data.nums)
+// })
+
+// 加载算力难度值
+apiget("/api/difficulty/chartsv2", {}, function(data){
+    console.log(data)
     // vAppDfcts.hashpower = data.hashpower
-    drawDifficultyCharts(data.nums)
+    // historys    days30
+    var nums = data.historys.concat(data.days30)
+    drawDifficultyCharts(nums)
 })
 
 // 加载算力值

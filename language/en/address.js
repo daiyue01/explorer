@@ -4,7 +4,9 @@ module.exports = {
     address_intro: "Intro",
 
     hac_amt: "HAC Amount",
-    miner_dia_num: "Miner Diamond",
+    btc_amt: "BTC Amount",
+    dia_amt: "Diamond Amount",
+    miner_dia_num: "Diamond Mined",
     trsamt: "Transfer",
     notcoinbase: "Without Coinbase",
     all: "All",
