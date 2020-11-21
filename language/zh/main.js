@@ -1,6 +1,6 @@
 module.exports = {
 
-    hash_power_title: "<p>全网目标哈希率：<b>{{target_hashpower}}</b>， 实时哈希率：<b>{{current_hashpower}}</b>，历史+近30天算力波动：</p>",
+    hash_power_title: "<p>全网目标哈希率：<b>{{target_hashpower}}</b>， 实时哈希率：<b>{{current_hashpower}}</b>，近30天算力波动：</p>",
     diamond_mining_period: "周期 {{period}} 序号 {{number}} 最新挖出待确认钻石手续费竞价排序表：",
 
     diamond_value: "钻石字面值",

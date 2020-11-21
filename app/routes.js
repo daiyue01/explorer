@@ -20,6 +20,7 @@ module.exports = {
 
     '/api/difficulty/charts': 'api/difficulty/charts',
     '/api/difficulty/chartsv2': 'api/difficulty/chartsv2',
+    '/api/difficulty/chartsv3': 'api/difficulty/chartsv3',
     '/api/difficulty/powpower': 'api/difficulty/powpower',
 
     '/api/address/amount': 'api/address/amount',

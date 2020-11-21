@@ -95,7 +95,7 @@ async function startScanLog() {
 
 
 // 测试
-startScanLog()
+// startScanLog()
 
 
 

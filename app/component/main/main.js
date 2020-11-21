@@ -230,23 +230,35 @@ function drawDifficultyCharts(data){
 //     drawDifficultyCharts(data.nums)
 // })
 
-// 加载算力难度值
-apiget("/api/difficulty/chartsv2", {}, function(data){
-    console.log(data)
-    // vAppDfcts.hashpower = data.hashpower
-    // historys    days30
-    var nums = data.historys.concat(data.days30)
-    drawDifficultyCharts(nums)
-})
+// // 加载算力难度值
+// apiget("/api/difficulty/chartsv2", {}, function(data){
+//     console.log(data)
+//     // vAppDfcts.hashpower = data.hashpower
+//     // historys    days30
+//     // var nums = data.historys.concat(data.days30)
+//     var nums = data.days30
+//     drawDifficultyCharts(nums)
+// })
 
-// 加载算力值
-apiget("/api/difficulty/powpower", {}, function(data){
+// // 加载算力值
+// apiget("/api/difficulty/powpower", {}, function(data){
+//     console.log(data)
+//     vAppDfcts.target_hashpower = data.target_show
+//     vAppDfcts.current_hashpower = data.current_show
+// })
+
+
+// 加载算力难度值
+apiget("/api/difficulty/chartsv3", {}, function(data){
     console.log(data)
     vAppDfcts.target_hashpower = data.target_show
     vAppDfcts.current_hashpower = data.current_show
+    // vAppDfcts.hashpower = data.hashpower
+    // historys    days30
+    // var nums = data.historys.concat(data.days30)
+    var nums = data.days30
+    drawDifficultyCharts(nums)
 })
-
-
 
 setTimeout(function(){
     // drawDifficultyCharts([9,1,5,8,4,3,5,7,6,4,5])
