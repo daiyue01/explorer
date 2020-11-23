@@ -94,8 +94,8 @@ async function startScanLog() {
 
 
 
-// 测试
-// startScanLog()
+// 扫描转账记录
+startScanLog()
 
 
 
