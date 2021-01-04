@@ -30,7 +30,7 @@
                     <i class="time">（{{formatDate(new Date([:=trsinfo.timestamp:]*1000), 'yyyy-MM-dd hh:mm:ss')}}）</i>
                     </b>
                 </p>
-                <p class="row"><label>Action：</label><b>[:=trsinfo.actioncount:]</b></p>
+                <p class="row"><label>Action Count：</label><b>[:=trsinfo.actioncount:]</b></p>
             </div>
         </div>
         <div class="pcard actions">
@@ -62,6 +62,14 @@
                     <span class="kind">[[:=lang.transaction.act_mining_diamond || "挖出钻石":]]</span>
                     <label>[:=lang.transaction.act_diamond_value || "字面值":]: </label><a target="_blank" href="/diamond/[:=one.name:]">[:=one.name:]</a> 
                     <label>[:=lang.transaction.act_diamond_reward_address || "奖励地址":]: </label><a target="_blank" href="/address/[:=one.address:]">[:=one.address:]</a> 
+                </p>
+            [: }else if(one.k==5 || one.k==6){ :]
+                <p class="row r[:=(++i):]">
+                    <span class="kind">[[:=lang.transaction.act_transfer_diamond || "转移钻石":]]</span>
+                    <label>[:=lang.transaction.act_count || "数量":]: </label><a target="_blank" href="/diamond/[:=one.count:]">[:=one.count:]</a> 
+                    <label>[:=lang.transaction.act_diamond_value || "字面值":]: </label><a target="_blank" href="/diamond/[:=one.names:]">[:=one.names:]</a> 
+                    <label>[:=lang.transaction.act_diamond_from_address || "From 地址":]: </label><a target="_blank" href="/address/[:=one.from:]">[:=one.from:]</a> 
+                    <label>[:=lang.transaction.act_diamond_to_address || "To 地址":]: </label><a target="_blank" href="/address/[:=one.to:]">[:=one.to:]</a> 
                 </p>
             [: }else{ :]
                 <p class="row r[:=(++i):] other">[kind=[:=one.k:]] [:=lang.transaction.act_other || "其它种类":] action</p>

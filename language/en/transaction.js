@@ -24,6 +24,11 @@ module.exports = {
     act_diamond_reward_address: "Reward Address",
     act_other: "Other Kind",
 
+    act_transfer_diamond: "Transfer Diamonds",
+    act_count: "Count",
+    act_diamond_from_address: "From",
+    act_diamond_to_address: "To",
+
     notfind: "Sorry, not find.",
     
 

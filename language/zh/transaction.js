@@ -27,6 +27,11 @@ module.exports = {
     act_diamond_reward_address: "奖励地址",
     act_other: "其它种类",
 
+    act_transfer_diamond: "转移钻石",
+    act_count: "数量",
+    act_diamond_from_address: "From 地址",
+    act_diamond_to_address: "To 地址",
+
     notfind: "对不起，找不到要查询的交易",
     
 
