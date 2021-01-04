@@ -67,7 +67,11 @@
                 <p class="row r[:=(++i):]">
                     <span class="kind">[[:=lang.transaction.act_transfer_diamond || "转移钻石":]]</span>
                     <label>[:=lang.transaction.act_count || "数量":]: </label><a target="_blank" href="/diamond/[:=one.count:]">[:=one.count:]</a> 
+                    [: if(one.names.length == 6) {
                     <label>[:=lang.transaction.act_diamond_value || "字面值":]: </label><a target="_blank" href="/diamond/[:=one.names:]">[:=one.names:]</a> 
+                    [: }else{ :]
+                    <label>[:=lang.transaction.act_diamond_value || "字面值":]: </label>[:=one.names:]
+                    [: } :]
                     <label>[:=lang.transaction.act_diamond_from_address || "From 地址":]: </label><a target="_blank" href="/address/[:=one.from:]">[:=one.from:]</a> 
                     <label>[:=lang.transaction.act_diamond_to_address || "To 地址":]: </label><a target="_blank" href="/address/[:=one.to:]">[:=one.to:]</a> 
                 </p>
