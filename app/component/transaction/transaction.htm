@@ -66,7 +66,7 @@
             [: }else if(one.k==5 || one.k==6){ :]
                 <p class="row r[:=(++i):]">
                     <span class="kind">[[:=lang.transaction.act_transfer_diamond || "转移钻石":]]</span>
-                    <label>[:=lang.transaction.act_count || "数量":]: </label><a target="_blank" href="/diamond/[:=one.count:]">[:=one.count:]</a> 
+                    <label>[:=lang.transaction.act_count || "数量":]: </label>[:=one.count:]
                     [: if(one.names.length == 6) { :]
                     <label>[:=lang.transaction.act_diamond_value || "字面值":]: </label><a target="_blank" href="/diamond/[:=one.names:]">[:=one.names:]</a> 
                     [: }else{ :]
