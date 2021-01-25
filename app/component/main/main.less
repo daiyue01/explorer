@@ -288,7 +288,7 @@ div.pmore{
                     padding: 5px;
                     background: none;
                     &.mbn{
-                        display: none;
+                        display: none !important;
                     }
                 }
                 td{
@@ -342,13 +342,20 @@ div.pmore{
     .wrap{
         .con{
             table{
+                .hd {
+                    min-width: 310px;
+                    text-align: center;
+                    th {
+                        display: inline-block;
+                    }
+                }
                 .t1{ top: 10px; left: 0px; }
                 .t2{ top: 10px; left: 80px; }
                 .t3{ top: 10px; left: auto; right: 0px; }
-                .t4{ top: 10px; left: 240px; display: none;  }
+                .t4{ top: 10px; left: 240px; display: none !important;  }
                 .t5{ top: 30px; left: 0px; }
                 .t7{ top: 30px; left: 80px; }
-                .t6{ top: 30px; left: 160px; display: none; }
+                .t6{ top: 30px; left: 160px; display: none !important; }
                 .t8{ top: 30px; left: auto; right: 0px; }
             }
         }
