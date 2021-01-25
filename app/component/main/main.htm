@@ -28,10 +28,7 @@
                     "周期 {{period}} 序号 {{number}} 最新挖出待确认钻石手续费竞价排序表："
                 :]
             </h1>
-            <div v-if="txs.length==0">
-                <p class="notyet">[:=lang.main.diamond_none || "暂无 ~":]</p>
-            </div>
-            <div class="con" v-if="txs.length">
+            <div class="con">
                 <table>
                     <tr class="hd">
                         <th>#</th>
@@ -69,6 +66,9 @@
                         </td>
                     </tr> -->
                 </table>
+            </div>
+            <div v-if="txs&&txs.length===0">
+                <p class="notyet">[:=lang.main.diamond_none || "暂无 ~":]</p>
             </div>
         </div>
     </div>
