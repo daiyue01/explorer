@@ -5,7 +5,7 @@ var vAppDiamondCreateTxs = new Vue({
     data: {
         period: 0,
         number: 0,
-        txs: [],
+        txs: null,
     },
     methods:{
         queryDatas: function(){
