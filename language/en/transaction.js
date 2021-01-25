@@ -20,7 +20,7 @@ module.exports = {
     act_amt: "Amount",
     act_close_channel: "Close Settlement Channel",
     act_mining_diamond: "Mining Diamond",
-    act_diamond_value: "Name/Value",
+    act_diamond_value: "Name",
     act_diamond_reward_address: "Reward Address",
     act_other: "Other Kind",
 

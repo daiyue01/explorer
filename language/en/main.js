@@ -9,8 +9,9 @@ module.exports = {
     diamond_fee_address: "Fee Address",
     diamond_fee_up: "Fee Offer",
     diamond_status: "Status",
+    diamond_none: "Not have in this period",
 
-    diamond_status_invalid_1: "balance not enough pay for bidding",
+    diamond_status_invalid_1: "balance low",
 
     block_last: "Latest Blocks",
     block_auto_update: "Auto update",

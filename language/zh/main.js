@@ -9,8 +9,9 @@ module.exports = {
     diamond_fee_address: "手续费地址",
     diamond_fee_up: "手续费出价",
     diamond_status: "状态",
+    diamond_none: "本周期暂无 ~",
 
-    diamond_status_invalid_1: "余额不足以支付竞价",
+    diamond_status_invalid_1: "余额不足",
 
     block_last: "最新出块：",
     block_auto_update: "自动更新",

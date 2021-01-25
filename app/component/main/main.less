@@ -72,6 +72,7 @@ div.pmore{
         h1{
             color: #233;
             font-size: 14px;
+            line-height: 17px;
             padding: 10px 16px;
             span.tv{
                 padding-top: 2px;
@@ -80,7 +81,7 @@ div.pmore{
                 color: #999;
             }
         }
-        .con{
+        .con {
             background-color: #fff;
             border-radius: 0 0 4px 4px;
             padding: 20px 0;
@@ -152,6 +153,12 @@ div.pmore{
 
 #diamondcreatetxs{
     .wrap{
+        .notyet {
+            text-align: center;
+            padding: 16px 0;
+            color: #999;
+            background-color: #fff;
+        }
         .con{
             table{
                 td{
@@ -167,13 +174,13 @@ div.pmore{
                     display: inline-block;
                     word-break: break-all;
                     width: 140px;
-                    color: darkgrey;
+                    color: darkseagreen;
                     font-size: 12px;
                     line-height: 14px;
                 }
                 td.addr.f a{
                     display: inline-block;
-                    color: darkseagreen;
+                    color: darkgrey;
                 }
                 td.hx a{
                     display: inline-block;
@@ -183,6 +190,10 @@ div.pmore{
                     color: darkgrey;
                     line-height: 14px;
                 }
+                td.fee {
+                    color: cadetblue;
+                    font-weight: bold;
+                }
                 td.stat {
                     max-width: 70px;
                     i.ok {
@@ -190,7 +201,7 @@ div.pmore{
                     }
                     i.err {
                         color: #fff;
-                        background-color: darkred;
+                        background-color: peru;
                     }
                     u{
                         font-size: 12px;
@@ -230,7 +241,7 @@ div.pmore{
         padding: 0px 3px;
         border-radius: 4px;
         background: #fff; 
-        border: 1px cadetblue solid;
+        // border: 1px cadetblue solid;
         color: cadetblue; 
         font-weight: bold;
     }
@@ -242,48 +253,30 @@ div.pmore{
 
 @media screen and (max-width: 512px) {
 
-#diamondcreatetxs{
-    .container{
-        padding: 0%;
-        width: 100%;
-    }
-    .wrap{
-        .con{
-            padding: 0;
-            table{
-                tr{
-                    td{
-                        padding: 5px;
-                    }
-                    td.addr{
-                        width: 40px !important;
-                    }
-                    td.hx{
-                        width: 90px !important;
-                    }
-                    .hd {
-                        display: none;
-                    }
-                }
-            }
-        }
-    }
+
+#dfcts .wrap .tt p,
+#dfcts .wrap .tt p b {
+    font-size: 12px;
 }
 
-#blocks, #transfers{
+
+
+#blocks, #transfers, #diamondcreatetxs{
     .container{
         padding: 0%;
         width: 100%;
     }
     .wrap{
+        h1{
+            padding-top: 40px;
+            color: #566;
+        }
         .con{
             padding: 0;
             table{
                 tr{
                     display: block;
                     position: relative;
-                }
-                tr.hd{
                 }
                 tr.row{
                     padding-top: 1px;
@@ -311,16 +304,50 @@ div.pmore{
     }
 }
 
+
+#diamondcreatetxs {
+    .wrap{
+        .con{
+            table{
+                .row td, .row td a{
+                    display: block;
+                    height: 20px;
+                    line-height: 20px;
+                    max-width: 120px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    word-break: break-all;
+                    text-overflow: ellipsis;
+                }
+                td.fee {
+                    color: rosybrown;
+                    font-weight: normal;
+                }
+                td.i {
+                    color: #888;
+                }
+                .t1{ top: 10px; left: 5px; }
+                .t2{ top: 10px; left: 30px; }
+                .t3{ top: 10px; left: 110px; }
+                .t4{ top: 10px; left: auto; right: 0px; }
+                .t5{ top: 30px; left: 30px; }
+                .t6{ top: 30px; left: 110px; }
+                .t7{ top: 30px; left: auto; right: 10px; }
+            }
+        }
+    }
+}
+
 #blocks{
     .wrap{
         .con{
             table{
                 .t1{ top: 10px; left: 0px; }
-                .t2{ top: 10px; left: 60px; }
+                .t2{ top: 10px; left: 80px; }
                 .t3{ top: 10px; left: auto; right: 0px; }
                 .t4{ top: 10px; left: 240px; display: none;  }
                 .t5{ top: 30px; left: 0px; }
-                .t7{ top: 30px; left: 60px; }
+                .t7{ top: 30px; left: 80px; }
                 .t6{ top: 30px; left: 160px; display: none; }
                 .t8{ top: 30px; left: auto; right: 0px; }
             }
