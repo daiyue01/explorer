@@ -13,7 +13,7 @@ module.exports = {
 
     diamond_status_invalid_1: "余额不足",
 
-    block_last: "最新出块：",
+    block_last: "最新出块",
     block_auto_update: "自动更新",
     
     block_height: "高度",
