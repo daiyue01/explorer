@@ -9,7 +9,8 @@ module.exports = {
     trs_type: "Type",
     trs_hash: "Hash",
     trs_main_address: "Main Adress",
-    trs_fee: "Fee",
+    trs_fee: "User Pay Fee",
+    trs_fee_miner_got: "Miner Got Fee",
 
     act_simple_trs: "Simple Pay",
     act_target_address: "Target Address",

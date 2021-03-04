@@ -25,6 +25,7 @@
                 <p class="row"><label>[:=lang.transaction.trs_hash || "哈希":]: </label><b class="hx">[:=trshx:]</b></p>
                 <p class="row"><label>[:=lang.transaction.trs_main_address || "主地址":]: </label><a target="_blank" href="/address/[:=trsinfo.address:]">[:=trsinfo.address:]</a></p>
                 <p class="row"><label>[:=lang.transaction.trs_fee || "手续费":]: </label><b>[:=trsinfo.fee:]</b></p>
+                <p class="row"><label>[:=lang.transaction.trs_fee_miner_got || "手续费（矿工获得）":]: </label><b>[:=trsinfo.feeminergot:]</b></p>
                 <p class="row"><label>[:=lang.transaction.timestamp || "时间戳":]: </label><b>
                     [:=trsinfo.timestamp:]
                     <i class="time">（{{formatDate(new Date([:=trsinfo.timestamp:]*1000), 'yyyy-MM-dd hh:mm:ss')}}）</i>

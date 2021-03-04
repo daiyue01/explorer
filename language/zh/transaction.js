@@ -12,7 +12,8 @@ module.exports = {
     trs_type: "类型",
     trs_hash: "哈希",
     trs_main_address: "主地址",
-    trs_fee: "手续费",
+    trs_fee: "支付手续费",
+    trs_fee_miner_got: "矿工获得手续费",
 
     act_simple_trs: "普通转账",
     act_target_address: "目标地址",
