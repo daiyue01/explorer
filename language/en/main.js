@@ -38,7 +38,7 @@ module.exports = {
     ttspl_miner_reward: "Miner reward:",
     ttspl_channel_interest: "Channel interest:",
     ttspl_btcmove_subsidy: "BTC move subsidy:",
-    ttspl_burning_fee: "Burning fee:",
+    ttspl_burned_fee: "Burned fee:",
     ttspl_located_in_channel: "Located in channel:",
     ttspl_minted_diamond: "Minted diamond:",
     ttspl_current_circulation: "Current circulation:",

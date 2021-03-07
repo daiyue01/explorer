@@ -7,7 +7,7 @@ var vAppTotalSupply = new Vue({
         miner_reward: "-", // Block reward HAC accumulation
         channel_interest: "-", // Channel interest HAC accumulation
         btcmove_subsidy: "-", // BTC transfer and additional issuance of HAC
-        burning_fee: "-", // tx fee by burning
+        burned_fee: "-", // tx fee by burning
         current_circulation: "-", // Current circulation supply
         located_in_channel: "-", // Real time statistics of HAc located in channel chain
     },
@@ -22,7 +22,7 @@ var vAppTotalSupply = new Vue({
                 that.miner_reward = data.miner_reward
                 that.channel_interest = data.channel_interest
                 that.btcmove_subsidy = data.btcmove_subsidy
-                that.burning_fee = data.burning_fee
+                that.burned_fee = data.burned_fee
                 that.located_in_channel = data.located_in_channel
                 that.current_circulation = data.current_circulation
             })
