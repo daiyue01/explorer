@@ -34,4 +34,14 @@ module.exports = {
     trs_time: "确认时间",
     trs_show_more: "查看更多",
 
+    ttspl_title: "总供应量统计：",
+    ttspl_miner_reward: "矿工区块奖励：",
+    ttspl_channel_interest: "通道锁定已发放利息：",
+    ttspl_btcmove_subsidy: "比特币转移补偿已解锁：",
+    ttspl_burning_fee: "已销毁手续费：",
+    ttspl_located_in_channel: "已存入通道链网络：",
+    ttspl_minted_diamond: "已挖出钻石数：",
+    ttspl_current_circulation: "实时流通量统计：",
+
+
 }

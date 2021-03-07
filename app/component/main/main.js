@@ -1,5 +1,43 @@
 
 
+var vAppTotalSupply = new Vue({
+    el: '#totalsupply',
+    data: {
+        minted_diamond: "-", // The number of diamonds that have been minted successfully
+        miner_reward: "-", // Block reward HAC accumulation
+        channel_interest: "-", // Channel interest HAC accumulation
+        btcmove_subsidy: "-", // BTC transfer and additional issuance of HAC
+        burning_fee: "-", // tx fee by burning
+        current_circulation: "-", // Current circulation supply
+        located_in_channel: "-", // Real time statistics of HAc located in channel chain
+    },
+    methods:{
+        queryDatas: function(){
+            var that = this
+            apiget("/api/total/supply", {
+            }, function(data){
+                // console.log(data)
+                // console.log(that)
+                that.minted_diamond = data.minted_diamond
+                that.miner_reward = data.miner_reward
+                that.channel_interest = data.channel_interest
+                that.btcmove_subsidy = data.btcmove_subsidy
+                that.burning_fee = data.burning_fee
+                that.located_in_channel = data.located_in_channel
+                that.current_circulation = data.current_circulation
+            })
+        },
+
+    }
+})
+
+// 请求数据
+vAppTotalSupply.queryDatas()
+
+
+///////////////////////////////
+
+
 var vAppDiamondCreateTxs = new Vue({
     el: '#diamondcreatetxs',
     data: {
@@ -12,7 +50,7 @@ var vAppDiamondCreateTxs = new Vue({
             var that = this
             apiget("/api/diamond/createtxs", {
             }, function(data){
-                console.log(data)
+                // console.log(data)
                 that.txs = data.datas
                 that.period = data.period
                 that.number = data.number

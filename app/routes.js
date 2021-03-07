@@ -25,4 +25,8 @@ module.exports = {
 
     '/api/address/amount': 'api/address/amount',
 
+    '/api/total/supply': 'api/total/supply',
+
+
+
 }

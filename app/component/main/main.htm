@@ -3,6 +3,26 @@
     var last_height = [:=last_height:];
 </script>
 
+<div id="totalsupply" >
+    <div class="container">
+        <div class="wrap">
+            <h1 class="tt">[:=lang.main.ttspl_title || "总供应量统计":]</h1>
+            <div class="con">
+                <div class="num"><h6>[:=lang.main.ttspl_miner_reward || "矿工区块奖励：":]</h6><b class="green">{{miner_reward}}<i>HAC</i></b></div>
+                <div class="num"><h6>[:=lang.main.ttspl_channel_interest || "通道锁定已发放利息：":]</h6><b class="green">{{channel_interest}}<i>HAC</i></b></div>
+                <div class="num"><h6>[:=lang.main.ttspl_btcmove_subsidy || "比特币转移补偿已解锁：":]</h6><b class="green">{{btcmove_subsidy}}<i>HAC</i></b></div>
+                <div class="num"><h6>[:=lang.main.ttspl_burning_fee || "已销毁手续费：":]</h6><b class="red">{{burning_fee}}<i>HAC</i></b></div>
+                <div class="num"><h6>[:=lang.main.ttspl_located_in_channel || "已存入通道链网络：":]</h6><b>{{located_in_channel}}<i>HAC</i></b></div>
+                <div class="num"><h6>[:=lang.main.ttspl_minted_diamond || "已挖出钻石数：":]</h6><b>{{minted_diamond}}<i>❂</i></b></div>
+                <div class="num"><h6>[:=lang.main.ttspl_current_circulation || "实时流通量统计：":]</h6><b>{{current_circulation}}<i>HAC</i></b></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 <div id="dfcts" >
     <div class="container">
         <div class="wrap">
