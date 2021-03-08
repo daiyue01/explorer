@@ -41,6 +41,7 @@ module.exports = {
     ttspl_burned_fee: "Burned fee:",
     ttspl_located_in_channel: "Located in channel:",
     ttspl_minted_diamond: "Minted diamond:",
+    ttspl_transferred_bitcoin: "Transferred bitcoin:",
     ttspl_current_circulation: "Current circulation:",
 
 }

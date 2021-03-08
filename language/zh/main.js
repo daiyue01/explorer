@@ -41,6 +41,7 @@ module.exports = {
     ttspl_burned_fee: "已销毁手续费：",
     ttspl_located_in_channel: "已存入通道链网络：",
     ttspl_minted_diamond: "已挖出钻石数：",
+    ttspl_transferred_bitcoin: "已转移过来的比特币：",
     ttspl_current_circulation: "实时流通量统计：",
 
 

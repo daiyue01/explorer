@@ -4,6 +4,7 @@ var vAppTotalSupply = new Vue({
     el: '#totalsupply',
     data: {
         minted_diamond: "-", // The number of diamonds that have been minted successfully
+        transferred_bitcoin: "-",
         miner_reward: "-", // Block reward HAC accumulation
         channel_interest: "-", // Channel interest HAC accumulation
         btcmove_subsidy: "-", // BTC transfer and additional issuance of HAC
@@ -19,6 +20,7 @@ var vAppTotalSupply = new Vue({
                 // console.log(data)
                 // console.log(that)
                 that.minted_diamond = data.minted_diamond
+                that.transferred_bitcoin = data.transferred_bitcoin
                 that.miner_reward = data.miner_reward
                 that.channel_interest = data.channel_interest
                 that.btcmove_subsidy = data.btcmove_subsidy
