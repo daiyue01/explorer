@@ -141,7 +141,7 @@ var vAppRanking = new Vue({
             if(that.dtcaches[name]){
                 return that.showList(name, that.dtcaches[name])
             }
-            apiget(ranking_api_url + "/query?action=ranking", {
+            apiget("/api/ranking/top", {
                 kind: name,
             }, function(data){
                 if(data.list || data.list.length>0){

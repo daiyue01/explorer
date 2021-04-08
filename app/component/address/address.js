@@ -58,7 +58,7 @@ var vAppAddress = new Vue({
         //
         alldiamondnames: function(){
             var that = this
-            apiget(that.ranking_api_url + "/query?action=account_diamonds", {
+            apiget("/api/ranking/diamonds", {
                 address: that.address,
             }, function(data){
                 if(data.diamonds) {
