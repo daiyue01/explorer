@@ -51,6 +51,7 @@ exports.datas = async function(query, callback, req, res)
         satoshi_amount: satoshi,
         diamond_amount: diamond,
         diamond_mined: diamondcount,
+        ranking_api_url: config.ranking_api_url,
     }, req, res)
 }
 

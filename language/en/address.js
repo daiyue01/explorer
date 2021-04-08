@@ -18,6 +18,8 @@ module.exports = {
     amount: "Amt",
     time: "Time",
 
+    dia_check: "Diamonds",
+    check_all_diamond_names: "Check all diamond names",
 
     load_ok: "load complete",
     show_more: "Show More",

@@ -12,6 +12,8 @@ var vAppAddress = new Vue({
         trspage: 1, // 翻页
         trslimit: 15, //
         ifmore: false, // 是否显示更多 
+        ranking_api_url: "",
+        all_diamond_names: "",
     },
     methods:{
         // 加载余额
@@ -53,6 +55,27 @@ var vAppAddress = new Vue({
                 }
             })
         },
+        //
+        alldiamondnames: function(){
+            var that = this
+            apiget(that.ranking_api_url + "/query?action=account_diamonds", {
+                address: that.address,
+            }, function(data){
+                if(data.diamonds) {
+                    var dias = ""
+                    for(var i=0; i+6<=data.diamonds.length; i+=6) {
+                        if(i==0){
+                            dias += data.diamonds.substr(i, 6)
+                        }else{
+                            dias += "," + data.diamonds.substr(i, 6)
+                        }
+                    }
+                    that.all_diamond_names = dias
+                }else{
+                    that.all_diamond_names = "-"
+                }
+            })
+        },
         // 选择转账种类
         dotrstype: function(){
             var that = this
@@ -66,6 +89,11 @@ var vAppAddress = new Vue({
             },11)
             // 加载数据
             setTimeout(that.domoretrs, 500)
+            // 显示访问
+            // console.log(ranking_api_url)
+            if(window.ranking_api_url) {
+                that.ranking_api_url = window.ranking_api_url
+            }
         }
     }
 })

@@ -44,4 +44,9 @@ module.exports = {
     ttspl_transferred_bitcoin: "Transferred bitcoin:",
     ttspl_current_circulation: "Current circulation:",
 
+    rk_title: "Account ranking",
+    rk_tab_hacash: "Show top 100 HAC addresses",
+    rk_tab_diamond: "Show top 100 HACD addresses",
+    rk_tab_bitcoin: "Show top 100 BTC addresses",
+
 }

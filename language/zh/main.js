@@ -44,5 +44,10 @@ module.exports = {
     ttspl_transferred_bitcoin: "已转移过来的比特币：",
     ttspl_current_circulation: "实时流通量统计：",
 
+    rk_title: "持仓排名",
+    rk_tab_hacash: "查看 HAC 持仓前 100 名",
+    rk_tab_diamond: "查看 HACD 持仓前 100 名",
+    rk_tab_bitcoin: "查看 BTC 持仓前 100 名",
+
 
 }

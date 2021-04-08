@@ -64,7 +64,7 @@ div.pmore{
 }
 
 
-#totalsupply, #blocks, #transfers, #diamondcreatetxs{
+#totalsupply, #blocks, #transfers, #diamondcreatetxs, #ranking{
 
     .wrap{
         background-color: #f3f4f7;
@@ -151,6 +151,65 @@ div.pmore{
 
 }
 
+#ranking {
+    .rktable {
+        margin-top: 20px;
+        a.addr {
+            color: darkseagreen;
+            cursor: pointer;
+        }
+        td.n {
+            color: #899;
+        }
+        td.pc {
+            color: peru;
+        }
+    }
+    button.tab{
+        line-height: 26px;
+        height: 30px;
+        margin: 10px;
+        padding: 0 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        opacity: 0.8;
+        background-color: #fff;
+        border: 1px #fff solid;
+        &:hover{
+            opacity: 1;
+        }
+        &.active{
+            opacity: 1;
+        }
+        &.t1 {
+            border-color: mediumseagreen;
+            color: mediumseagreen;
+        }
+        &.t2 {
+            border-color: dodgerblue;
+            color: dodgerblue;
+        }
+        &.t3 {
+            border-color: goldenrod;
+            color: goldenrod;
+        }
+        &.t1.active {
+            background-color: mediumseagreen;
+            color: #fff;
+            font-weight: bold;
+        }
+        &.t2.active {
+            background-color: dodgerblue;
+            color: #fff;
+            font-weight: bold;
+        }
+        &.t3.active {
+            background-color: goldenrod;
+            color: #fff;
+            font-weight: bold;
+        }
+    }
+}
 
 #totalsupply {
     .wrap .con {
@@ -294,6 +353,18 @@ div.pmore{
     font-size: 12px;
 }
 
+
+#ranking {
+    .rktable {
+        a.addr {
+            line-height: 12px;
+            width: 130px;
+            word-break: break-all;
+            display: block;
+        }
+    }
+
+}
 
 
 #totalsupply, #dfcts, #blocks, #transfers, #diamondcreatetxs{

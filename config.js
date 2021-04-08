@@ -15,6 +15,7 @@ const config = {
     ///////////////////////////////
 
     miner_api_url: "http://127.0.0.1:3338",
+    ranking_api_url: "http://127.0.0.1:3377",
 
 }
 

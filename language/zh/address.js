@@ -19,6 +19,8 @@ module.exports = {
     amount: "Amount",
     time: "时间",
 
+    dia_check: "钻石",
+    check_all_diamond_names: "查看所有钻石名称",
 
     load_ok: "加载完毕",
     show_more: "查看更多",

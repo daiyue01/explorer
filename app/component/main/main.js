@@ -117,9 +117,59 @@ vAppTransfers.queryTransferDatas()
 
 
 
+//////////////////////////////////////////////////////////////////
 
 
 
+
+var vAppRanking = new Vue({
+    el: '#ranking',
+    data: {
+        tabn: "",
+        dtcaches: {},
+        list: null,
+    },
+    methods:{
+        showList: function(name, list){
+            var that = this
+            that.list = list
+        },
+        selectTab: function(name){
+            // alert(name)
+            var that = this
+            that.tabn = name
+            if(that.dtcaches[name]){
+                return that.showList(name, that.dtcaches[name])
+            }
+            apiget(ranking_api_url + "/query?action=ranking", {
+                kind: name,
+            }, function(data){
+                if(data.list || data.list.length>0){
+                    var items = []
+                    for(var i in data.list){
+                        var one = data.list[i]
+                          , li = one.split(" ")
+                        // console.log(li)
+                        items.push({
+                            num: parseInt(i)+1,
+                            address: li[0],
+                            value: li[1],
+                            percent: li[2]
+                        })
+                    }
+                    that.showList(name, items)
+                    that.dtcaches[name] = items
+                }else{
+                    that.showList(name, [])
+                    that.dtcaches[name] = []
+                }
+            })
+        },
+
+    }
+})
+
+// vAppRanking.selectTab("hacash")
 
 
 
