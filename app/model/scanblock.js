@@ -96,16 +96,16 @@ async function startScanLog() {
 
 
 // scan all
-async function scanAllTest(maxhei) {
-    for(let i=1; i<maxhei; i++){
+async function scanAllTest(start, maxhei) {
+    for(let i=start; i<maxhei; i++){
         await startScanOneBlockOfChannelOpenLog(i)
         if(i%100 == 0){
             console.log("scan_block_height - " + i)
         }
     }
 }
-// scanAllTest(233164)
-// scanAllTest(1000)
+// scanAllTest(1, 233164)
+// scanAllTest(36370, 45000)
 
 
 

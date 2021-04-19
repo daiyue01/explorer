@@ -122,6 +122,39 @@ vAppTransfers.queryTransferDatas()
 
 
 
+var vAppChannelOpenLogs = new Vue({
+    el: '#channelopenlogs',
+    data: {
+        channelopenlogs: [],
+        showMoreBtn: false,
+        page: 1,
+        limit: 15,
+    },
+    methods:{
+        queryTransferDatas: function(){
+            var that = this
+            apiget("/api/channel/openlogs", {
+                page: that.page,
+                limit: that.limit,
+            }, function(data){
+                that.channelopenlogs = that.channelopenlogs.concat(data)
+                that.page++
+                that.showMoreBtn = data.length==that.limit ? true : false
+            })
+        },
+    }
+})
+
+// 请求数据
+vAppChannelOpenLogs.queryTransferDatas()
+
+
+
+//////////////////////////////////////////////////////////////////
+
+
+
+
 var vAppRanking = new Vue({
     el: '#ranking',
     data: {

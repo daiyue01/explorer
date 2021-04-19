@@ -51,8 +51,13 @@ module.exports = function(app)
 
 
 // 加载语言
+const languageDefType = "en"
+const languageSupport = {'en':true,'zh':true}
 const loadLanguageCache = {}
 function loadLanguage(type) {
+    if(!languageSupport[type]) {
+        type = languageDefType
+    }
     if( loadLanguageCache[type] ) {
         return loadLanguageCache[type] 
     }

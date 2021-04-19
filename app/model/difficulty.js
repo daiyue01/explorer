@@ -22,7 +22,7 @@ let difficulty_charts_apidata_cache = null
 let buffilepath = appabs("datas/difficulty_charts.dat")
 if( ! fs.existsSync(buffilepath) ){
     // 不存在则创建文件
-    fs.writeFileSync(buffilepath, new Uint8Array(Buffer.from("")))
+    // fs.writeFileSync(buffilepath, new Uint8Array(Buffer.from("")))
 }
 
 function loadDifficultyDatas(){
@@ -82,8 +82,8 @@ function loadDifficultyDatas(){
         }
     })
 }
-setTimeout(loadDifficultyDatas, 1000)
-setInterval(loadDifficultyDatas, 1000*60*60*1)
+// setTimeout(loadDifficultyDatas, 1000)
+// setInterval(loadDifficultyDatas, 1000*60*60*1)
 
 
 //////////////////////////////////////
