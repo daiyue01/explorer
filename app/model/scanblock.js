@@ -41,7 +41,7 @@ async function startScanOneBlockOfChannelOpenLog(scanheight) {
         for (let i in datas) {
             const one = datas[i].split("|")
             const arys = `blockheight = ${scanheight},`
-                + `channelid = ${one[0]},`
+                + `channelid = "${one[0]}",`
                 + `leftaddr = "${one[1]}",`
                 + `leftamt = "${one[2]}",`
                 + `rightaddr = "${one[3]}",`
@@ -99,7 +99,7 @@ async function startScanLog() {
 async function scanAllTest(maxhei) {
     for(let i=1; i<maxhei; i++){
         await startScanOneBlockOfChannelOpenLog(i)
-        if(1%100 == 0){
+        if(i%100 == 0){
             console.log("scan_block_height - " + i)
         }
     }
@@ -109,7 +109,7 @@ async function scanAllTest(maxhei) {
 
 
 
-// 扫描转账记录
+// 扫描区块记录
 startScanLog()
 
 
