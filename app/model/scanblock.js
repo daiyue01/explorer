@@ -14,7 +14,7 @@ async function startScanOneBlockOfTransferLog(scanheight) {
     // console.log(jsonobj)
     if (jsonobj.ret == "1"){
         // 表示等待最新的出块
-        return jsonobj.errmsg
+        return jsonobj.err || "error"
     }
     let datas = jsonobj.datas
     // 插入数据
