@@ -36,7 +36,7 @@ const AllMysqlTableSchema = {
             rightamt    VARCHAR(255) NOT NULL,
             timestamp   INT(4) UNSIGNED DEFAULT 0 NOT NULL,
                 PRIMARY KEY (id),
-                KEY (blockheight, channelid,, leftaddr, rightaddr)
+                KEY (blockheight, channelid, leftaddr, rightaddr)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
     `,
     // 钻石数量统计
