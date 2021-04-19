@@ -82,9 +82,9 @@ async function startScanLog() {
 
             // 保存状态，扫描下一个区块
             await model_initmysql.saveSetting(scankey, scanheight)
-            if (datas.length > 0) {
+            if (scanheight % 100 == 0) {
                 // throw "insert one"
-                console.log("scan_block_height - " + scanheight + " - got data length = " + datas.length)
+                console.log("scan_block_height - " + scanheight)
             }
             setTimeout(startScanLog, 11)
         }catch(e){
