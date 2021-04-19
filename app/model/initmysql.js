@@ -24,6 +24,21 @@ const AllMysqlTableSchema = {
                 KEY (blockheight, fromaddr, toaddr)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
     `,
+    // 通道记录
+    "channelopenlog": `
+        CREATE TABLE channelopenlog (
+            id          INT(4) UNSIGNED NOT NULL AUTO_INCREMENT,
+            blockheight INT(4) UNSIGNED DEFAULT 0 NOT NULL,
+            channelid    VARCHAR(255) NOT NULL,
+            leftaddr    VARCHAR(255) NOT NULL,
+            leftamt     VARCHAR(255) NOT NULL,
+            rightaddr   VARCHAR(255) NOT NULL,
+            rightamt    VARCHAR(255) NOT NULL,
+            timestamp   INT(4) UNSIGNED DEFAULT 0 NOT NULL,
+                PRIMARY KEY (id),
+                KEY (blockheight, channelid,, leftaddr, rightaddr)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    `,
     // 钻石数量统计
     "diamondcount": `
         CREATE TABLE diamondcount (

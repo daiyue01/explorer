@@ -15,6 +15,8 @@ module.exports = {
 
     '/api/diamond/createtxs': 'api/diamond/createtxs',
     
+    '/api/channel/openlogs': 'api/channel/openlogs',
+
     '/api/transfer/logs': 'api/transfer/logs',
     '/api/transfer/last': 'api/transfer/last',
 
