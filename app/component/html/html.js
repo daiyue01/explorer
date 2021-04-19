@@ -32,9 +32,9 @@ function setCookie (cname, cvalue, path, exdays) {
     var expires = "expires=" + d.toUTCString();
     var path = "path=" + path;
     var ck = cname + "=" + cvalue + "; " + expires + "; " + path
-    // console.info(ck);
+    console.info(ck);
     document.cookie = ck;
-    // console.info(document.cookie);
+    console.info(document.cookie);
 }
 
 /////////////////////////////////////////////////

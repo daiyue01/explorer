@@ -12,7 +12,7 @@ module.exports = async function(req, res)
     let limit = parseInt(req.query.limit) || 20
     if (limit > 200){ limit = 200 }
     let start = (page - 1) * limit
-    let rets = await model_channelopenlog.getList(req.query.address, null, start, limit, true)
+    let rets = await model_channelopenlog.getList(req.query.address, req.query.id, start, limit, true)
     let logs = []
     for (let k in rets.results) {
         const v = rets.results[k]

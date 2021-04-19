@@ -8,20 +8,28 @@ var vAppAddress = new Vue({
         diamond_mined: '-',
         address: '',
         trstype: 'all',
-        transfers: [],
+        transfers: null,
         trspage: 1, // 翻页
         trslimit: 15, //
-        ifmore: false, // 是否显示更多 
+        trsifmore: false, // 是否显示更多 
+        trsfirstbtn: true, // 首次显示转账
         ranking_api_url: "",
         all_diamond_names: "",
+        channelopenlogs: null,
+        colpage: 1,
+        collimit: 15,
+        colifmore: false, // 是否显示更多 
+        colfirstbtn: true, // 首次显示
     },
     methods:{
         // 加载余额
         queryAmount: function(){
             var that = this
-            // apiget("/api/address/amount", {}, function(data){
-            //     that.amount = data.amount
-            // })
+            // console.log(ranking_api_url)
+            that.address = that.$refs.address.dataset.address // 赋值
+            if(window.ranking_api_url) {
+                that.ranking_api_url = window.ranking_api_url
+            }
         },
         // 加载更多转账
         domoretrs: function(){
@@ -29,6 +37,7 @@ var vAppAddress = new Vue({
             // that.transfers
             // alert(that.trstype)
             // 加载
+            that.trsfirstbtn = false
             apiget("/api/transfer/logs", {
                 address: that.address,
                 type: that.trstype,
@@ -45,17 +54,35 @@ var vAppAddress = new Vue({
                         data[i][2] = my
                     }
                 }
+                if(!that.transfers) {
+                    that.transfers = []
+                }
                 that.transfers = that.transfers.concat(data)
                 // page ++ 
                 that.trspage ++ 
                 if (data.length == that.trslimit) {
-                    that.ifmore = true
+                    that.trsifmore = true
                 }else{
-                    that.ifmore = false
+                    that.trsifmore = false
                 }
             })
         },
-        //
+        // 选择转账种类
+        dotrstype: function(){
+            var that = this
+            , oldtt = that.trstype
+            that.trsfirstbtn = false
+            setTimeout(function(){
+                if (oldtt != that.trstype) {
+                    that.transfers = [] // 清空
+                    that.trspage = 1
+                }
+            },11)
+            // 加载数据
+            setTimeout(that.domoretrs, 500)
+            // 显示访问
+        },
+        // 查看所有钻石
         alldiamondnames: function(){
             var that = this
             apiget("/api/ranking/diamonds", {
@@ -76,32 +103,46 @@ var vAppAddress = new Vue({
                 }
             })
         },
-        // 选择转账种类
-        dotrstype: function(){
+        // 查看通道开启记录
+        loadchannelopenlogs: function(){
             var that = this
-            , oldtt = that.trstype
-            that.address = that.$refs.address.dataset.address // 赋值
-            setTimeout(function(){
-                if (oldtt != that.trstype) {
-                    that.transfers = [] // 清空
-                    that.trspage = 1
+            // 加载
+            that.colfirstbtn = false
+            apiget("/api/channel/openlogs", {
+                address: that.address,
+                page: that.colpage,
+                limit: that.collimit,
+            }, function(data){
+                let myaddr = that.address.substr(0,7) + '…'
+                let my =  '<u class="my" title="'+that.address+'">'+myaddr+'</u>'
+                for(let i in data){
+                    if(data[i][2] == that.address){
+                        data[i][2] =my
+                    }
+                    if(data[i][4] == that.address){
+                        data[i][4] = my
+                    }
                 }
-            },11)
-            // 加载数据
-            setTimeout(that.domoretrs, 500)
-            // 显示访问
-            // console.log(ranking_api_url)
-            if(window.ranking_api_url) {
-                that.ranking_api_url = window.ranking_api_url
-            }
-        }
+                if(!that.channelopenlogs) {
+                    that.channelopenlogs = []
+                }
+                that.channelopenlogs = that.channelopenlogs.concat(data)
+                // page ++ 
+                that.colpage ++ 
+                if (data.length == that.collimit) {
+                    that.colifmore = true
+                }else{
+                    that.colifmore = false
+                }
+            })
+        },
     }
 })
 
 // 请求数据
-vAppAddress.dotrstype()
+vAppAddress.queryAmount()
 
-// 请求转账数据
+// vAppAddress.loadchannelopenlogs()
 
 
 

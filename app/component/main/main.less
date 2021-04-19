@@ -60,11 +60,15 @@ div.pmore{
         &:hover{
             box-shadow: 1px 1px 8px #bbb;
         }
+        span {
+            font-size: 12px;
+            line-height: 14px;
+        }
     }
 }
 
 
-#totalsupply, #blocks, #transfers, #diamondcreatetxs, #ranking{
+.mtable{
 
     .wrap{
         background-color: #f3f4f7;
@@ -309,6 +313,42 @@ div.pmore{
 }
 
 
+#channelopenlogs {
+    .con{
+        table{
+            td{
+                border-bottom: 1px solid #eee;
+            }
+        }
+    }
+    tr .t0{ color: #999; }
+    tr .t1 a{ 
+        display: inline-block;
+        color: darkseagreen; 
+        width: 110px;
+        font-size: 12px;
+        line-height: 12px;
+     }
+    tr .t2 {
+        text-align: right;
+    }
+    tr .t2 a{ color: olive; }
+    tr .t2 a.a2{ color: darkgoldenrod; }
+    tr .t3 {
+        text-align: left;
+    }
+    tr .t3 b{
+        display: inline;
+        color: olive; 
+        font-weight: bold;
+    }
+    tr .t3 b.b2{ color: darkgoldenrod; }
+    tr .t4{ color: #999; }
+}
+
+
+
+
 #transfers {
     .refresh{
         display: block;
@@ -367,7 +407,7 @@ div.pmore{
 }
 
 
-#totalsupply, #dfcts, #blocks, #transfers, #diamondcreatetxs{
+.mtable {
     .container{
         padding: 0%;
         width: 100%;
@@ -401,7 +441,7 @@ div.pmore{
                     display: block;
                     position: absolute;
                     left: 50px; top: 50px;
-                    border: none;
+                    border: none !important;
                     padding: 0;
                 }
 
@@ -510,6 +550,36 @@ div.pmore{
                 .t0{ top: 46px; left: auto; right: 95px; color: lightsteelblue; }
                 .t3{ top: 46px; left: 10px; }
                 .t4{ top: 46px; left: auto; right: 15px; }
+            }
+        }
+    }
+}
+
+
+#channelopenlogs{
+    .wrap{
+        .con{
+            table{
+                tr.row{
+                    height: 115px;
+                    a, b {
+                        font-size: 12px;
+                        line-height: 12px;
+                    }
+                }
+                th.thwd {
+                    min-width: 75px;
+                }
+                td {
+                    display: block !important;
+                    text-align: left !important;
+                }
+                .t0{ top: 10px; left: 10px; }
+                .t1{ top: 14px; right: 10px; left: auto; }
+                .t4{ top: 26px; left: 10px; }
+                .t2{ top: 46px; left: 10px; }
+                .t3{ top: 76px; left: 10px; }
+
             }
         }
     }

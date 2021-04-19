@@ -34,6 +34,15 @@ module.exports = {
     trs_time: "Confirm time",
     trs_show_more: "Show More",
 
+    col_last: "Latest open channels",
+    col_block_height: "Block Height",
+    col_channel_id: "Channel ID",
+    col_addr: "Address",
+    col_amount: "Amount",
+    col_time: "Open time",
+    col_show: "Show all channel open logs",
+    col_show_more: "Show More",
+
     ttspl_title: "Total supply statistics:",
     ttspl_miner_reward: "Miner reward:",
     ttspl_channel_interest: "Channel interest:",

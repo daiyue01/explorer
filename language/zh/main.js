@@ -34,6 +34,15 @@ module.exports = {
     trs_time: "确认时间",
     trs_show_more: "查看更多",
 
+    col_last: "最近开启的通道",
+    col_block_height: "区块高度",
+    col_channel_id: "通道ID",
+    col_addr: "地址",
+    col_amount: "金额",
+    col_time: "开启时间",
+    col_show: "查看全部通道开启记录",
+    col_show_more: "查看更多",
+
     ttspl_title: "总供应量统计：",
     ttspl_miner_reward: "矿工区块奖励：",
     ttspl_channel_interest: "通道锁定已发放利息：",

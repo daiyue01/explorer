@@ -126,13 +126,15 @@ var vAppChannelOpenLogs = new Vue({
     el: '#channelopenlogs',
     data: {
         channelopenlogs: [],
-        showMoreBtn: false,
+        showMoreBtn: true,
+        firstMore: true,
         page: 1,
         limit: 15,
     },
     methods:{
         queryTransferDatas: function(){
             var that = this
+            that.firstMore = false
             apiget("/api/channel/openlogs", {
                 page: that.page,
                 limit: that.limit,
@@ -146,7 +148,7 @@ var vAppChannelOpenLogs = new Vue({
 })
 
 // 请求数据
-vAppChannelOpenLogs.queryTransferDatas()
+// vAppChannelOpenLogs.queryTransferDatas()
 
 
 

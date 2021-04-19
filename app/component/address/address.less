@@ -25,7 +25,7 @@
         border-radius: 4px;
         cursor: pointer;
     }
-    .transfers{
+    .transfers, .channel{
         .hdtt i{
             font-size: 12px;
             color: #aaa;
@@ -44,8 +44,11 @@
         }
         .datas{
             div.row{
-                border-top: 1px #ddd solid;
+                border-top: 1px #ddd dotted;
                 padding: 10px 0;
+            }
+            div.row.r0{
+                border: none
             }
             label{
                 color: #aaa;
@@ -60,6 +63,7 @@
                 color: #333;
                 display: inline-block;
                 margin-right: 12px;
+                margin-left: 5px;
                 u{
                     // background: lightcyan;
                     color: darkolivegreen;
@@ -98,6 +102,14 @@
 
         }
     }
+    .channel{
+        .datas{
+            p label{
+                width: auto;
+            }
+        }
+
+    }
 }
 
 
@@ -107,6 +119,13 @@
 
 #address{
     .transfers{
+        .datas{
+            p{
+                display: block;
+            }
+        }
+    }
+    .channel{
         .datas{
             p{
                 display: block;
