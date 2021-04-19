@@ -1,6 +1,10 @@
 const http_tool = appload('tool/http')
 const config = appload('config')
 
+setTimeout(function(){
+    appload('model/scanblock')
+}, 1000)
+
 
 ///////////////////////////////////////////////
 
@@ -17,6 +21,7 @@ async function queryLastBlock(){
     }catch(e){
         console.log(e)
     }
+
 }
 setInterval(queryLastBlock, 1000 * 13)
 queryLastBlock()
