@@ -12,7 +12,10 @@ async function startScanOneBlockOfTransferLog(scanheight) {
         block_height: scanheight,
     })
     // console.log(jsonobj)
-    if (jsonobj.ret == "1"){
+    if (!jsonobj){
+        return "http error"
+    }
+    if(parseInt(jsonobj.ret) > 0){
         // 表示等待最新的出块
         return jsonobj.err || "error"
     }
@@ -89,6 +92,8 @@ async function startScanLog() {
             setTimeout(startScanLog, 11)
         }catch(e){
             console.log(e)
+            // 5 分钟之后重启扫描
+            setTimeout(startScanLog, 1000 * 60 * 5 )
             return
         }
     }
