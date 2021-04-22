@@ -15,7 +15,7 @@ async function startScanOneBlockOfTransferLog(scanheight) {
     if (!jsonobj){
         return "http error"
     }
-    if(parseInt(jsonobj.ret) > 0){
+    if(parseInt(jsonobj.ret) > 0 || jsonobj.err){
         // 表示等待最新的出块
         return jsonobj.err || "error"
     }
