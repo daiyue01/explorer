@@ -69,7 +69,7 @@ async function startScanDiamondCount() {
 
 
 // 开始扫描钻石
-// startScanDiamondCount()
+startScanDiamondCount()
 
 
 
