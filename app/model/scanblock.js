@@ -115,6 +115,6 @@ async function scanAllTest(start, maxhei) {
 
 
 // 扫描区块记录
-startScanLog()
+// startScanLog()
 
 

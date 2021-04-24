@@ -179,8 +179,8 @@
                         <th>[:=lang.main.col_time || "开启时间":]</th>
                     </tr>
                     <tr class="row" v-for="one in channelopenlogs">
-                        <td class="t0">{{one[0]}}</td>
-                        <td class="t1"><a>{{one[1]}}</a></td>
+                        <td class="t0"><a>{{one[0]}}</a></td>
+                        <td class="t1"><a target="_blank" :href="'/channel/'+one[1]">{{one[1]}}</a></td>
                         <td class="t2">
                             <a target="_blank" :href="'/address/'+one[2]">{{one[2]}}</a><br/><a class="a2" target="_blank" :href="'/address/'+one[4]">{{one[4]}}</a>
                         </td>

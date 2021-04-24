@@ -11,6 +11,7 @@ module.exports = {
     left_amt: "Left Amount",
     right_addr: "Right Address",
     right_amt: "Right Amount",
+    open_hei: "Open Height",
     
 
     notfind: "Sorry，Not find.",

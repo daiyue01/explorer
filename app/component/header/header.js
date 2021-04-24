@@ -9,6 +9,11 @@ var vAppHeader = new Vue({
             setCookie("lang", lang, "/", 1000) 
             window.location.href += "" 
         },
+        keyEnterSearch: function(e){
+            if(e.key=="Enter"){
+                this.clickSearch()
+            }
+        },
         clickSearch: function(){
             var that = this,
                 ss = that.search_str.replace(/\s+/i,'')

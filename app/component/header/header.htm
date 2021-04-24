@@ -9,7 +9,7 @@
     <div class="container ">
         <a href="/"><h1>[:=lang.header.title_big:]<span>[:=lang.header.title_small:]</span></h1></a>
         <div class="search">
-            <input class="input" v-model="search_str" placeholder="[:=lang.header.search_input_placeholder:]" />
+            <input class="input" @keyup="keyEnterSearch" v-model="search_str" placeholder="[:=lang.header.search_input_placeholder:]" />
             <button @click="clickSearch">[:=lang.header.search:]</button>
         </div>
         <div class="clear"></div>

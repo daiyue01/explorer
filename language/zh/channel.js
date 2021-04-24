@@ -11,6 +11,7 @@ module.exports = {
     left_amt: "左金额",
     right_addr: "右地址",
     right_amt: "右金额",
+    open_hei: "开启高度",
     
 
     notfind: "对不起，结算通道暂不存在",
