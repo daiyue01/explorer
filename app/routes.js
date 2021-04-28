@@ -6,6 +6,7 @@ module.exports = {
     '/tx/:trshx': 'transaction',
     '/diamond/:name': 'diamond',
     '/channel/:id': 'channel',
+    '/lockbls/:id': 'lockbls',
 
     '/api/lang': 'api/lang',
     'POST/api/lang': 'api/lang',
