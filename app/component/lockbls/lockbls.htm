@@ -6,7 +6,7 @@
         <div class="pcard info">
             <h3 class="hdtt">☑ [:=lang.lockbls.lockbls_info || "锁仓合约详情":]</h3>
             <div class="content">
-                <p class="row"><label>ID: </label><b>[:=id:]</b></p>
+                <p class="row"><label>ID: </label><b class="hx">[:=id:]</b></p>
                 <p class="row"><label>[:=lang.lockbls.master_address || "权益地址":]: </label><a target="_blank" href="/address/[:=lockbls.master_address:]">[:=lockbls.master_address:]</a></p>
                 <p class="row"><label>[:=lang.lockbls.effect_height || "锁仓开启区块高度":]: </label><a class="hei" target="_blank" href="/block/[:=lockbls.effect_block_height:]">[:=lockbls.effect_block_height:]</a></p>
                 <p class="row"><label>[:=lang.lockbls.total_lock_amount || "总锁仓金额":]: </label><b class="amt">[:=lockbls.total_lock_amount:]</b></p>
@@ -14,6 +14,9 @@
                 <p class="row"><label>[:=lang.lockbls.linear_height || "释放步进区块数":]: </label><b>[:=lockbls.linear_block_number:]</b></p>
                 <p class="row"><label>[:=lang.lockbls.released_amount || "已释放金额":]: </label><b class="amt">[:=lockbls.released_amount:]</b></p>
                 <p class="row"><label>[:=lang.lockbls.balance_amount || "合约余额":]: </label><b class="amt">[:=lockbls.balance_amount:]</b></p>
+                [: if(lockbls.satoshi_genesis_tx_hash){ :]
+                <p class="row" style="background-color: papayawhip;"><label>[:=lang.lockbls.btcmove_txhash || "比特币转移交易哈希":]: </label><a target="_blank" href="/tx/[:=lockbls.satoshi_genesis_tx_hash:]">[:=lockbls.satoshi_genesis_tx_hash:]</a></p>
+                [: } :]
             </div>
         </div>
         [:}else{:]

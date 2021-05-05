@@ -12,6 +12,7 @@ module.exports = {
     time: "Time",
     reward: "Reward Amount",
     rwdaddr: "Reward Address",
+    rwdmsg: "Coinbase Message",
     txcount: "Tx Count",
 
     txlist: "Tx List",

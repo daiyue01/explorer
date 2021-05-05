@@ -53,7 +53,7 @@
                     <label>[:=lang.transaction.act_addr || "地址":] 2: </label><a target="_blank" href="/address/[:=one.right_addr:]">[:=one.right_addr:]</a> 
                     <label>[:=lang.transaction.act_amt || "金额":] 2: </label><b>[:=one.right_amt:]</b> 
                 </p>
-            [: }else if(one.k==3){ :]
+            [: }else if(one.k==3 || one.k==12){ :]
                 <p class="row r[:=(++i):]">
                     <span class="kind">[[:=lang.transaction.act_close_channel || "关闭结算通道":]]</span>
                     <label>[:=lang.transaction.act_channel_id || "通道id":]:</label><a target="_blank" href="/channel/[:=one.channel_id:]">[:=one.channel_id:]</a>
@@ -75,6 +75,15 @@
                     [: } :]
                     <label>[:=lang.transaction.act_diamond_from_address || "From 地址":]: </label><a target="_blank" href="/address/[:=one.from:]">[:=one.from:]</a> 
                     <label>[:=lang.transaction.act_diamond_to_address || "To 地址":]: </label><a target="_blank" href="/address/[:=one.to:]">[:=one.to:]</a> 
+                </p>
+            [: }else if(one.k==7){ :]
+                <p class="row r[:=(++i):]">
+                    <span class="kind">[[:=lang.transaction.act_btcmove || "比特币转移":]]</span>
+                    <label>[:=lang.transaction.act_btcmove_trsno || "交易序号":]: </label><b>[:=one.trs_no:]</b>
+                    <label>[:=lang.transaction.act_btcmove_btcnum || "比特币数量":]: </label><b>[:=one.btc_num:]</b>
+                    <label>[:=lang.transaction.act_btcmove_hacsubsidy || "HAC 增发数量":]: </label><b>[:=one.hac_subsidy:]</b>
+                    <label>[:=lang.transaction.act_btcmove_lockbls || "锁仓合约地址":]: </label><a target="_blank" href="/lockbls/[:=one.lockbls_id:]">[:=one.lockbls_id:]</a> 
+                    <label>[:=lang.transaction.act_btcmove_address || "所属地址":]: </label><a target="_blank" href="/address/[:=one.address:]">[:=one.address:]</a> 
                 </p>
             [: }else{ :]
                 <p class="row r[:=(++i):] other">[kind=[:=one.k:]] [:=lang.transaction.act_other || "其它种类":] action</p>

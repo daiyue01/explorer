@@ -17,8 +17,9 @@
                     <i class="time">（{{formatDate(new Date([:=blockinfo.timestamp:]*1000), 'yyyy-MM-dd hh:mm:ss')}}）</i>
                     </b>
                 </p>
+                <p class="row"><label>[:=lang.block.rwdmsg || "Coinbase消息":]: </label><b style="color: sienna;">[:=blockinfo.rwdmsg:]</b></p>
                 <p class="row"><label>[:=lang.block.reward || "区块奖励":]: </label><b>[:=blockinfo.reward:]</b></p>
-                <p class="row"><label>[:=lang.block.rwdaddr || "奖励地址":]: </label><b class="reward"><a target="_blank" href="/address/[:=blockinfo.rwdaddr:]">[:=blockinfo.rwdaddr:]</a></b></p>
+                <p class="row"><label>[:=lang.block.rwdaddr || "奖励地址":]: </label><a class="addr" target="_blank" href="/address/[:=blockinfo.rwdaddr:]">[:=blockinfo.rwdaddr:]</a></p>
                 <p class="row"><label>[:=lang.block.txcount || "交易数量":]: </label><b>[:=blockinfo.txcount:]</b></p>
             </div>
         </div>

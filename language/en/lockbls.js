@@ -10,6 +10,7 @@ module.exports = {
     linear_height: "Linear release block number",
     released_amount: "Released amount",
     balance_amount: "Balance",
+    btcmove_txhash: "Bitcoin move tx hash",
 
     notfind: "Sorry, not find.",
 }

@@ -10,6 +10,7 @@ module.exports = {
     linear_height: "释放步进区块数",
     released_amount: "已释放金额",
     balance_amount: "合约余额",
+    btcmove_txhash: "比特币转移交易哈希",
 
     notfind: "对不起，锁仓合约暂不存在",
 }
