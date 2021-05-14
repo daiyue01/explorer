@@ -46,13 +46,13 @@ async function startScanDiamondCount() {
                 name: scannumber,
             })
             // console.log(jsonobj)
-            if ( ! jsonobj.address){
+            if ( ! jsonobj.miner_address){
                 // 表示等待，钻石还未挖出
                 setTimeout(startScanDiamondCount, 1000*60*3)
                 return
             }
             // 挖出
-            let addr = jsonobj.address
+            let addr = jsonobj.miner_address
             // 写入数据
             await model_initmysql.sql_execute(`INSERT INTO  diamondcount(address,count) VALUES ("${addr}",1) ON DUPLICATE KEY UPDATE count=count+1`)
             // 保存状态，扫描下一个区块
