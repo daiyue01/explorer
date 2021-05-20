@@ -38,12 +38,25 @@
             <h3 class="hdtt">❖ Actions</h3>
             <div class="content">
             [: for(var i in trsinfo.actions){ var one=trsinfo.actions[i]; :]
-            [: if(one.k==1){ :]
+            [: if(one.k==1 || one.k==13 || one.k==14){ :]
                 <p class="row r[:=(++i):]">
-                    <span class="kind">[[:=lang.transaction.act_simple_trs || "普通转账":]]</span>
-                    <label>[:=lang.transaction.act_target_address || "目标地址":]: </label><a target="_blank" href="/address/[:=one.to:]">[:=one.to:]</a> 
-                    <label>[:=lang.transaction.act_amount || "金额":]: </label><b>[:=one.amount:]</b> 
+                    <span class="kind">[[:=lang.transaction.act_hac_trs || "HAC转账":]]</span>
+                    <label>[:=lang.transaction.act_payment_address || "支付地址":]: </label>
+                    [: if(one.from){ :]
+                    <a target="_blank" href="/address/[:=one.from:]">[:=one.from:]</a> 
+                    [: }else{ :]
+                    <span>MainAddress</span> 
+                    [: } :]
+                    <label>[:=lang.transaction.act_received_address || "收款地址":]: </label>
+                    [: if(one.to){ :]
+                    <a target="_blank" href="/address/[:=one.to:]">[:=one.to:]</a> 
+                    [: }else{ :]
+                    <span>MainAddress</span> 
+                    [: } :]
+                    <label>[:=lang.transaction.act_amount || "金额":]: </label>
+                    <b>[:=one.amount:]</b> 
                 </p>
+
             [: }else if(one.k==2){ :]
                 <p class="row r[:=(++i):]">
                     <span class="kind">[[:=lang.transaction.act_open_channel || "开启结算通道":]]</span>

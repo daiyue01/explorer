@@ -14,10 +14,11 @@ module.exports = {
     trs_main_address: "主地址",
     trs_fee: "支付手续费",
     trs_fee_miner_got: "矿工获得手续费",
+    
+    act_hac_trs: "HAC转账",
+    act_payment_address: "支付",
+    act_received_address: "收款",
 
-    act_simple_trs: "普通转账",
-    act_target_address: "目标地址",
-    act_amount: "金额",
     act_open_channel: "开启结算通道",
     act_channel_id: "通道id",
     act_addr: "地址",

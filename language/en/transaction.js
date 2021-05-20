@@ -12,8 +12,10 @@ module.exports = {
     trs_fee: "User Pay Fee",
     trs_fee_miner_got: "Miner Got Fee",
 
-    act_simple_trs: "Simple Pay",
-    act_target_address: "Target Address",
+    act_hac_trs: "HAC Pay",
+    act_payment_address: "From",
+    act_received_address: "To",
+
     act_amount: "Amount",
     act_open_channel: "Open Settlement Channel",
     act_channel_id: "Channel ID",
