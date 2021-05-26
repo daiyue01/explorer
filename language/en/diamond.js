@@ -11,6 +11,8 @@ module.exports = {
     prev_block_hash: "Prev Block Hash",
     miner_address: "Miner Address",
     belong_address: "Belong Address",
+    fee_offer: "Fee Offer",
+    burn_price: "Average Burning",
 
     notfind: "Sorry，Not find.",
 

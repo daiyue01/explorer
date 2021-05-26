@@ -11,6 +11,8 @@ module.exports = {
     prev_block_hash: "上次区块哈希",
     miner_address: "矿工地址",
     belong_address: "当前所属地址",
+    fee_offer: "竞价手续费",
+    burn_price: "平均销毁",
 
     notfind: "对不起，钻石暂不存在",
 
