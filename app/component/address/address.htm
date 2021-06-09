@@ -58,7 +58,7 @@ var ranking_api_url = "[:=ranking_api_url:]";
                 <div class="datas">
                     <div :class="{row:1,r0:i==0}" v-for="(one, i) in channelopenlogs">
                         <p><label>[:=lang.address.block || "区块":]: </label> <b>{{one[0]}}</b></p>
-                        <p><label>[:=lang.address.id || "ID":]: </label> <b>{{one[1]}}</b></p>
+                        <p><label>[:=lang.address.id || "ID":]: </label> <a class="channel" target="_blank" :href="'/channel/'+one[1]">{{one[1]}}</a> </p>
                         <p><label>[:=lang.address.addr || "地址":]1: </label> <b v-html="one[2]"></b></p>
                         <p><label>[:=lang.address.amount || "数额":]1: </label> <b class="amt">{{one[3]}}</b></p>
                         <p><label>[:=lang.address.addr || "地址":]2: </label> <b v-html="one[4]"></b></p>

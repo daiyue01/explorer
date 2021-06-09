@@ -117,10 +117,11 @@ var vAppAddress = new Vue({
                 let my =  '<u class="my" title="'+that.address+'">'+myaddr+'</u>'
                 for(let i in data){
                     if(data[i][2] == that.address){
-                        data[i][2] =my
-                    }
-                    if(data[i][4] == that.address){
+                        data[i][2] = my
+                        data[i][4] = '<a class="addr" target="_blank" href="/address/'+data[i][4]+'">'+data[i][4]+'</a>'
+                    }else if(data[i][4] == that.address){
                         data[i][4] = my
+                        data[i][2] = '<a class="addr" target="_blank" href="/address/'+data[i][2]+'">'+data[i][2]+'</a>'
                     }
                 }
                 if(!that.channelopenlogs) {

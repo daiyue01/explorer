@@ -8,7 +8,7 @@ module.exports = {
     trs_intro: "Transaction Intro",
     trs_type: "Type",
     trs_hash: "Hash",
-    trs_main_address: "Main Adress",
+    trs_main_address: "Main Address",
     trs_fee: "User Pay Fee",
     trs_fee_miner_got: "Miner Got Fee",
 
