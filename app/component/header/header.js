@@ -33,10 +33,13 @@ var vAppHeader = new Vue({
                         window.open('/lockbls/'+ss)
                     }else if (ss.length==2*14) {
                         // alert("钻石系统借贷")
+                        window.open('/hacdlend/'+ss)
                     }else if (ss.length==2*15) {
                         // alert("比特币系统借贷")
+                        window.open('/btclend/'+ss)
                     }else if (ss.length==2*17) {
                         // alert("钻石和比特币用户借贷")
+                        window.open('/usrlend/'+ss)
                     }else if (ss.length==2*32) {
                         if(ss.substr(0,4)=='0000'){
                             // alert("区块哈希")

@@ -9,6 +9,7 @@ const model_initmysql = appload('model/initmysql')
 async function startScanOneBlockOfTransferLog(scanheight) {
     let jsonobj = await http_tool.json(config.miner_api_url+"/query", {
         action: "getalltransferlogbyblockheight",
+        include_btc_hacd: "true",
         block_height: scanheight,
     })
     // console.log(jsonobj)
