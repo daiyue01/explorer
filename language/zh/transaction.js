@@ -34,6 +34,15 @@ module.exports = {
     act_diamond_from_address: "From 地址",
     act_diamond_to_address: "To 地址",
 
+    act_btcmove: "比特币转移",
+    act_btcmove_trsno: "交易序号",
+    act_btcmove_btcnum: "比特币数量",
+    act_btcmove_hacsubsidy: "HAC 增发数量",
+    act_btcmove_lockbls: "锁仓合约地址",
+    act_btcmove_address: "权益账户",
+
+    act_sat_trs: "SAT 转账",
+
     notfind: "对不起，找不到要查询的交易",
     
 

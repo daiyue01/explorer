@@ -57,6 +57,26 @@
                     <b>[:=one.amount:]</b> 
                 </p>
 
+            [: }else if(one.k==8 || one.k==11){ :]
+                <p class="row r[:=(++i):]">
+                    <span class="kind">[[:=lang.transaction.act_sat_trs || "Satoshi转账":]]</span>
+                    <label>[:=lang.transaction.act_payment_address || "支付地址":]: </label>
+                    [: if(one.from){ :]
+                    <a target="_blank" href="/address/[:=one.from:]">[:=one.from:]</a> 
+                    [: }else{ :]
+                    <span>MainAddress</span> 
+                    [: } :]
+                    <label>[:=lang.transaction.act_received_address || "收款地址":]: </label>
+                    [: if(one.to){ :]
+                    <a target="_blank" href="/address/[:=one.to:]">[:=one.to:]</a> 
+                    [: }else{ :]
+                    <span>MainAddress</span> 
+                    [: } :]
+                    <label>[:=lang.transaction.act_amount || "金额":]: </label>
+                    <b>[:=one.amount:]</b> 
+                </p>
+
+
             [: }else if(one.k==2){ :]
                 <p class="row r[:=(++i):]">
                     <span class="kind">[[:=lang.transaction.act_open_channel || "开启结算通道":]]</span>

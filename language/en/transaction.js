@@ -32,6 +32,15 @@ module.exports = {
     act_diamond_from_address: "From",
     act_diamond_to_address: "To",
 
+    act_btcmove: "BTC Move",
+    act_btcmove_trsno: "trsNo",
+    act_btcmove_btcnum: "BTC quantity",
+    act_btcmove_hacsubsidy: "HAC compensate",
+    act_btcmove_lockbls: "Lock contract ",
+    act_btcmove_address: "Equity account",
+
+    act_sat_trs: "SAT Pay",
+
     notfind: "Sorry, not find.",
     
 

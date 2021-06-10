@@ -94,6 +94,7 @@ function loadLanguageItem(langs, dir, bsk) {
 global.MysqlDB_Pool = null
 global.MysqlPool = function() {
     if(global.MysqlDB_Pool == null) {
+        config.mysqldb.multipleStatements = true
         global.MysqlDB_Pool = mysql.createPool(config.mysqldb)
         global.MysqlDB_Pool.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
             if (error) throw error; // 数据库连接不成功则报错
