@@ -122,24 +122,32 @@ vAppTransfers.queryTransferDatas()
 
 
 
-var vAppChannelOpenLogs = new Vue({
-    el: '#channelopenlogs',
+var vAppOperateActionLogs = new Vue({
+    el: '#operateactionlogs',
     data: {
-        channelopenlogs: [],
+        operateactionlogs: [],
         showMoreBtn: true,
         firstMore: true,
         page: 1,
         limit: 15,
     },
     methods:{
+        getDataJumpRoute: function(tystr) {
+            if( tystr.indexOf("channel") != -1 ){
+                return "channel"
+            }
+            if( tystr.indexOf("user lending") != -1 ){
+                return "usrlend"
+            }
+        },
         queryTransferDatas: function(){
             var that = this
             that.firstMore = false
-            apiget("/api/channel/openlogs", {
+            apiget("/api/operate/actionlogs", {
                 page: that.page,
                 limit: that.limit,
             }, function(data){
-                that.channelopenlogs = that.channelopenlogs.concat(data)
+                that.operateactionlogs = that.operateactionlogs.concat(data)
                 that.page++
                 that.showMoreBtn = data.length==that.limit ? true : false
             })
@@ -148,7 +156,7 @@ var vAppChannelOpenLogs = new Vue({
 })
 
 // 请求数据
-// vAppChannelOpenLogs.queryTransferDatas()
+// vAppOperateActionLogs.queryTransferDatas()
 
 
 

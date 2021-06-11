@@ -313,7 +313,7 @@ div.pmore{
 }
 
 
-#channelopenlogs {
+#operateactionlogs {
     .con{
         table{
             td{
@@ -321,6 +321,50 @@ div.pmore{
             }
         }
     }
+    tr {
+        .t0 a {
+            color: steelblue;
+        }
+        .t1 b{ 
+            display: inline-block;
+            color: mediumseagreen;
+            width: 50px;
+            font-size: 12px;
+            line-height: 12px;
+            word-break: break-word;
+            &.close {
+                color: darkgoldenrod;
+            }
+        }
+        .t2 a{
+            color: darkseagreen;
+            font-size: 12px;
+            line-height: 12px;
+            width: 120px;
+            display: inline-block;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+        .t3 a{
+            display: inline-block;
+            word-break: break-word;
+            font-size: 12px;
+            color: slategray;
+            width: 240px;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+        .t5 {
+            max-width: 200px;
+        }
+        .t6 {
+            color: #999;
+        }
+    }
+
+    /*
     tr .t0{ color: #999; }
     tr .t1 a{ 
         display: inline-block;
@@ -344,6 +388,7 @@ div.pmore{
     }
     tr .t3 b.b2{ color: darkgoldenrod; }
     tr .t4{ color: #999; }
+    */
 }
 
 
@@ -367,7 +412,7 @@ div.pmore{
         }
     }
     tr .t0 a{ 
-        color: cornflowerblue;
+        color: steelblue;
     }
     tr .t1 a{ color: tan; }
     tr .t2 a{ color: darkseagreen; }
@@ -557,12 +602,13 @@ div.pmore{
 }
 
 
-#channelopenlogs{
+#operateactionlogs{
     .wrap{
         .con{
             table{
                 tr.row{
-                    height: 115px;
+                    min-height: 115px;
+                    height: auto;
                     a, b {
                         font-size: 12px;
                         line-height: 12px;
@@ -576,10 +622,21 @@ div.pmore{
                     text-align: left !important;
                 }
                 .t0{ top: 10px; left: 10px; }
-                .t1{ top: 14px; right: 10px; left: auto; }
+                .t2{ top: 10px; left: 70px; }
+                .t6{ top: 80px; right: 10px; left: auto; }
+                .t1{ top: 10px; right: 10px; left: auto; }
                 .t4{ top: 26px; left: 10px; }
-                .t2{ top: 46px; left: 10px; }
-                .t3{ top: 76px; left: 10px; }
+                
+                .t3, .t5 {
+                    width: auto !important;
+                    margin-right: 80px !important;
+                    position: static !important;
+                    padding: 10px;
+                }
+                .t3 {
+                    margin-top: 40px;
+                    padding-bottom: 0;
+                }
 
             }
         }

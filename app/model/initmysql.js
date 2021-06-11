@@ -24,19 +24,20 @@ const AllMysqlTableSchema = {
                 KEY (blockheight, fromaddr, toaddr)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
     `,
-    // 通道记录
-    "channelopenlog": `
-        CREATE TABLE channelopenlog (
+    // 操作记录
+    "operateactionlog": `
+        CREATE TABLE operateactionlog (
             id          INT(4) UNSIGNED NOT NULL AUTO_INCREMENT,
             blockheight INT(4) UNSIGNED DEFAULT 0 NOT NULL,
-            channelid    VARCHAR(255) NOT NULL,
-            leftaddr    VARCHAR(255) NOT NULL,
-            leftamt     VARCHAR(255) NOT NULL,
-            rightaddr   VARCHAR(255) NOT NULL,
-            rightamt    VARCHAR(255) NOT NULL,
+            kid      SMALLINT(4) UNSIGNED DEFAULT 0  NOT NULL,
+            tystr    VARCHAR(255) NOT NULL,
+            dataid    VARCHAR(255) NOT NULL,
+            addr1    VARCHAR(255) NOT NULL,
+            addr2    VARCHAR(255) NOT NULL,
+            notes    VARCHAR(255) NOT NULL,
             timestamp   INT(4) UNSIGNED DEFAULT 0 NOT NULL,
                 PRIMARY KEY (id),
-                KEY (blockheight, channelid, leftaddr, rightaddr)
+                KEY (blockheight, addr1, addr2)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
     `,
     // 钻石数量统计
@@ -73,12 +74,14 @@ function initMysqlDB(){
 
                         // 插入配置默认值
                         if (tbname == "settings") {
+                            let sqls = []
                             for(let name in DefaultSettingsValue){
                                 let value = DefaultSettingsValue[name]
-                                pool.query("INSERT INTO settings(name, value) SELECT '"+name+"','"+value+"' FROM DUAL WHERE NOT EXISTS(SELECT name FROM settings WHERE name = '"+value+"')", function (error, results, fields) {
-                                    if (error) throw error;
-                                })
+                                sqls.push("INSERT INTO settings(name, value) SELECT '"+name+"','"+value+"' FROM DUAL WHERE NOT EXISTS(SELECT name FROM settings WHERE name = '"+value+"')")
                             }
+                            pool.query(sqls.join(";"), function (error, results, fields) {
+                                if (error) throw error;
+                            })
                         }
 
                     })

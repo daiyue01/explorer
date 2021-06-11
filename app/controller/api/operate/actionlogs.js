@@ -3,7 +3,7 @@
  */
 
 const api = appload('tool/apiRespond')
-const model_channelopenlog = appload('model/channelopenlog')
+const model_operateactionlog = appload('model/operateactionlog')
 
 
 module.exports = async function(req, res)
@@ -12,18 +12,18 @@ module.exports = async function(req, res)
     let limit = parseInt(req.query.limit) || 20
     if (limit > 200){ limit = 200 }
     let start = (page - 1) * limit
-    let rets = await model_channelopenlog.getList(req.query.address, req.query.id, start, limit, true)
+    let rets = await model_operateactionlog.getList(req.query.address, req.query.id, start, limit, true)
     let logs = []
     for (let k in rets.results) {
         const v = rets.results[k]
         // console.log(v)
         logs.push([
             v.blockheight,
-            v.channelid,
-            v.leftaddr,
-            v.leftamt,
-            v.rightaddr,
-            v.rightamt,
+            v.tystr,
+            v.dataid,
+            v.addr1,
+            v.addr2,
+            v.notes,
             v.timestamp,
         ])
     }

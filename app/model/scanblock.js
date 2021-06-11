@@ -33,10 +33,10 @@ async function startScanOneBlockOfTransferLog(scanheight) {
     }
 }
 
-async function startScanOneBlockOfChannelOpenLog(scanheight) {
+async function startScanOneBlockOfOperateActionLog(scanheight) {
 
     let jsonobj = await http_tool.json(config.miner_api_url+"/query", {
-        action: "getallchannelopenlogbyblockheight",
+        action: "getalloperateactionlogbyblockheight",
         block_height: scanheight,
     })
     if(jsonobj && jsonobj.datas) {
@@ -45,13 +45,14 @@ async function startScanOneBlockOfChannelOpenLog(scanheight) {
         for (let i in datas) {
             const one = datas[i].split("|")
             const arys = `blockheight = ${scanheight},`
-                + `channelid = "${one[0]}",`
-                + `leftaddr = "${one[1]}",`
-                + `leftamt = "${one[2]}",`
-                + `rightaddr = "${one[3]}",`
-                + `rightamt = "${one[4]}",`
+                + `kid = "${one[0]}",`
+                + `tystr = "${one[1]}",`
+                + `dataid = "${one[2]}",`
+                + `addr1 = "${one[3]}",`
+                + `addr2 = "${one[4]}",`
+                + `notes = "${one[5]}",`
                 + `timestamp = ${jsonobj.timestamp}`
-            await model_initmysql.sql_execute(`INSERT INTO channelopenlog SET ` + arys)
+            await model_initmysql.sql_execute(`INSERT INTO operateactionlog SET ` + arys)
         }
     }
 
@@ -82,7 +83,7 @@ async function startScanLog() {
 
             /**************************** 扫描通道开启记录 ****************************/
 
-            await startScanOneBlockOfChannelOpenLog(scanheight)
+            await startScanOneBlockOfOperateActionLog(scanheight)
 
             // 保存状态，扫描下一个区块
             await model_initmysql.saveSetting(scankey, scanheight)
