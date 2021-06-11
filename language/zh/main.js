@@ -37,7 +37,7 @@ module.exports = {
     oal_last: "最近金融操作",
     oal_ty: "操作类型",
     oal_notes: "详情数据",
-    oal_block_height: "区块高度",
+    oal_block_height: "区块",
     oal_data_id: "数据ID",
     oal_addr: "地址",
     oal_time: "时间",

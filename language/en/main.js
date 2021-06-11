@@ -37,7 +37,7 @@ module.exports = {
     oal_last: "Latest operate actions",
     oal_ty: "Type",
     oal_notes: "Notes",
-    oal_block_height: "Block Height",
+    oal_block_height: "Block",
     oal_data_id: "Data ID",
     oal_addr: "Address",
     oal_time: "Time",

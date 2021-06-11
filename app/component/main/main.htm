@@ -97,43 +97,6 @@
 </div>
 
 
-
-<div id="operateactionlogs" class="mtable mbfix" >
-    <div class="container">
-        <div class="wrap">
-            <h1 class="pt">[:=lang.main.oal_last || "最近金融操作":]:</h1>
-            <div class="con">
-                <table>
-                    <tr class="hd">
-                        <th>[:=lang.main.oal_block_height || "区块高度":]</th>
-                        <th>[:=lang.main.oal_ty || "操作类型":]</th>
-                        <th>[:=lang.main.oal_data_id || "数据id":]</th>
-                        <th class="thwd">[:=lang.main.oal_addr || "地址":]</th>
-                        <th class="thwd">[:=lang.main.oal_notes || "详情数据":]</th>
-                        <th>[:=lang.main.oal_time || "操作时间":]</th>
-                    </tr>
-                    <tr class="row" v-for="one in operateactionlogs">
-                        <td class="t0"><a target="_blank" :href="'/block/'+one[0]">{{one[0]}}</a></td>
-                        <td class="t1"><b :class="{close: one[1].indexOf('close')!=-1}">{{one[1]}}</b></td>
-                        <td class="t2"><a target="_blank" :href="'/'+getDataJumpRoute(one[1])+'/'+one[2]">{{one[2]}}</a></td>
-                        <td class="t3"><a class="a1" target="_blank" :href="'/address/'+one[3]">{{one[3]}}</a><br/><a class="a2" target="_blank" :href="'/address/'+one[4]">{{one[4]}}</a></td>
-                        <td class="t5">{{one[5]}}</td>
-                        <td class="t6">{{formatDate(new Date(one[6]*1000), 'MM-dd hh:mm')}}</td>
-                    </tr>
-                </table>
-                <div class="pmore" v-show="showMoreBtn">
-                    <a class="button" @click="queryTransferDatas">
-                        <span v-show="firstMore">[:=lang.main.oal_show || "查看":]</span>
-                        <span v-show="!firstMore">[:=lang.main.oal_show_more || "查看更多":]</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>    
-</div>
-
-
-
 <div id="blocks" class="mtable mbfix" >
     <div class="container">
         <div class="wrap">
@@ -196,6 +159,41 @@
                 </table>
                 <div class="pmore" v-show="showMoreBtn">
                     <a class="button" @click="queryTransferDatas">[:=lang.main.trs_show_more || "查看更多":]</a>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+
+
+<div id="operateactionlogs" class="mtable mbfix" >
+    <div class="container">
+        <div class="wrap">
+            <h1 class="pt">[:=lang.main.oal_last || "最近金融操作":]:</h1>
+            <div class="con">
+                <table>
+                    <tr class="hd">
+                        <th>[:=lang.main.oal_block_height || "区块":]</th>
+                        <th>[:=lang.main.oal_ty || "操作类型":]</th>
+                        <th>[:=lang.main.oal_data_id || "数据id":]</th>
+                        <th class="thwd">[:=lang.main.oal_addr || "地址":]</th>
+                        <th class="thwd">[:=lang.main.oal_notes || "详情数据":]</th>
+                        <th>[:=lang.main.oal_time || "操作时间":]</th>
+                    </tr>
+                    <tr class="row" v-for="one in operateactionlogs">
+                        <td class="t0"><a target="_blank" :href="'/block/'+one[0]">{{one[0]}}</a></td>
+                        <td class="t1"><b :class="{close: one[1].indexOf('close')!=-1}">{{one[1]}}</b></td>
+                        <td class="t2"><a target="_blank" :href="'/'+getDataJumpRoute(one[1])+'/'+one[2]">{{one[2]}}</a></td>
+                        <td class="t3"><a class="a1" target="_blank" :href="'/address/'+one[3]">{{one[3]}}</a><br/><a class="a2" target="_blank" :href="'/address/'+one[4]">{{one[4]}}</a></td>
+                        <td class="t5">{{one[5]}}</td>
+                        <td class="t6">{{formatDate(new Date(one[6]*1000), 'MM-dd hh:mm')}}</td>
+                    </tr>
+                </table>
+                <div class="pmore" v-show="showMoreBtn">
+                    <a class="button" @click="queryTransferDatas">
+                        <span v-show="firstMore">[:=lang.main.oal_show || "查看":]</span>
+                        <span v-show="!firstMore">[:=lang.main.oal_show_more || "查看更多":]</span>
+                    </a>
                 </div>
             </div>
         </div>
