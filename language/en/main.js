@@ -27,7 +27,7 @@ module.exports = {
     block_show_more: "Show More",
 
     trs_last: "Latest Transactions",
-    trs_block_height: "Block Height",
+    trs_block_height: "Height",
     trs_from: "From",
     trs_to: "To",
     trs_amount: "Amount",
