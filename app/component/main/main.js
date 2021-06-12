@@ -163,7 +163,7 @@ var vAppOperateActionLogs = new Vue({
 })
 
 // 请求数据
-vAppOperateActionLogs.queryTransferDatas()
+// vAppOperateActionLogs.queryTransferDatas()
 
 
 
