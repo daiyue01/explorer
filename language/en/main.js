@@ -28,8 +28,8 @@ module.exports = {
 
     trs_last: "Latest Transactions",
     trs_block_height: "Height",
-    trs_from: "From",
-    trs_to: "To",
+    trs_from: "From address",
+    trs_to: "To address",
     trs_amount: "Amount",
     trs_time: "Confirm time",
     trs_show_more: "Show More",
