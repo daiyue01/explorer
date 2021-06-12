@@ -182,7 +182,7 @@
                     </tr>
                     <tr class="row" v-for="one in operateactionlogs">
                         <td class="t0"><a target="_blank" :href="'/block/'+one[0]">{{one[0]}}</a></td>
-                        <td class="t1"><b :class="{close: one[1].indexOf('close')!=-1}">{{one[1]}}</b></td>
+                        <td class="t1"><b :class="{open: one[1].indexOf('open')!=-1,close: one[1].indexOf('close')!=-1}">{{one[1]}}</b></td>
                         <td class="t2"><a target="_blank" :href="'/'+getDataJumpRoute(one[1])+'/'+one[2]">{{one[2]}}</a></td>
                         <td class="t3"><a class="a1" target="_blank" :href="'/address/'+one[3]">{{one[3]}}</a><br/><a class="a2" target="_blank" :href="'/address/'+one[4]">{{one[4]}}</a></td>
                         <td class="t5">{{one[5]}}</td>

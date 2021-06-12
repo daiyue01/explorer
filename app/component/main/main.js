@@ -135,9 +135,16 @@ var vAppOperateActionLogs = new Vue({
         getDataJumpRoute: function(tystr) {
             if( tystr.indexOf("channel") != -1 ){
                 return "channel"
-            }
-            if( tystr.indexOf("user lending") != -1 ){
+            }else if( tystr.indexOf("user lending") != -1 ){
                 return "usrlend"
+            }else if( tystr.indexOf("diamond syslend") != -1 ){
+                return "dialend"
+            }else if( tystr.indexOf("bitcoin syslend") != -1 ){
+                return "btclend"
+            }else if( tystr.indexOf("bitcoin move") != -1 ){
+                return "lockbls"
+            }else if( tystr.indexOf("lockbls open") != -1 ){
+                return "lockbls"
             }
         },
         queryTransferDatas: function(){
@@ -156,7 +163,7 @@ var vAppOperateActionLogs = new Vue({
 })
 
 // 请求数据
-// vAppOperateActionLogs.queryTransferDatas()
+vAppOperateActionLogs.queryTransferDatas()
 
 
 

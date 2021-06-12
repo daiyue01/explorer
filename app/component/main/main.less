@@ -327,11 +327,14 @@ div.pmore{
         }
         .t1 b{ 
             display: inline-block;
-            color: mediumseagreen;
+            color: darkslategrey;
             width: 50px;
             font-size: 12px;
             line-height: 12px;
             word-break: break-word;
+            &.open {
+                color: mediumseagreen;
+            }
             &.close {
                 color: darkgoldenrod;
             }
@@ -364,31 +367,6 @@ div.pmore{
         }
     }
 
-    /*
-    tr .t0{ color: #999; }
-    tr .t1 a{ 
-        display: inline-block;
-        color: darkseagreen; 
-        width: 110px;
-        font-size: 12px;
-        line-height: 12px;
-     }
-    tr .t2 {
-        text-align: right;
-    }
-    tr .t2 a{ color: olive; }
-    tr .t2 a.a2{ color: darkgoldenrod; }
-    tr .t3 {
-        text-align: left;
-    }
-    tr .t3 b{
-        display: inline;
-        color: olive; 
-        font-weight: bold;
-    }
-    tr .t3 b.b2{ color: darkgoldenrod; }
-    tr .t4{ color: #999; }
-    */
 }
 
 
@@ -429,7 +407,7 @@ div.pmore{
             color: #55afff;
         }
         &.sat {
-            color: #a07a1b;
+            color: #afa95d;
         }
     }
     tr .t4{ color: #999; }
