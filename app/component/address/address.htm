@@ -29,7 +29,7 @@ var ranking_api_url = "[:=ranking_api_url:]";
                         <p><label>[:=lang.address.block || "区块":]：</label><b>{{one[0]}}</b></p>
                         <p><label>[:=lang.address.from || "From":]：</label><b v-html="one[1]"></b></p>
                         <p><label>[:=lang.address.to || "To":]： </label><b v-html="one[2]"></b></p>
-                        <p><label>[:=lang.address.amount || "数额":]：</label><b class="amt">{{one[3]}}</b></p>
+                        <p><label>[:=lang.address.amount || "数额":]：</label><b :class="{amt: 1, hacd: one[3].indexOf('HACD')>-1, sat: one[3].indexOf('SAT')>-1}">{{one[3]}}</b></p>
                         <p><label>[:=lang.address.time || "时间":]：</label><b>{{formatDate(new Date(one[4]*1000), 'MM-dd hh:mm')}}</b></p>
                     </div>
                 </div>
