@@ -15,7 +15,7 @@ var vAppAddress = new Vue({
         trsfirstbtn: true, // 首次显示转账
         ranking_api_url: "",
         all_diamond_names: "",
-        channelopenlogs: null,
+        operateactionlogs: null,
         colpage: 1,
         collimit: 15,
         colifmore: false, // 是否显示更多 
@@ -103,12 +103,27 @@ var vAppAddress = new Vue({
                 }
             })
         },
-        // 查看通道开启记录
-        loadchannelopenlogs: function(){
+        // 查看金融操作记录
+        getDataJumpRoute: function(tystr) {
+            if( tystr.indexOf("channel") != -1 ){
+                return "channel"
+            }else if( tystr.indexOf("user lending") != -1 ){
+                return "usrlend"
+            }else if( tystr.indexOf("diamond syslend") != -1 ){
+                return "dialend"
+            }else if( tystr.indexOf("bitcoin syslend") != -1 ){
+                return "btclend"
+            }else if( tystr.indexOf("bitcoin move") != -1 ){
+                return "lockbls"
+            }else if( tystr.indexOf("lockbls open") != -1 ){
+                return "lockbls"
+            }
+        },
+        loadoperateactionlogs: function(){
             var that = this
             // 加载
             that.colfirstbtn = false
-            apiget("/api/channel/openlogs", {
+            apiget("/api/operate/actionlogs", {
                 address: that.address,
                 page: that.colpage,
                 limit: that.collimit,
@@ -124,10 +139,10 @@ var vAppAddress = new Vue({
                         data[i][2] = '<a class="addr" target="_blank" href="/address/'+data[i][2]+'">'+data[i][2]+'</a>'
                     }
                 }
-                if(!that.channelopenlogs) {
-                    that.channelopenlogs = []
+                if(!that.operateactionlogs) {
+                    that.operateactionlogs = []
                 }
-                that.channelopenlogs = that.channelopenlogs.concat(data)
+                that.operateactionlogs = that.operateactionlogs.concat(data)
                 // page ++ 
                 that.colpage ++ 
                 if (data.length == that.collimit) {

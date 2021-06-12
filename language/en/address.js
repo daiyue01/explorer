@@ -25,8 +25,11 @@ module.exports = {
     dia_check: "Diamonds",
     check_all_diamond_names: "Check all diamond names",
 
-    cha_check: "Channel open logs",
-    check_channel_open_logs: "Check channel open logs",
+    cha_check: "Operate action logs",
+    cha_time: "Time",
+    cha_notes: "Note data",
+    cha_type: "Type",
+    check_operate_action_logs: "Check operate action logs",
 
     load_ok: "load complete",
     show_more: "Show More",

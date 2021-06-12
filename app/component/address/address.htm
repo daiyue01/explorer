@@ -30,7 +30,7 @@ var ranking_api_url = "[:=ranking_api_url:]";
                         <p><label>[:=lang.address.from || "From":]：</label><b v-html="one[1]"></b></p>
                         <p><label>[:=lang.address.to || "To":]： </label><b v-html="one[2]"></b></p>
                         <p><label>[:=lang.address.amount || "数额":]：</label><b :class="{amt: 1, hacd: one[3].indexOf('HACD')>-1, sat: one[3].indexOf('SAT')>-1}">{{one[3]}}</b></p>
-                        <p><label>[:=lang.address.time || "时间":]：</label><b>{{formatDate(new Date(one[4]*1000), 'MM-dd hh:mm')}}</b></p>
+                        <p><label>[:=lang.address.time || "时间":]：</label><b>{{formatDate(new Date(one[4]*1000), 'yyyy-MM-dd hh:mm')}}</b></p>
                     </div>
                 </div>
                 <div class="ok" v-show="(!trsifmore)&&transfers">- [:=lang.address.load_ok || "加载完毕":] -</div>
@@ -53,24 +53,24 @@ var ranking_api_url = "[:=ranking_api_url:]";
         [: } :]
 
         <div class="pcard channel">
-            <h3 class="hdtt">↔ [:=lang.address.cha_check || "通道记录":]</h3>
+            <h3 class="hdtt">↔ [:=lang.address.cha_check || "操作记录":]</h3>
             <div class="content">
                 <div class="datas">
-                    <div :class="{row:1,r0:i==0}" v-for="(one, i) in channelopenlogs">
-                        <p><label>[:=lang.address.block || "区块":]: </label> <b>{{one[0]}}</b></p>
-                        <p><label>[:=lang.address.id || "ID":]: </label> <a class="channel" target="_blank" :href="'/channel/'+one[1]">{{one[1]}}</a> </p>
-                        <p><label>[:=lang.address.addr || "地址":]1: </label> <b v-html="one[2]"></b></p>
-                        <p><label>[:=lang.address.amount || "数额":]1: </label> <b class="amt">{{one[3]}}</b></p>
+                    <div :class="{row:1,r0:i==0}" v-for="(one, i) in operateactionlogs">
+                        <p><label>[:=lang.address.cha_type || "类型":]: </label> <b :class="{type: 1, open: one[1].indexOf('open')!=-1,close: one[1].indexOf('close')!=-1}">{{one[1]}}</b></p>
+                        <p><label>[:=lang.address.block || "区块":]: </label> <a class="block" target="_blank" :href="'/block/'+one[0]">{{one[0]}}</a></p>
+                        <p><label>[:=lang.address.id || "ID":]: </label> <a class="id" target="_blank" :href="'/'+getDataJumpRoute(one[1])+'/'+one[2]">{{one[2]}}</a> </p>
+                        <p><label>[:=lang.address.addr || "地址":]1: </label> <b v-html="one[3]"></b></p>
                         <p><label>[:=lang.address.addr || "地址":]2: </label> <b v-html="one[4]"></b></p>
-                        <p><label>[:=lang.address.amount || "数额":]2: </label> <b class="amt">{{one[5]}}</b></p>
-                        <p><label>[:=lang.address.open_time || "开启时间":]: </label> <b>{{formatDate(new Date(one[6]*1000), 'yyyy-MM-dd hh:mm')}}</b></p>
+                        <p><label>[:=lang.address.cha_notes || "详情数据":]: </label> <span class="notes">{{one[5]}}</span></p>
+                        <p><label>[:=lang.address.cha_time || "操作时间":]: </label> <b>{{formatDate(new Date(one[6]*1000), 'yyyy-MM-dd hh:mm')}}</b></p>
                     </div>
                 </div>
-                <div class="ok" v-show="(!colifmore)&&channelopenlogs">- [:=lang.address.load_ok || "加载完毕":] -</div>
+                <div class="ok" v-show="(!colifmore)&&operateactionlogs">- [:=lang.address.load_ok || "加载完毕":] -</div>
                 <div class="more" v-show="colifmore">
-                    <button @click="loadchannelopenlogs">[:=lang.address.show_more || "查看更多":]</button>
+                    <button @click="loadoperateactionlogs">[:=lang.address.show_more || "查看更多":]</button>
                 </div>
-                <button @click="loadchannelopenlogs" class="btn" v-if="colfirstbtn">[:=lang.address.check_channel_open_logs || "查看通道开启记录":]</button>
+                <button @click="loadoperateactionlogs" class="btn" v-if="colfirstbtn">[:=lang.address.check_operate_action_logs || "查看金融操作记录":]</button>
             </div>
         </div>
 

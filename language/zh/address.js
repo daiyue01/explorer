@@ -26,8 +26,12 @@ module.exports = {
     dia_check: "钻石",
     check_all_diamond_names: "查看所有钻石名称",
 
-    cha_check: "通道开启记录",
-    check_channel_open_logs: "查看通道开启记录",
+    cha_check: "金融操作记录",
+    cha_time: "操作时间",
+    cha_notes: "详情数据",
+    cha_type: "类型",
+    check_operate_action_logs: "查看金融操作记录",
+
 
     load_ok: "加载完毕",
     show_more: "查看更多",
