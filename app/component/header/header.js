@@ -24,6 +24,9 @@ var vAppHeader = new Vue({
                 }else if( ss[0]=="#" && parseInt(ss.substr(1)) > 0){
                     // alert("钻石序号")
                     window.open('/diamond/'+ss.substr(1))
+                }else if (parseInt(ss) > 0 && ss.replace(/[0-9]+/,'')=='') {
+                    // alert("区块高度")
+                    window.open('/block/'+ss)
                 }else if (ss.replace(/[0-9a-fA-F]+/gi,'')=='') {
                     if (ss.length==2*16) {
                         // alert("通道id")
@@ -52,9 +55,6 @@ var vAppHeader = new Vue({
                  }else if (ss.length>=31&&ss.length<=34) {
                     // alert("账户地址")
                     window.open('/address/'+ss)
-                }else if (parseInt(ss) > 0 && ss.replace(/[0-9]+/,'')=='') {
-                    // alert("区块高度")
-                    window.open('/block/'+ss)
                 }else{
                     alert("Unrecognized query content!")
                 }
