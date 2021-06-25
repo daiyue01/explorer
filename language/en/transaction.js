@@ -22,7 +22,7 @@ module.exports = {
     act_addr: "Address",
     act_amt: "Amount",
     act_close_channel: "Close Settlement Channel",
-    act_mining_diamond: "Mining Diamond",
+    act_mining_diamond: "Mint Diamond",
     act_diamond_value: "Name",
     act_diamond_reward_address: "Reward Address",
     act_other: "Other Kind",
