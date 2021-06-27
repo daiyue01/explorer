@@ -1,0 +1,43 @@
+
+<div id="usrlend" class="ppage" ref="usrlend" data-usrlend_id="[:=id:]" >
+    <div class="container">
+        <p class="crumb"><a href="/">[:=lang.common.index_page || "首页":]</a><i>/</i><span>[:=lang.usrlend.usrlend || "用户间借贷借贷合约":] - [:=id:]</span></p>
+        [:if(this.usrlend){:]
+        <div class="pcard info">
+            <h3 class="hdtt">✍ [:=lang.usrlend.usrlend_info || "用户间借贷借贷合约详情":]</h3>
+            <div class="content">
+                <p class="row"><label>ID: </label><b class="hx">[:=id:]</b></p>
+                <p class="row"><label>[:=lang.usrlend.mortgagor_address || "抵押人地址":]: </label><a class="addr" target="_blank" href="/address/[:=usrlend.mortgagor_address:]">[:=usrlend.mortgagor_address:]</a></p>
+                <p class="row"><label>[:=lang.usrlend.lender_address || "放贷人地址":]: </label><a class="addr" target="_blank" href="/address/[:=usrlend.lender_address:]">[:=usrlend.lender_address:]</a></p>
+                <p class="row"><label>[:=lang.usrlend.create_block_height || "借贷开启区块高度":]: </label><a class="hei" target="_blank" href="/block/[:=usrlend.create_block_height:]">[:=usrlend.create_block_height:]</a></p>
+                <p class="row"><label>[:=lang.usrlend.expire_block_height || "约定还款区块高度":]: </label><a class="hei" target="_blank" href="/block/[:=usrlend.expire_block_height:]">[:=usrlend.expire_block_height:]</a></p>
+                <p class="row"><label>[:=lang.usrlend.loan_amount || "借出金额":]: </label><b class="amt">[:=usrlend.loan_amount:]</b></p>
+                <p class="row"><label>[:=lang.usrlend.repay_amount || "约定还款金额":]: </label><b class="amt">[:=usrlend.repay_amount:]</b></p>
+                <p class="row"><label>[:=lang.usrlend.burned_interest_amount || "预先销毁利息":]: </label><b class="amt">[:=usrlend.burned_interest_amount:]</b></p>
+
+                <p class="row"><label>[:=lang.usrlend.mortgage_satoshi || "抵押比特币数量":]: </label><b class="amt">[:=usrlend.mortgage_satoshi:] SAT</b></p>
+                <p class="row"><label>[:=lang.usrlend.mortgage_diamonds || "抵押钻石列表":]: </label><b class="amt">[:=usrlend.mortgage_diamonds||"-":]</b></p>
+
+                <p class="row"><label>[:=lang.usrlend.can_overtime || "是否可以超期赎回":]: </label><b>[:=usrlend.is_redemption_overtime>0?"Yes":"No":]</b></p>
+                <p class="row"><label>[:=lang.usrlend.can_public || "是否可以公开赎回":]: </label><b>[:=usrlend.is_public_redeemable>0?"Yes":"No":]</b></p>
+
+                [: if(usrlend.is_ransomed > 0){ :]
+                <p class="row stas s2"><label>[:=lang.usrlend.lendstas || "借贷状态":]: </label><b class="">[:=lang.usrlend.lendstas2:]</b></p>
+                [: }else{ :]
+                <p class="row stas s1"><label>[:=lang.usrlend.lendstas || "借贷状态":]: </label><b class="">[:=lang.usrlend.lendstas1:]</b></p>
+                [: } :]
+                
+                [: if(usrlend.is_ransomed > 0){ :]
+                <p class="row" style="background-color: papayawhip;"><label>[:=lang.usrlend.ransom_height || "锁仓开启区块高度":]: </label><a class="hei" target="_blank" href="/block/[:=usrlend.ransom_block_height:]">[:=usrlend.ransom_block_height:]</a></p>
+                <p class="row" style="background-color: papayawhip;"><label>[:=lang.usrlend.ransom_amount || "赎回金额":]: </label><b class="amt">[:=usrlend.ransom_amount:]</b></p>
+                <p class="row" style="background-color: papayawhip;"><label>[:=lang.usrlend.ransom_address || "赎回人地址":]: </label><a class="addr" target="_blank" href="/address/[:=usrlend.ransom_address:]">[:=usrlend.ransom_address:]</a></p>
+                [: } :]
+            </div>
+        </div>
+        [:}else{:]
+        <div class="notfind">
+            <p>[:=lang.usrlend.notfind || "对不起，借贷合约暂不存在":]</p>
+        </div>
+        [:}:]
+    </div>
+</div>

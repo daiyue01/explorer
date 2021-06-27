@@ -9,6 +9,8 @@ module.exports = {
     '/channel/:id': 'channel',
     '/lockbls/:id': 'lockbls',
     '/dialend/:id': 'dialend',
+    '/btclend/:id': 'btclend',
+    '/usrlend/:id': 'usrlend',
 
     '/api/lang': 'api/lang',
     'POST/api/lang': 'api/lang',

@@ -1,0 +1,39 @@
+
+<div id="btclend" class="ppage" ref="btclend" data-dialend_id="[:=id:]" >
+    <div class="container">
+        <p class="crumb"><a href="/">[:=lang.common.index_page || "首页":]</a><i>/</i><span>[:=lang.btclend.btclend || "比特币系统借贷合约":] - [:=id:]</span></p>
+        [:if(this.btclend){:]
+        <div class="pcard info">
+            <h3 class="hdtt">✍ [:=lang.btclend.btclend_info || "比特币系统借贷合约详情":]</h3>
+            <div class="content">
+                <p class="row"><label>ID: </label><b class="hx">[:=id:]</b></p>
+                <p class="row"><label>[:=lang.btclend.master_address || "抵押借贷地址":]: </label><a class="addr" target="_blank" href="/address/[:=btclend.main_address:]">[:=btclend.main_address:]</a></p>
+                <p class="row"><label>[:=lang.btclend.create_block_height || "借贷开启区块高度":]: </label><a class="hei" target="_blank" href="/block/[:=btclend.create_block_height:]">[:=btclend.create_block_height:]</a></p>
+                <p class="row"><label>[:=lang.btclend.loan_amount || "借出金额":]: </label><b class="amt">[:=btclend.loan_amount:]</b></p>
+                <p class="row"><label>[:=lang.btclend.burned_interest_amount || "预先销毁利息":]: </label><b class="amt">[:=btclend.burned_interest_amount:]</b></p>
+                <p class="row"><label>[:=lang.btclend.realtime_total_mortgage_ratio || "系统实时总抵押率":]: </label><b>[:=btclend.realtime_total_mortgage_ratio:]</b></p>
+                <p class="row"><label>[:=lang.btclend.realtime_interest_ratio || "系统实时年化利率":]: </label><b>[:=btclend.realtime_interest_ratio:]</b></p>
+                <p class="row"><label>[:=lang.btclend.realtime_loan_ratio || "系统实时可借倍率":]: </label><b>[:=btclend.realtime_loan_ratio:]</b></p>
+                <p class="row"><label>[:=lang.btclend.mortgage_satoshi || "抵押比特币数量":]: </label><b class="amt">[:=btclend.mortgage_satoshi:] SAT</b></p>
+
+                [: if(btclend.is_ransomed > 0){ :]
+                <p class="row stas s2"><label>[:=lang.btclend.lendstas || "借贷状态":]: </label><b class="">[:=lang.btclend.lendstas2:]</b></p>
+                [: }else{ :]
+                <p class="row stas s1"><label>[:=lang.btclend.lendstas || "借贷状态":]: </label><b class="">[:=lang.btclend.lendstas1:]</b></p>
+                [: } :]
+                
+                [: if(btclend.is_ransomed > 0){ :]
+                <p class="row" style="background-color: papayawhip;"><label>[:=lang.btclend.ransom_height || "锁仓开启区块高度":]: </label><a class="hei" target="_blank" href="/block/[:=btclend.ransom_block_height:]">[:=btclend.ransom_block_height:]</a></p>
+                <p class="row" style="background-color: papayawhip;"><label>[:=lang.btclend.ransom_amount || "赎回金额":]: </label><b class="amt">[:=btclend.ransom_amount:]</b></p>
+                [: let ransom_address = btclend.ransom_address_if_public_operation || btclend.main_address; :]
+                <p class="row" style="background-color: papayawhip;"><label>[:=lang.btclend.ransom_address || "第三方赎回":]: </label><a class="addr" target="_blank" href="/address/[:=ransom_address:]">[:=ransom_address:]</a></p>
+                [: } :]
+            </div>
+        </div>
+        [:}else{:]
+        <div class="notfind">
+            <p>[:=lang.btclend.notfind || "对不起，借贷合约暂不存在":]</p>
+        </div>
+        [:}:]
+    </div>
+</div>
