@@ -1,0 +1,37 @@
+
+<div id="dialend" class="ppage" ref="dialend" data-dialend_id="[:=id:]" >
+    <div class="container">
+        <p class="crumb"><a href="/">[:=lang.common.index_page || "首页":]</a><i>/</i><span>[:=lang.dialend.dialend || "比特币系统借贷合约":] - [:=id:]</span></p>
+        [:if(this.dialend){:]
+        <div class="pcard info">
+            <h3 class="hdtt">✍ [:=lang.dialend.dialend_info || "比特币系统借贷合约详情":]</h3>
+            <div class="content">
+                <p class="row"><label>ID: </label><b class="hx">[:=id:]</b></p>
+                <p class="row"><label>[:=lang.dialend.master_address || "抵押借贷地址":]: </label><a class="addr" target="_blank" href="/address/[:=dialend.main_address:]">[:=dialend.main_address:]</a></p>
+                <p class="row"><label>[:=lang.dialend.create_block_height || "借贷开启区块高度":]: </label><a class="hei" target="_blank" href="/block/[:=dialend.create_block_height:]">[:=dialend.create_block_height:]</a></p>
+                <p class="row"><label>[:=lang.dialend.loan_amount || "借出金额":]: </label><b class="amt">[:=dialend.loan_amount:]</b></p>
+                <p class="row"><label>[:=lang.dialend.interest_rate || "借贷利率":]: </label><b>[:=dialend.interest_rate:]</b></p>
+                <p class="row"><label>[:=lang.dialend.mortgage_time || "抵押周期":]: </label><b>[:=dialend.mortgage_time:]</b></p>
+                <p class="row"><label>[:=lang.dialend.diamonds || "钻石列表":]: </label><b class="amt">[:=dialend.diamonds:]</b></p>
+
+                [: if(dialend.is_ransomed > 0){ :]
+                <p class="row stas s2"><label>[:=lang.dialend.lendstas || "借贷状态":]: </label><b class="">[:=lang.dialend.lendstas2:]</b></p>
+                [: }else{ :]
+                <p class="row stas s1"><label>[:=lang.dialend.lendstas || "借贷状态":]: </label><b class="">[:=lang.dialend.lendstas1:]</b></p>
+                [: } :]
+                
+                [: if(dialend.is_ransomed > 0){ :]
+                <p class="row" style="background-color: papayawhip;"><label>[:=lang.dialend.ransom_height || "锁仓开启区块高度":]: </label><a class="hei" target="_blank" href="/block/[:=dialend.ransom_block_height:]">[:=dialend.ransom_block_height:]</a></p>
+                <p class="row" style="background-color: papayawhip;"><label>[:=lang.dialend.ransom_amount || "赎回金额":]: </label><b class="amt">[:=dialend.ransom_amount:]</b></p>
+                [: let ransom_address = dialend.ransom_address_if_public_operation || dialend.main_address; :]
+                <p class="row" style="background-color: papayawhip;"><label>[:=lang.dialend.ransom_address || "第三方赎回":]: </label><a class="addr" target="_blank" href="/address/[:=ransom_address:]">[:=ransom_address:]</a></p>
+                [: } :]
+            </div>
+        </div>
+        [:}else{:]
+        <div class="notfind">
+            <p>[:=lang.dialend.notfind || "对不起，借贷合约暂不存在":]</p>
+        </div>
+        [:}:]
+    </div>
+</div>
