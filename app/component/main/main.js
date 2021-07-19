@@ -340,7 +340,8 @@ function drawDifficultyCharts(data){
  
         // 求数据缩放的比例
         var ratioX = coordMaxX / data.length;
-        var ratioY = coordMaxY / Math.max.apply( null, data );
+        var maxd = Math.max.apply( null, data )
+        var ratioY = coordMaxY / maxd;
  
         // 根据比例，对元数据进行缩放
         var ratioData = data.map( function( val, index ) {
@@ -397,6 +398,8 @@ apiget("/api/difficulty/chartsv3", {}, function(data){
     // historys    days30
     // var nums = data.historys.concat(data.days30)
     var nums = data.days30
+    // nums.pop()
+    // console.log(nums)
     drawDifficultyCharts(nums)
 })
 
