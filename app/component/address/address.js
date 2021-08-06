@@ -131,12 +131,12 @@ var vAppAddress = new Vue({
                 let myaddr = that.address.substr(0,7) + '…'
                 let my =  '<u class="my" title="'+that.address+'">'+myaddr+'</u>'
                 for(let i in data){
-                    if(data[i][2] == that.address){
-                        data[i][2] = my
+                    if(data[i][3] == that.address){
+                        data[i][3] = my
                         data[i][4] = '<a class="addr" target="_blank" href="/address/'+data[i][4]+'">'+data[i][4]+'</a>'
                     }else if(data[i][4] == that.address){
                         data[i][4] = my
-                        data[i][2] = '<a class="addr" target="_blank" href="/address/'+data[i][2]+'">'+data[i][2]+'</a>'
+                        data[i][3] = '<a class="addr" target="_blank" href="/address/'+data[i][3]+'">'+data[i][3]+'</a>'
                     }
                 }
                 if(!that.operateactionlogs) {
