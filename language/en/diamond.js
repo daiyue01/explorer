@@ -13,6 +13,7 @@ module.exports = {
     belong_address: "Belong Address",
     fee_offer: "Fee Offer",
     burn_price: "Average Burning",
+    visual_gene: "Visual Gene",
 
     notfind: "Sorry，Not find.",
 

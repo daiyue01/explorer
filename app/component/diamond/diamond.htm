@@ -10,12 +10,12 @@
                 <p class="row"><label>[:=lang.diamond.number || "号码值":]: </label><b class="number">[:=diamond.number:]</b></p>
                 <p class="row"><label>[:=lang.diamond.belong_address || "当前所属地址":]: </label><a class="addr" target="_blank" href="/address/[:=diamond.address:]">[:=diamond.address:]</a></p>
                 <p class="row"><label>[:=lang.diamond.miner_address || "矿工地址":]: </label><a class="addr" target="_blank" href="/address/[:=diamond.miner_address:]">[:=diamond.miner_address:]</a></p>
-                <!--<p class="row"><label>[:=lang.diamond.source_hash || "资源哈希":]: </label><b>[:=diamond.source_hash:]</b></p>-->
                 <p class="row"><label>[:=lang.diamond.fee_offer || "竞价手续费":]: </label><b class="amt">[:=diamond.approx_fee_offer:]</b></p>
                 <p class="row"><label>[:=lang.diamond.burn_price || "平均竞价价格":]: </label><b class="amt">[:=diamond.average_burn_price:]</b></p>
                 <p class="row"><label>[:=lang.diamond.block_height || "产生区块高度":]: </label><b>[:=diamond.block_height:]</b></p>
                 <p class="row"><label>[:=lang.diamond.block_hash || "产生区块哈希":]: </label><a target="_blank" href="/block/[:=diamond.current_block_hash:]"><b class="hx">[:=diamond.current_block_hash:]</b></a></p>
                 <p class="row"><label>[:=lang.diamond.prev_block_hash || "上次区块哈希":]: </label><a target="_blank" href="/block/[:=diamond.prev_block_hash:]"><b class="hx">[:=diamond.prev_block_hash:]</b></a></p>
+                <p class="row"><label>[:=lang.diamond.visual_gene || "可视化基因":]: </label>[:=diamond.visual_gene:]</p>
             </div>
         </div>
         [:}else{:]

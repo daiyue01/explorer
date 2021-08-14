@@ -13,6 +13,7 @@ module.exports = {
     belong_address: "当前所属地址",
     fee_offer: "竞价手续费",
     burn_price: "平均销毁",
+    visual_gene: "可视化基因",
 
     notfind: "对不起，钻石暂不存在",
 
