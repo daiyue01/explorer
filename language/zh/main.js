@@ -59,5 +59,7 @@ module.exports = {
     rk_tab_diamond: "查看 HACD 持仓前 100 名",
     rk_tab_bitcoin: "查看 BTC 持仓前 100 名",
 
+    ldv_title: "最近挖出钻石的外观",
+    ldv_more: "查看更多钻石图像",
 
 }

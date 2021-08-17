@@ -1,4 +1,6 @@
 
+<script src="/jslib/diamondsvgimg.min.js"></script>
+
 <div id="diamond" class="ppage" ref="diamond" data-address="[:=name:]" >
     <div class="container">
         <p class="crumb"><a href="/">[:=lang.common.index_page || "首页":]</a><i>/</i><span>[:=lang.diamond.diamond || "钻石":] - [:=name:]</span></p>
@@ -15,7 +17,17 @@
                 <p class="row"><label>[:=lang.diamond.block_height || "产生区块高度":]: </label><b>[:=diamond.block_height:]</b></p>
                 <p class="row"><label>[:=lang.diamond.block_hash || "产生区块哈希":]: </label><a target="_blank" href="/block/[:=diamond.current_block_hash:]"><b class="hx">[:=diamond.current_block_hash:]</b></a></p>
                 <p class="row"><label>[:=lang.diamond.prev_block_hash || "上次区块哈希":]: </label><a target="_blank" href="/block/[:=diamond.prev_block_hash:]"><b class="hx">[:=diamond.prev_block_hash:]</b></a></p>
-                <p class="row"><label>[:=lang.diamond.visual_gene || "可视化基因":]: </label>[:=diamond.visual_gene:]</p>
+                <div class="row">
+                    <label>[:=lang.diamond.visual_gene || "可视化基因":]: </label>[:=diamond.visual_gene:]
+                </div>
+
+                <div class="dnnv top"><span>Hacash Diamond - HACD</span></div>
+                <div id="diaimg" visual_gene="[:=diamond.visual_gene:]">
+                    
+                </div>
+                <div class="dnnv"><b>[:=diamond.name:]</b><span>#[:=diamond.number:]</span></div>
+            
+                <div id="showbigimg"><b>[:=lang.diamond.showbigimg || "查看大图":] ››</b><div></div></div>
             </div>
         </div>
         [:}else{:]

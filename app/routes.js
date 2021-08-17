@@ -5,6 +5,7 @@ module.exports = {
     '/block/:blockid': 'block',
     '/tx/:trshx': 'transaction',
     '/diamond/:name': 'diamond',
+    '/diaviews/:page': 'diaviews',
 
     '/channel/:id': 'channel',
     '/lockbls/:id': 'lockbls',
@@ -37,6 +38,8 @@ module.exports = {
 
     '/api/total/supply': 'api/total/supply',
     '/api/total/current_circulation_number': 'api/total/current_circulation_number',
+
+    '/api/diamond/visual_gene_list': 'api/diamond/visual_gene_list',
     
 
 }

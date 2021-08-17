@@ -1,0 +1,47 @@
+
+<script src="/jslib/diamondsvgimg.min.js"></script>
+
+<div class="pagewrap">
+    <div class="topnav">
+        <div class="jump">
+            <span>[:=limit:] per page, max page [:=maxpage:], current page [:=page:]</span>
+        </div>
+
+        <div class="move">
+            [: if(page>1){ :]
+            <a href="/diaviews/1?curdianum=[:=curdianum:]">⇤</a>
+            <a href="/diaviews/[:=page-1:]?curdianum=[:=curdianum:]">‹ Prve</a>
+            [: } :]
+            [: if(page < maxpage){ :]
+            <a href="/diaviews/[:=page+1:]?curdianum=[:=curdianum:]">Next ›</a>
+            <a href="/diaviews/[:=maxpage:]?curdianum=[:=curdianum:]">⇥</a>
+            [: } :]
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <div class="list" >[:for(var i in diamonds){ var one=diamonds[i]; :]<a 
+        class="diaitem" href="/diamond/[:=one.name:]" target="_blank">
+            <div class="svg" gene="[:=one.visual_gene:]"></div>
+            <div class="info"><b>[:=one.name:]</b><span>#[:=one.number:]</span></div>
+    </a>[:}:]</div>
+
+
+    <div class="topnav">
+
+        <div class="move">
+            [: if(page>1){ :]
+            <a href="/diaviews/1?curdianum=[:=curdianum:]">⇤</a>
+            <a href="/diaviews/[:=page-1:]?curdianum=[:=curdianum:]">‹ Prve</a>
+            [: } :]
+            [: if(page < maxpage){ :]
+            <a href="/diaviews/[:=page+1:]?curdianum=[:=curdianum:]">Next ›</a>
+            <a href="/diaviews/[:=maxpage:]?curdianum=[:=curdianum:]">⇥</a>
+            [: } :]
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+
+</div>

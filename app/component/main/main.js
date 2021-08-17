@@ -56,7 +56,42 @@ var vAppDiamondCreateTxs = new Vue({
                 that.txs = data.datas
                 that.period = data.period
                 that.number = data.number
+                // 获取最近六枚钻石图片
+                that.queryLast6DiamondPicture(data.number)
             })
+        },
+        // 请求最近六枚钻石图片
+        queryLast6DiamondPicture: function(pendding_dianum){
+            var that = this
+            apiget("/api/diamond/visual_gene_list", {
+                start_number: pendding_dianum - 6,
+                limit: 6,
+            }, function(data){
+                // console.log(data)
+                // 倒序
+                var datalist = [];
+                for(var n=data.list.length-1; n>=0; n--){
+                    datalist.push(data.list[n])
+                }
+                console.log(datalist)
+                that.showLast6diamondPic(datalist, pendding_dianum)
+
+            })
+        },
+        // 显示钻石可视化6枚
+        showLast6diamondPic(datalist, pendding_dianum) {
+            var blk = document.getElementById("diampicslast6")
+            var picdivs = blk.getElementsByClassName("diapic")
+            var more =  blk.getElementsByClassName("more")[0]
+            for(var n=0; n<datalist.length; n++){
+                var one = datalist[n]
+                , li = picdivs[n];
+                li.setAttribute("href", '/diamond/' + one.name)
+                more.setAttribute("href", '/diaviews/last?curdianum=' + (pendding_dianum-1))
+                picdivs[n].innerHTML = CreateDiamondImageTagSVG(one.number, one.visual_gene, 140, "diaitem")
+                    + '<h3 class="name">' + one.name + '</h3>'
+                    + '<p class="num">#' + one.number + '</p>'
+            }
         },
 
     }

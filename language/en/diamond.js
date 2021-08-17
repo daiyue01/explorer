@@ -14,6 +14,7 @@ module.exports = {
     fee_offer: "Fee Offer",
     burn_price: "Average Burning",
     visual_gene: "Visual Gene",
+    showbigimg: "View HD diamond picture",
 
     notfind: "Sorry，Not find.",
 

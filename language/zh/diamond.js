@@ -14,6 +14,7 @@ module.exports = {
     fee_offer: "竞价手续费",
     burn_price: "平均销毁",
     visual_gene: "可视化基因",
+    showbigimg: "查看钻石高清大图",
 
     notfind: "对不起，钻石暂不存在",
 

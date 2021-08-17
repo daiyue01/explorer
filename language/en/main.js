@@ -59,4 +59,7 @@ module.exports = {
     rk_tab_diamond: "Show top 100 HACD addresses",
     rk_tab_bitcoin: "Show top 100 BTC addresses",
 
+    ldv_title: "Recent diamonds appearance",
+    ldv_more: "Show more",
+
 }
