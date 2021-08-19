@@ -4,7 +4,7 @@
     var sbp = document.getElementById("showbigimg")
     var vgstr = diaimg.getAttribute("visual_gene")
     var svgtag = CreateDiamondImageTagSVG(1, vgstr, 500, "diaitem")
-
+    
     diaimg.innerHTML = svgtag
 
     // 查看高清大图
