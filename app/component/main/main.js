@@ -73,7 +73,7 @@ var vAppDiamondCreateTxs = new Vue({
                 for(var n=data.list.length-1; n>=0; n--){
                     datalist.push(data.list[n])
                 }
-                console.log(datalist)
+                // console.log(datalist)
                 that.showLast6diamondPic(datalist, pendding_dianum)
 
             })
@@ -426,7 +426,7 @@ function drawDifficultyCharts(data){
 
 // 加载算力难度值
 apiget("/api/difficulty/chartsv3", {}, function(data){
-    console.log(data)
+    // console.log(data)
     vAppDfcts.target_hashpower = data.target_show
     vAppDfcts.current_hashpower = data.current_show
     // vAppDfcts.hashpower = data.hashpower
