@@ -47,7 +47,7 @@ var ranking_api_url = "[:=ranking_api_url:]";
             <h3 class="hdtt">❂ [:=lang.address.dia_check || "钻石":]</h3>
             <div class="content">
                 <button @click="alldiamondnames" class="btn" v-if="all_diamond_names==''">[:=lang.address.check_all_diamond_names || "查看所有钻石名称":]</button>
-                <p v-if="all_diamond_names" style="word-break: break-all;">{{all_diamond_names}}</p>
+                <p class="alldmdns" v-if="all_diamond_names" style="word-break: break-all;" v-html="all_diamond_names"></p>
             </div>
         </div>
         [: } :]

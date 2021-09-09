@@ -89,15 +89,15 @@ var vAppAddress = new Vue({
                 address: that.address,
             }, function(data){
                 if(data.diamonds) {
-                    var dias = ""
+                    var dias = "<i>"
                     for(var i=0; i+6<=data.diamonds.length; i+=6) {
                         if(i==0){
                             dias += data.diamonds.substr(i, 6)
                         }else{
-                            dias += "," + data.diamonds.substr(i, 6)
+                            dias += "</i>,<i>" + data.diamonds.substr(i, 6)
                         }
                     }
-                    that.all_diamond_names = dias
+                    that.all_diamond_names = dias + "</i>"
                 }else{
                     that.all_diamond_names = "-"
                 }
