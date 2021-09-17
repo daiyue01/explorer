@@ -95,12 +95,7 @@ var vAppAddress = new Vue({
                         if(i==0){
                             dias += data.diamonds.substr(i, 6)
                         }else{
-                            if(dianum%15 == 0){
-                                dias += "</i>,<br/><i>" // 15个换行
-                            }else{
-                                dias += "</i>,<i>"
-                            }
-                            dias += data.diamonds.substr(i, 6)
+                            dias += "</i>,<i>" + data.diamonds.substr(i, 6)
                         }
                         dianum ++;
                     }
