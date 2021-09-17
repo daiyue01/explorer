@@ -92,7 +92,6 @@ var vAppAddress = new Vue({
                     var dias = "<i>"
                     var dianum = 0;
                     for(var i=0; i+6<=data.diamonds.length; i+=6) {
-                        dianum ++;
                         if(i==0){
                             dias += data.diamonds.substr(i, 6)
                         }else{
@@ -103,6 +102,7 @@ var vAppAddress = new Vue({
                             }
                             dias += data.diamonds.substr(i, 6)
                         }
+                        dianum ++;
                     }
                     that.all_diamond_names = dias + "</i>"
                 }else{
