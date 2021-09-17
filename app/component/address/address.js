@@ -90,11 +90,13 @@ var vAppAddress = new Vue({
             }, function(data){
                 if(data.diamonds) {
                     var dias = "<i>"
+                    var dianum = 0;
                     for(var i=0; i+6<=data.diamonds.length; i+=6) {
+                        dianum ++;
                         if(i==0){
                             dias += data.diamonds.substr(i, 6)
                         }else{
-                            if((i+1)%15 == 0){
+                            if(dianum%15 == 0){
                                 dias += "</i>,<br/><i>" // 15个换行
                             }else{
                                 dias += "</i>,<i>"
