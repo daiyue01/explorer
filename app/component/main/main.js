@@ -57,9 +57,35 @@ var vAppDiamondCreateTxs = new Vue({
                 that.period = data.period
                 that.number = data.number
                 // 获取最近六枚钻石图片
-                that.queryLast6DiamondPicture(data.number)
+                vAppDiamondPicsLast6.queryLast6DiamondPicture(data.number)
             })
         },
+    }
+})
+
+// 请求数据
+vAppDiamondCreateTxs.queryDatas()
+
+
+//////////////////////////////////////
+
+
+var vAppDiamondPicsLast6 = new Vue({
+    el: '#diampicslast6',
+    data: {
+        diamondstr: "",
+    },
+    methods:{
+
+        // 查看指定钻石图片
+        checkDiamonds: function(){
+            var ds = this.diamondstr;
+            if(!ds){
+                return
+            }
+            window.open("/diaviews?dianames=" + ds)
+        },
+
         // 请求最近六枚钻石图片
         queryLast6DiamondPicture: function(pendding_dianum){
             var that = this
@@ -94,11 +120,9 @@ var vAppDiamondCreateTxs = new Vue({
             }
         },
 
-    }
-})
 
-// 请求数据
-vAppDiamondCreateTxs.queryDatas()
+    }
+});
 
 
 

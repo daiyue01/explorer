@@ -60,6 +60,8 @@ module.exports = {
     rk_tab_bitcoin: "查看 BTC 持仓前 100 名",
 
     ldv_title: "最近挖出钻石的外观",
+    ldv_check: "查看",
+    ldv_check_input_tip: "查看指定钻石图像，名称逗号隔开，最多50枚",
     ldv_more: "查看更多钻石图像",
 
 }

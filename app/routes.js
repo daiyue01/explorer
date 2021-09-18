@@ -6,6 +6,7 @@ module.exports = {
     '/tx/:trshx': 'transaction',
     '/diamond/:name': 'diamond',
     '/diaviews/:page': 'diaviews',
+    '/diaviews': 'diaviews',
 
     '/channel/:id': 'channel',
     '/lockbls/:id': 'lockbls',

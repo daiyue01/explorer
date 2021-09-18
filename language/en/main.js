@@ -60,6 +60,8 @@ module.exports = {
     rk_tab_bitcoin: "Show top 100 BTC addresses",
 
     ldv_title: "Recent diamonds appearance",
+    ldv_check: "Check",
+    ldv_check_input_tip: "View diamonds image, names separated by commas, max 50",
     ldv_more: "Show more",
 
 }

@@ -25,6 +25,7 @@ exports.datas = async function(query, callback, req, res)
     , limit = 50
     , curdianum = parseInt(req.query.curdianum)
     , maxpage =  parseInt(curdianum / 50) + 1
+    , dianames = req.query.dianames || ""
     ;
     if(isNaN(page)){
         page = maxpage
@@ -38,6 +39,7 @@ exports.datas = async function(query, callback, req, res)
     try{
         let jsonobj = await http_tool.json(config.miner_api_url+"/query", {
             action: "getdiamondvisualgenelist",
+            dianames: dianames,
             start_number: start,
             limit: limit,
         })
@@ -62,6 +64,7 @@ exports.datas = async function(query, callback, req, res)
         limit: limit,
         maxpage: maxpage,
         curdianum: curdianum,
+        dianames: dianames || null,
         diamonds: diamond_view_gene_list,
     }, req, res)
 }
