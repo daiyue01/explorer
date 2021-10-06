@@ -15,6 +15,7 @@ module.exports = {
     burn_price: "Average Burning",
     visual_gene: "Visual Gene",
     showbigimg: "View HD diamond picture",
+    downloadsvg: "Download SVG format picture",
 
     notfind: "Sorry，Not find.",
 

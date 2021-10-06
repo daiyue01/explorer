@@ -15,6 +15,7 @@ module.exports = {
     burn_price: "平均销毁",
     visual_gene: "可视化基因",
     showbigimg: "查看钻石高清大图",
+    downloadsvg: "下载SVG格式矢量高清图片",
 
     notfind: "对不起，钻石暂不存在",
 
