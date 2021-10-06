@@ -24,14 +24,15 @@
                 <div class="diapicwrap">
 
                     <div class="dnnv top"><span>Hacash Diamond - HACD</span></div>
-                    <div id="diaimg" visual_gene="[:=diamond.visual_gene:]">
+                    <div id="diaimg" visual_gene="[:=diamond.visual_gene:]" savefilename="[:=diamond.name:]_[:=diamond.number:]">
                         
                     </div>
                     <div class="dnnv"><b>[:=diamond.name:]</b><span>#[:=diamond.number:]</span></div>
 
                 </div>
             
-                <div id="showbigimg"><b>[:=lang.diamond.showbigimg || "查看大图":] ››</b><div></div></div>
+                <div id="showbigimg" class="vbtn"><b>[:=lang.diamond.showbigimg || "查看大图":] ››</b><div></div></div>
+                <div id="downloadsvg" class="vbtn"><b>[:=lang.diamond.downloadsvg || "下载SVG格式图片":] ››</b><div></div></div>
             </div>
         </div>
         [:}else{:]
