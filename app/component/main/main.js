@@ -5,7 +5,7 @@ var vAppTotalSupply = new Vue({
     data: {
         minted_diamond: "-", // The number of diamonds that have been minted successfully
         transferred_bitcoin: "-",
-        miner_reward: "-", // Block reward HAC accumulation
+        block_reward: "-", // Block reward HAC accumulation
         channel_interest: "-", // Channel interest HAC accumulation
         btcmove_subsidy: "-", // BTC transfer and additional issuance of HAC
         burned_fee: "-", // tx fee by burning
