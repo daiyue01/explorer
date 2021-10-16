@@ -11,6 +11,7 @@ var vAppTotalSupply = new Vue({
         burned_fee: "-", // tx fee by burning
         current_circulation: "-", // Current circulation supply
         located_in_channel: "-", // Real time statistics of HAc located in channel chain
+        channel_of_opening: "-",
     },
     methods:{
         queryDatas: function(){
