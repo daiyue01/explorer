@@ -19,13 +19,14 @@ var vAppTotalSupply = new Vue({
             }, function(data){
                 // console.log(data)
                 // console.log(that)
+                that.block_reward = data.block_reward
                 that.minted_diamond = data.minted_diamond
                 that.transferred_bitcoin = data.transferred_bitcoin
-                that.miner_reward = data.miner_reward
                 that.channel_interest = data.channel_interest
                 that.btcmove_subsidy = data.btcmove_subsidy
                 that.burned_fee = data.burned_fee
                 that.located_in_channel = data.located_in_channel
+                that.channel_of_opening = data.channel_of_opening
                 that.current_circulation = data.current_circulation
             })
         },

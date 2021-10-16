@@ -45,11 +45,12 @@ module.exports = {
     oal_show_more: "Show More",
 
     ttspl_title: "Total supply statistics:",
-    ttspl_miner_reward: "Miner reward:",
+    ttspl_block_reward: "Block reward:",
     ttspl_channel_interest: "Channel interest:",
     ttspl_btcmove_subsidy: "BTC move subsidy:",
     ttspl_burned_fee: "Burned fee:",
     ttspl_located_in_channel: "Located in channel:",
+    ttspl_channel_of_opening: "Channel of opening:",
     ttspl_minted_diamond: "Minted diamond:",
     ttspl_transferred_bitcoin: "Transferred bitcoin:",
     ttspl_current_circulation: "Current circulation:",
