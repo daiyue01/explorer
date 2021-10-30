@@ -41,6 +41,12 @@ module.exports = {
 
     act_sat_trs: "SAT Pay",
 
+    act_lockbls_id: "Lock contract",
+    act_lockbls_release: "HAC lock release",
+    act_lockbls_release_amount: "Release amount",
+    act_lockbls_create: "HAC lock create",
+    act_lockbls_create_amount: "Lock amount",
+
     notfind: "Sorry, not find.",
     
 

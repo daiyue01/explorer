@@ -57,7 +57,7 @@
                     <b>[:=one.amount:]</b> 
                 </p>
 
-            [: }else if(one.k==8 || one.k==11){ :]
+            [: }else if(one.k==8 || one.k==11 || one.k==28){ :]
                 <p class="row r[:=(++i):]">
                     <span class="kind">[[:=lang.transaction.act_sat_trs || "Satoshi转账":]]</span>
                     <label>[:=lang.transaction.act_payment_address || "支付地址":]: </label>
@@ -73,9 +73,22 @@
                     <span>MainAddress</span> 
                     [: } :]
                     <label>[:=lang.transaction.act_amount || "金额":]: </label>
-                    <b>[:=one.amount:]</b> 
+                    <b>[:=one.amount:] SAT</b> 
                 </p>
 
+            [: }else if(one.k==9){ :]
+                <p class="row r[:=(++i):]">
+                    <span class="kind">[[:=lang.transaction.act_lockbls_create || "线性锁仓合约创建":]]</span>
+                    <label>[:=lang.transaction.act_lockbls_id || "锁仓合约地址":]: </label><a target="_blank" href="/lockbls/[:=one.lockbls_id:]">[:=one.lockbls_id:]</a>
+                    <label>[:=lang.transaction.act_lockbls_create_amount || "锁入金额":]: </label><b>[:=one.amount:]</b>  
+                </p>
+
+            [: }else if(one.k==10){ :]
+                <p class="row r[:=(++i):]">
+                    <span class="kind">[[:=lang.transaction.act_lockbls_release || "锁仓释放":]]</span>
+                    <label>[:=lang.transaction.act_lockbls_id || "锁仓合约地址":]: </label><a target="_blank" href="/lockbls/[:=one.lockbls_id:]">[:=one.lockbls_id:]</a>
+                    <label>[:=lang.transaction.act_lockbls_release_amount || "释放金额":]: </label><b>[:=one.amount:]</b>  
+                </p>
 
             [: }else if(one.k==2){ :]
                 <p class="row r[:=(++i):]">
@@ -86,7 +99,7 @@
                     <label>[:=lang.transaction.act_addr || "地址":] 2: </label><a target="_blank" href="/address/[:=one.right_addr:]">[:=one.right_addr:]</a> 
                     <label>[:=lang.transaction.act_amt || "金额":] 2: </label><b>[:=one.right_amt:]</b> 
                 </p>
-            [: }else if(one.k==3 || one.k==12){ :]
+            [: }else if(one.k==3 || one.k==12 || one.k==21){ :]
                 <p class="row r[:=(++i):]">
                     <span class="kind">[[:=lang.transaction.act_close_channel || "关闭结算通道":]]</span>
                     <label>[:=lang.transaction.act_channel_id || "通道id":]:</label><a target="_blank" href="/channel/[:=one.channel_id:]">[:=one.channel_id:]</a>
@@ -117,6 +130,13 @@
                     <label>[:=lang.transaction.act_btcmove_hacsubsidy || "HAC 增发数量":]: </label><b>[:=one.hac_subsidy:]</b>
                     <label>[:=lang.transaction.act_btcmove_lockbls || "锁仓合约地址":]: </label><a target="_blank" href="/lockbls/[:=one.lockbls_id:]">[:=one.lockbls_id:]</a> 
                     <label>[:=lang.transaction.act_btcmove_address || "所属地址":]: </label><a target="_blank" href="/address/[:=one.address:]">[:=one.address:]</a> 
+                </p>
+            [: }else if(one.k==22 || one.k==23 || one.k==24 || one.k==27){ :]
+                <p class="row r[:=(++i):]">
+                    <span class="kind">[[:=lang.transaction.act_chanassert || "提交通道仲裁":]] kn: [:=one.k:]</span>
+                    <label>[:=lang.transaction.act_channel_id || "通道id":]: </label><a target="_blank" href="/channel/[:=one.channel_id:]">[:=one.channel_id:]</a>
+                    <label>[:=lang.transaction.act_chanassert_addr || "主张地址":]: </label><a target="_blank" href="/address/[:=one.assert_address:]">[:=one.assert_address:]</a> 
+                    <label>[:=lang.transaction.act_chanassert_billno || "对账序号":]: </label><b>[:=one.bill_number:]</b>
                 </p>
             [: }else{ :]
                 <p class="row r[:=(++i):] other">[kind=[:=one.k:]] [:=lang.transaction.act_other || "其它种类":] action</p>
