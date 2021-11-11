@@ -43,6 +43,12 @@ module.exports = {
 
     act_sat_trs: "SAT 转账",
 
+    act_lockbls_id: "锁仓合约地址",
+    act_lockbls_release: "HAC 线性锁仓释放",
+    act_lockbls_release_amount: "释放金额",
+    act_lockbls_create: "HAC 线性锁仓合约创建",
+    act_lockbls_create_amount: "总锁入金额",
+
     notfind: "对不起，找不到要查询的交易",
     
 
