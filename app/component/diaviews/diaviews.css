@@ -73,6 +73,7 @@
   font-size: 16px;
   text-shadow: 0 0 2px #00000066;
   border: #F5E1DA 2px solid;
+  margin-top: 4px;
 }
 #colors .i0 {
   background-image: linear-gradient(to right, #041B2D, #004E9A);
