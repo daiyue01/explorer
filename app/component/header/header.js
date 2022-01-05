@@ -18,9 +18,14 @@ var vAppHeader = new Vue({
             var that = this,
                 ss = that.search_str.replace(/\s+/i,'')
             if (ss) {
-                if ( ss.length==6 && ss.replace(/[WTYUIAHXVMEKBSZN]+/ig, "")=="") {
-                    // alert("钻石字面值")
-                    window.open('/diamond/'+ss)
+                if (ss.replace(/[WTYUIAHXVMEKBSZN\,]+/ig, "")=="") {
+                    if(ss.length == 6){
+                        // alert("钻石字面值")
+                        window.open('/diamond/'+ss)
+                    }else if(ss.length > 6 + 1 + 6){
+                        // alert("钻石列表")
+                        window.open('/diaviews?dianames='+ss)
+                    }
                 }else if( ss[0]=="#" && parseInt(ss.substr(1)) > 0){
                     // alert("钻石序号")
                     window.open('/diamond/'+ss.substr(1))
