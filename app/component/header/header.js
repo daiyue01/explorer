@@ -22,7 +22,7 @@ var vAppHeader = new Vue({
                     if(ss.length == 6){
                         // alert("钻石字面值")
                         window.open('/diamond/'+ss)
-                    }else if(ss.length > 6 + 1 + 6){
+                    }else if(ss.length >= 6 + 1 + 6){
                         // alert("钻石列表")
                         window.open('/diaviews?dianames='+ss)
                     }
