@@ -163,9 +163,9 @@ var vAppTransfers = new Vue({
                     per = parseFloat(num)
                     // console.log(per)
                 }else if(amt.indexOf('HACD') > 0) {
-                    per = parseFloat(amt) / 100
+                    per = parseFloat(amt)
                 }else if(amt.indexOf('SAT') > 0) {
-                    per = parseFloat(amt) / 100000000
+                    per = parseFloat(amt) / 100 * 10000
                 }
                 if(per > 100) {
                     per = 100
