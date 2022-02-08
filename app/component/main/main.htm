@@ -182,15 +182,15 @@
                         <th>[:=lang.main.trs_block_height || "区块高度":]</th>
                         <th>[:=lang.main.trs_from || "From地址":]</th>
                         <th>[:=lang.main.trs_to || "To地址":]</th>
-                        <th>[:=lang.main.trs_amount || "金额":]</th>
                         <th>[:=lang.main.trs_time || "确认时间":]</th>
+                        <th>[:=lang.main.trs_amount || "金额":]</th>
                     </tr>
                     <tr class="row" v-for="one in transfers">
                         <td class="t0"><a target="_blank" :href="'/block/'+one[0]">{{one[0]}}</a></td>
                         <td class="t1"><a target="_blank" :href="'/address/'+one[1]">{{one[1]}}</a></td>
                         <td class="t2"><a target="_blank" :href="'/address/'+one[2]">{{one[2]}}</a></td>
-                        <td class="t3"><b :class="{hacd: one[3].indexOf('HACD')>-1, sat: one[3].indexOf('SAT')>-1}">{{one[3]}}</b></td>
                         <td class="t4">{{formatDate(new Date(one[4]*1000), 'MM-dd hh:mm')}}</td>
+                        <td class="t3 amtw"><b :class="{hacd: one[3].indexOf('HACD')>-1, sat: one[3].indexOf('SAT')>-1}">{{one[3]}}</b><div class="per" :style="{width:one[5]}"></div></td>
                     </tr>
                 </table>
                 <div class="pmore" v-show="showMoreBtn">

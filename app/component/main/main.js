@@ -143,12 +143,46 @@ var vAppTransfers = new Vue({
         limit: 15,
     },
     methods:{
+        dealDatas: function(data) {
+            for(var i in data){
+                var one = data[i]
+                , amt = one[3]
+                ;
+                var per = 0.0
+                // console.log(amt)
+                if(amt.indexOf('ㄜ') >= 0) {
+                    amt = amt.replace(/ㄜ/, '').replace(/\,/g, '')
+                    var num = parseFloat(amt)
+                    , unit = parseInt(amt.split(':')[1])
+                    if(unit > 248) {
+                        num *= Math.pow(10, unit - 248)
+                    }
+                    if(unit < 248) {
+                        num /= Math.pow(10, 248 - unit)
+                    }
+                    per = parseFloat(num)
+                    // console.log(per)
+                }else if(amt.indexOf('HACD') > 0) {
+                    per = parseFloat(amt) / 100
+                }else if(amt.indexOf('SAT') > 0) {
+                    per = parseFloat(amt) / 100000000
+                }
+                if(per > 100) {
+                    per = 100
+                }
+                if(per <= 1){
+                    per = 1
+                }
+                data[i].push(per+'%')
+            }
+        },
         queryTransferDatas: function(){
             var that = this
             apiget("/api/transfer/logs", {
                 page: that.page,
                 limit: that.limit,
             }, function(data){
+                that.dealDatas(data)
                 that.transfers = that.transfers.concat(data)
                 that.page++
                 that.showMoreBtn = data.length==that.limit ? true : false
@@ -170,6 +204,7 @@ var vAppTransfers = new Vue({
         },
     }
 })
+
 
 // 请求数据
 vAppTransfers.queryTransferDatas()

@@ -8,6 +8,8 @@
 
 node_modules/
 
+config.use.js
+
 package-lock.json
 
 static/jscss/*.js
