@@ -626,6 +626,10 @@ div.pmore .button span {
   #transfers .wrap .con table .t3 {
     top: 46px;
     left: 10px;
+    position: absolute !important;
+  }
+  #transfers .wrap .con table .t3 .per {
+    display: none !important;
   }
   #transfers .wrap .con table .t4 {
     top: 46px;
