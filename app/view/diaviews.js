@@ -60,6 +60,7 @@ exports.datas = async function(query, callback, req, res)
     // 返回
     callback(null, {
         pagetitle: "Hacash Diamond Pictures - page " + page,
+        show_fee: !(req.query.no_fee),
         page: page,
         limit: limit,
         maxpage: maxpage,
