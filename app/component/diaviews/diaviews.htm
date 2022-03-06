@@ -12,7 +12,7 @@
     <div class="list" >[:for(var i in diamonds){ var one=diamonds[i]; :]<a 
         class="diaitem" href="/diamond/[:=one.name:]" target="_blank">
             <div class="svg" gene="[:=one.visual_gene:]"></div>
-            <div class="info"><b>[:=one.name:]</b><span>#[:=one.number:]</span><br/><span>fee: [:=one.bid_fee:]</span></div>
+            <div class="info"><b>[:=one.name:]</b><span>#[:=one.number:]</span>[:if(show_fee){:]<br/><span>fee: [:=one.bid_fee:]</span>[:}:]</div>
     </a>[:}:]</div>
 </div>
 
