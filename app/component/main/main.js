@@ -406,10 +406,10 @@ vAppBlocks.queryNewDatas(last_height, vAppBlocks.pagelimit)
 
 
 
-function drawDifficultyCharts(data){
+function drawDifficultyCharts(idname, data){
     // 绘制算力曲线
     //获取Canvas对象(画布)
-    var cvs = document.getElementById("dfcts_canvas");
+    var cvs = document.getElementById(idname);
     //简单地检测当前浏览器是否支持Canvas对象，以免在一些不支持html5的浏览器中提示语法错误
     if(cvs.getContext){  
         //获取对应的CanvasRenderingContext2D对象(画笔)
@@ -493,10 +493,11 @@ apiget("/api/difficulty/chartsv3", {}, function(data){
     // vAppDfcts.hashpower = data.hashpower
     // historys    days30
     // var nums = data.historys.concat(data.days30)
-    var nums = data.days30
+    var nums = 
     // nums.pop()
     // console.log(nums)
-    drawDifficultyCharts(nums)
+    drawDifficultyCharts("dfcts_canvas", data.days30)
+    drawDifficultyCharts("dfcts_canvas_all", data.daysall)
 })
 
 setTimeout(function(){

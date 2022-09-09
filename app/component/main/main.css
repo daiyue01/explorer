@@ -2,7 +2,7 @@ html,
 body {
   background-color: #e6e9ee;
 }
-#dfcts_canvas {
+.dfctshow {
   display: block;
   height: 100px;
   width: 100%;
