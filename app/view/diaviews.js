@@ -57,8 +57,10 @@ exports.datas = async function(query, callback, req, res)
         console.log(e)
         diamond = "[error]" + e.toString()
     }
+    // console.log(req.cookies)
     // 返回
     callback(null, {
+        dvhip: req.cookies?parseInt(req.cookies.dvhip):undefined,
         pagetitle: "Hacash Diamond Pictures - page " + page,
         show_fee: !(req.query.no_fee),
         page: page,

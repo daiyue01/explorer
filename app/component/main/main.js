@@ -110,13 +110,20 @@ var vAppDiamondPicsLast6 = new Vue({
         showLast6diamondPic(datalist, pendding_dianum) {
             var blk = document.getElementById("diampicslast6")
             var picdivs = blk.getElementsByClassName("diapic")
-            var more =  blk.getElementsByClassName("more")[0]
+            var more =  document.getElementById('lastdiampics').getElementsByClassName("more")[0]
             for(var n=0; n<datalist.length; n++){
                 var one = datalist[n]
                 , li = picdivs[n];
                 li.setAttribute("href", '/diamond/' + one.name)
                 more.setAttribute("href", '/diaviews/last?curdianum=' + (pendding_dianum-1))
-                picdivs[n].innerHTML = CreateDiamondImageTagSVG(one.number, one.visual_gene, 140, "diaitem")
+                // dvhip = 6
+                var diapic = CreateDiamondImageTagSVG(one.number, one.visual_gene, 140, "diaitem")
+                // dvhip = 8
+                if(dvhip==8) {
+                    // console.log(one.visual_gene)
+                    diapic = CreateDiamondBrillianceSVG(one.visual_gene, 'white')
+                }
+                picdivs[n].innerHTML = diapic
                     + '<h3 class="name">' + one.name + '</h3>'
                     + '<p class="num">#' + one.number + '</p>'
             }

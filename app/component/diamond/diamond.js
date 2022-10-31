@@ -27,6 +27,7 @@ function doSaveFile(value, type, name) {
     }
 }
 
+// HIP-6
 ;(function(){
 
     var diaimg = document.getElementById("diaimg")
@@ -34,7 +35,7 @@ function doSaveFile(value, type, name) {
     var dlsvg = document.getElementById("downloadsvg")
     
     var vgstr = diaimg.getAttribute("visual_gene")
-    var svgtag = CreateDiamondImageTagSVG(1, vgstr, 500, "diaitem")
+    var svgtag = CreateDiamondImageTagSVG(1, vgstr, 600, "diaitem")
 
     diaimg.innerHTML = svgtag
 
@@ -56,3 +57,25 @@ function doSaveFile(value, type, name) {
 })();
 
 
+// HIP-8
+;(function(){
+
+    var diaimg = document.getElementById("hip8img")
+    , vgstr = diaimg.getAttribute("visual_gene")
+    , svgtag = CreateDiamondBrillianceSVG(vgstr, "white")
+    ;
+
+    var showbighip8 = document.getElementById("showbighip8")
+
+    diaimg.innerHTML = svgtag;
+
+    showbighip8.onclick = function(){
+        // console.log(svgtag)
+        // window.history.pushState({}, 'Big picture')
+        var bd = document.body
+        bd.innerHTML = '<div style="width: 1200px; margin: auto">'+CreateDiamondBrillianceSVG(vgstr, "black")+'</div>'
+        bd.style.backgroundColor = "black"
+    }
+
+
+})();

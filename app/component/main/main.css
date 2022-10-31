@@ -279,42 +279,47 @@ div.pmore .button span {
   font-size: 12px;
   color: #666;
 }
-#diampicslast6 .pt .more {
+#lastdiampics .pt .more {
   float: right;
   text-decoration: underline;
   color: cornflowerblue;
 }
-#diampicslast6 .diapic {
+#lastdiampics .diapic {
   display: inline-block;
   padding-bottom: 20px;
 }
-#diampicslast6 .diapic .name {
+#lastdiampics .diapic svg.dvhip8 {
+  margin: 20px 0;
+  width: 140px;
+  height: 140px;
+}
+#lastdiampics .diapic .name {
   font-size: 13px;
   font-weight: bold;
   color: cadetblue;
 }
-#diampicslast6 .diapic .num {
+#lastdiampics .diapic .num {
   font-size: 12px;
   color: #999;
 }
-#diampicslast6 .diapic:hover {
+#lastdiampics .diapic:hover {
   background-color: #f9f9f9;
 }
-#diampicslast6 .diapic:hover .name {
+#lastdiampics .diapic:hover .name {
   text-decoration: underline;
 }
-#diampicslast6 .viewdias {
+#lastdiampics .viewdias {
   padding: 5px 0 5px 0;
   width: 100%;
   height: 36px;
 }
-#diampicslast6 .viewdias .vdbox {
+#lastdiampics .viewdias .vdbox {
   position: relative;
   width: 94%;
   height: 36px;
   margin: auto;
 }
-#diampicslast6 .viewdias input {
+#lastdiampics .viewdias input {
   display: block;
   width: 100%;
   border: 1px solid #ddd;
@@ -322,10 +327,10 @@ div.pmore .button span {
   height: 36px;
   line-height: 36px;
 }
-#diampicslast6 .viewdias input::placeholder {
+#lastdiampics .viewdias input::placeholder {
   color: #aaa;
 }
-#diampicslast6 .viewdias button {
+#lastdiampics .viewdias button {
   display: block;
   height: 36px;
   line-height: 36px;
@@ -340,7 +345,7 @@ div.pmore .button span {
   color: white;
   cursor: pointer;
 }
-#diampicslast6 .viewdias button:hover {
+#lastdiampics .viewdias button:hover {
   background-color: #5079bb;
 }
 #operateactionlogs .con table td {

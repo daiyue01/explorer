@@ -125,14 +125,14 @@
         text-align: center;
         position: relative;
         top: -40px;
-        b {
+        b.n1 {
             color: cadetblue;
             font-weight: bold;
-            font-size: 22px;
+            font-size: 30px;
         }
-        span {
+        span.n2 {
             color: #aaa;
-            font-size: 22px;
+            font-size: 30px;
             margin-left: 20px;
         }
     }
@@ -142,7 +142,7 @@
         span {
             color: #e6e6e6;
             font-weight: bold;
-            font-size: 28px;
+            font-size: 34px;
             margin-left: 0px;
         }
     }
@@ -155,7 +155,7 @@
     text-align: center;
     b {
         display: inline-block;
-        color: slategray;
+        color: slategray !important; 
         border: 1px solid slategray;
         padding: 8px 12px;
         font-weight: bold;
@@ -181,6 +181,19 @@
     // margin: 10px;
 }
 
+#downloadsvg {
+    margin-bottom: 40px;
+}
+
+#hip8img {
+    display: block;
+    width: 800px;
+    margin: auto;
+    svg {
+        width: 800px;
+        height: 800px;
+    }
+}
 
 @media screen and (max-width: 512px) {
 
@@ -188,6 +201,10 @@
 
     zoom: 0.5;
 
+}
+
+#hip8img {
+    zoom: 0.4;
 }
 
 

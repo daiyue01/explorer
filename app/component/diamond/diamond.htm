@@ -1,5 +1,7 @@
 
 <script src="/jslib/diamondsvgimg.min.js?v=1"></script>
+<script src="/jslib/sha3.min.js?v=1"></script>
+<script src="/jslib/diamondbrilliance.min.js?v=1"></script>
 
 <div id="diamond" class="ppage" ref="diamond" data-address="[:=name:]" >
     <div class="container">
@@ -20,19 +22,30 @@
                 <div class="row">
                     <label>[:=lang.diamond.visual_gene || "可视化基因":]: </label>[:=diamond.visual_gene:]
                 </div>
+                <div class="row">
+                    <label>[:=lang.diamond.visual_hip6 || "HIP-6 可视化":]:</label>
+                    <div class="diapicwrap">
 
-                <div class="diapicwrap">
+                        <div class="dnnv top"><span>Hacash Diamond - HACD</span></div>
+                        <div id="diaimg" visual_gene="[:=diamond.visual_gene:]" savefilename="[:=diamond.name:]_[:=diamond.number:]">
+                            
+                        </div>
+                        <div class="dnnv"><b class="n1">[:=diamond.name:]</b><span class="n2">#[:=diamond.number:]</span></div>
 
-                    <div class="dnnv top"><span>Hacash Diamond - HACD</span></div>
-                    <div id="diaimg" visual_gene="[:=diamond.visual_gene:]" savefilename="[:=diamond.name:]_[:=diamond.number:]">
-                        
                     </div>
-                    <div class="dnnv"><b>[:=diamond.name:]</b><span>#[:=diamond.number:]</span></div>
 
+                    <div id="showbigimg" class="vbtn"><b>[:=lang.diamond.showbigimg || "查看大图":] ››</b><div></div></div>
+                    <div id="downloadsvg" class="vbtn"><b>[:=lang.diamond.downloadsvg || "下载SVG格式图片":] ››</b><div></div></div>
+                    
+                
                 </div>
-            
-                <div id="showbigimg" class="vbtn"><b>[:=lang.diamond.showbigimg || "查看大图":] ››</b><div></div></div>
-                <div id="downloadsvg" class="vbtn"><b>[:=lang.diamond.downloadsvg || "下载SVG格式图片":] ››</b><div></div></div>
+                <div class="row">
+                    <label>[:=lang.diamond.visual_hip8 || "HIP-8 可视化":]:</label>
+                    <div class="hip8wrap">
+                        <div id="hip8img" visual_gene="[:=diamond.visual_gene:]"></div>
+                    </div>
+                    <div id="showbighip8" class="vbtn"><b>[:=lang.diamond.showbigimg || "查看大图":] ››</b><div></div></div>
+                </div>
             </div>
         </div>
         [:}else{:]

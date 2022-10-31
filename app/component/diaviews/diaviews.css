@@ -1,3 +1,6 @@
+.dvhipck {
+  padding-top: 40px;
+}
 .pagewrap {
   display: block;
   margin: auto;
@@ -42,6 +45,10 @@
   display: inline-block;
   margin: 0px;
   padding-bottom: 20px;
+}
+.diaitem .svg svg.dvhip8 {
+  width: 180px;
+  height: 180px;
 }
 .diaitem .info b {
   font-size: 13px;

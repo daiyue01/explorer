@@ -1,5 +1,20 @@
 
 <script src="/jslib/diamondsvgimg.min.js?v=1"></script>
+<script src="/jslib/sha3.min.js?v=1"></script>
+<script src="/jslib/diamondbrilliance.min.js?v=1"></script>
+
+<script>
+    var dvhip = [:=this.dvhip||6:] 
+    ;
+</script>
+
+
+<div class="dvhipck">
+    <div class="btns" title="Toggle HACD visualization standard">
+        <a dvhip="6" class="h6 f [:=(!this.dvhip || this.dvhip==6)?'active':'':]">HIP-6</a>
+        <a dvhip="8" class="h8 e [:=this.dvhip==8?'active':'':]">HIP-8</a>
+    </div>
+</div>
 
 
 [: if(this.dianames){ :]
@@ -7,7 +22,6 @@
 <div class="pagewrap">
 
     <div style="word-break: break-all;line-height: 20px;display: block;float: none;padding: 20px;color: #666;">View [:=diamonds.length:] diamonds: [:=dianames:]</div>
- 
 
     <div class="list" >[:for(var i in diamonds){ var one=diamonds[i]; :]<a 
         class="diaitem" href="/diamond/[:=one.name:]" target="_blank">

@@ -68,3 +68,25 @@ var vAppHeader = new Vue({
         }
     },
 })
+
+
+// dvhipck
+;(function(){
+
+    var ds = document.getElementsByClassName('dvhipck')
+    if(!ds.length) return;
+    // toggle
+    var toggle = function(e) {
+        var dvhip = this.getAttribute('dvhip')
+        setCookie('dvhip', dvhip, '/', 30)
+        location.reload()
+    }
+    // console.log(ds)
+    var as = ds[0].getElementsByTagName('a');
+    // console.log(as)
+    for(var i=0; i<as.length; i++){
+        console.log(as[i])
+        as[i].onclick = toggle
+    }
+
+})();

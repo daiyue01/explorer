@@ -1,8 +1,11 @@
 
 <script src="/jslib/diamondsvgimg.min.js?v=1"></script>
+<script src="/jslib/sha3.min.js?v=1"></script>
+<script src="/jslib/diamondbrilliance.min.js?v=1"></script>
 
 <script>
-    var last_height = [:=last_height:]
+    var dvhip = [:=this.dvhip||6:] 
+      , last_height = [:=last_height:]
       , ranking_api_url = "[:=ranking_api_url:]";
 </script>
 
@@ -103,7 +106,7 @@
     </div>
 </div>
 
-<div id="diampicslast6" class="mtable mbfix" >
+<div id="lastdiampics" class="mtable mbfix" >
     <div class="container">
         <div class="wrap">
             <h1 class="pt">
@@ -113,20 +116,31 @@
                 <a class="more" target="_blank" href="/diaviews/last?curdianum=9999">[:=lang.main.ldv_more:]</a>
             </h1>
             <div class="con">
-                
-                <a class="diapic" target="_blank"></a>
-                <a class="diapic" target="_blank"></a>
-                <a class="diapic" target="_blank"></a>
-                <a class="diapic" target="_blank"></a>
-                <a class="diapic" target="_blank"></a>
-                <a class="diapic" target="_blank"></a>
 
-                <div class="viewdias">
-                    <div class="vdbox">
-                        <input v-model="diamondstr" placeholder="   [:=lang.main.ldv_check_input_tip:]"  />
-                        <button @click="checkDiamonds">[:=lang.main.ldv_check:]</button>
+                <div class="dvhipck">
+                    <div class="btns" title="Toggle HACD visualization standard">
+                        <a dvhip="6" class="h6 f [:=(!this.dvhip || this.dvhip==6)?'active':'':]">HIP-6</a>
+                        <a dvhip="8" class="h8 e [:=this.dvhip==8?'active':'':]">HIP-8</a>
                     </div>
                 </div>
+
+                <div id="diampicslast6">
+
+                    <a class="diapic" target="_blank"></a>
+                    <a class="diapic" target="_blank"></a>
+                    <a class="diapic" target="_blank"></a>
+                    <a class="diapic" target="_blank"></a>
+                    <a class="diapic" target="_blank"></a>
+                    <a class="diapic" target="_blank"></a>
+    
+                    <div class="viewdias">
+                        <div class="vdbox">
+                            <input v-model="diamondstr" placeholder="   [:=lang.main.ldv_check_input_tip:]"  />
+                            <button @click="checkDiamonds">[:=lang.main.ldv_check:]</button>
+                        </div>
+                    </div>
+                </div>
+                
 
             </div>
 
