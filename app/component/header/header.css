@@ -91,13 +91,17 @@
   margin-bottom: 4;
   padding: 10px;
   background-color: #f1e8cf;
-  box-shadow: 1px 1px 2px #00000033;
 }
 .dvhipck .browsertip p {
   color: peru;
   font-size: 14px;
+  word-break: break-word;
 }
 .dvhipck .browsertip a {
+  display: inline-block;
+  padding: 2px 4px;
+  border-radius: 4px;
+  background: beige;
   font-weight: bold;
   color: chocolate !important;
   font-size: inherit;
