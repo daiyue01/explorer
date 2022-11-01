@@ -93,7 +93,7 @@ var vAppHeader = new Vue({
     var ua = window.navigator.userAgent
     // console.log(ua)
     var isOk = ua.indexOf("Chrome") > -1 || ua.indexOf("Firefox") > -1;
-    if(isOk) {
+    if(!isOk) {
         var ts = ds.getElementsByClassName('browsertip')
         if(ts.length){
             ts[0].style.display = 'block';
