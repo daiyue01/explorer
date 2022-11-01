@@ -116,7 +116,7 @@ var vAppDiamondPicsLast6 = new Vue({
                 , li = picdivs[n];
                 li.setAttribute("href", '/diamond/' + one.name)
                 more.setAttribute("href", '/diaviews/last?curdianum=' + (pendding_dianum-1))
-                // dvhip = 6
+                // dvhip = 5
                 var diapic = CreateDiamondImageTagSVG(one.number, one.visual_gene, 140, "diaitem")
                 // dvhip = 8
                 if(dvhip==8) {

@@ -14,7 +14,7 @@ module.exports = {
     fee_offer: "竞价手续费",
     burn_price: "平均销毁",
     visual_gene: "可视化基因",
-    visual_hip6: "HIP-6 可视化",
+    visual_hip5: "HIP-5 可视化",
     visual_hip8: "hip-8 可视化",
     showbigimg: "查看钻石高清大图",
     downloadsvg: "下载SVG格式矢量高清图片",

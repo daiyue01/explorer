@@ -14,7 +14,7 @@ module.exports = {
     fee_offer: "Fee Offer",
     burn_price: "Average Burning",
     visual_gene: "Visual Gene",
-    visual_hip6: "HIP-6 Visualization",
+    visual_hip5: "HIP-5 Visualization",
     visual_hip8: "HIP-8 Visualization",
     showbigimg: "View HD diamond picture",
     downloadsvg: "Download SVG format picture",

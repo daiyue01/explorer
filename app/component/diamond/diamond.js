@@ -27,7 +27,7 @@ function doSaveFile(value, type, name) {
     }
 }
 
-// HIP-6
+// HIP-5
 ;(function(){
 
     var diaimg = document.getElementById("diaimg")
