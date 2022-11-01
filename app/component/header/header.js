@@ -75,6 +75,7 @@ var vAppHeader = new Vue({
 
     var ds = document.getElementsByClassName('dvhipck')
     if(!ds.length) return;
+    ds = ds[0]
     // toggle
     var toggle = function(e) {
         var dvhip = this.getAttribute('dvhip')
@@ -82,11 +83,21 @@ var vAppHeader = new Vue({
         location.reload()
     }
     // console.log(ds)
-    var as = ds[0].getElementsByTagName('a');
+    var as = ds.getElementsByClassName('hipit');
     // console.log(as)
     for(var i=0; i<as.length; i++){
         console.log(as[i])
         as[i].onclick = toggle
+    }
+    // chrome tip
+    var ua = window.navigator.userAgent
+    // console.log(ua)
+    var isOk = ua.indexOf("Chrome") > -1 || ua.indexOf("Firefox") > -1;
+    if(isOk) {
+        var ts = ds.getElementsByClassName('browsertip')
+        if(ts.length){
+            ts[0].style.display = 'block';
+        }
     }
 
 })();

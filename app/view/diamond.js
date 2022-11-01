@@ -38,6 +38,7 @@ exports.datas = async function(query, callback, req, res)
     }
     // 返回
     callback(null, {
+        dvhip: req.cookies?parseInt(req.cookies.dvhip):undefined,
         pagetitle: "Hacash Diamond " + req.params.name,
         name: req.params.name,
         diamond: diamond,

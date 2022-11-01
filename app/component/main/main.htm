@@ -119,9 +119,14 @@
 
                 <div class="dvhipck">
                     <div class="btns" title="Toggle HACD visualization standard">
-                        <a dvhip="6" class="h6 f [:=(!this.dvhip || this.dvhip==6)?'active':'':]">HIP-6</a>
-                        <a dvhip="8" class="h8 e [:=this.dvhip==8?'active':'':]">HIP-8</a>
+                        <a dvhip="6" class="hipit h6 f [:=(!this.dvhip || this.dvhip==6)?'active':'':]">HIP-6</a>
+                        <a dvhip="8" class="hipit h8 e [:=this.dvhip==8?'active':'':]">HIP-8</a>
                     </div>
+                    [:if(this.dvhip==8){:]
+                    <div class="browsertip">
+                        <p>[:=lang.common.hip8drawtip:]</p>
+                    </div>    
+                    [:}:]
                 </div>
 
                 <div id="diampicslast6">
