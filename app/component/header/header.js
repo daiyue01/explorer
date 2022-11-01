@@ -91,8 +91,20 @@ var vAppHeader = new Vue({
     }
     // chrome tip
     var ua = window.navigator.userAgent
-    // console.log(ua)
-    var isOk = ua.indexOf("Chrome") > -1 || ua.indexOf("Firefox") > -1;
+    console.log(ua)
+    var bn = "Chrome"
+    , bnn = ua.indexOf(bn)
+    , isOk = bnn > -1
+    ;
+    if(isOk) {
+        var si = bnn + bn.length + 1
+        , vi = parseFloat(ua.slice(si, si+3))
+        ;
+        console.log(vi)
+        if(vi < 100) {
+            isOk = false //not ok
+        }
+    }
     if(!isOk) {
         var ts = ds.getElementsByClassName('browsertip')
         if(ts.length){
