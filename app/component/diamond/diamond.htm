@@ -3,6 +3,13 @@
 <script src="/jslib/sha3.min.js?v=1"></script>
 <script src="/jslib/diamondbrilliance.min.js?v=1"></script>
 
+<script>
+    var dvhip = [:=this.dvhip||5:] 
+      , theme = [:=this.theme||1:]
+    ;
+</script>
+
+
 <div id="diamond" class="ppage" ref="diamond" data-address="[:=name:]" >
     <div class="container">
         <p class="crumb"><a href="/">[:=lang.common.index_page || "首页":]</a><i>/</i><span>[:=lang.diamond.diamond || "钻石":] - [:=name:]</span></p>
@@ -10,7 +17,7 @@
         <div class="pcard info">
             <h3 class="hdtt">❂ [:=lang.diamond.diamond_info || "钻石详情":]</h3>
             <div class="content">
-                <p class="row"><label>[:=lang.diamond.value || "字面值":]: </label><b class="name">[:=diamond.name:]</b></p>
+                <p class="row first"><label>[:=lang.diamond.value || "字面值":]: </label><b class="name">[:=diamond.name:]</b></p>
                 <p class="row"><label>[:=lang.diamond.number || "号码值":]: </label><b class="number">[:=diamond.number:]</b></p>
                 <p class="row"><label>[:=lang.diamond.belong_address || "当前所属地址":]: </label><a class="addr" target="_blank" href="/address/[:=diamond.address:]">[:=diamond.address:]</a></p>
                 <p class="row"><label>[:=lang.diamond.miner_address || "矿工地址":]: </label><a class="addr" target="_blank" href="/address/[:=diamond.miner_address:]">[:=diamond.miner_address:]</a></p>

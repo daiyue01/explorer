@@ -5,7 +5,7 @@
   display: block;
   margin: auto;
   width: 100%;
-  max-width: 1001px;
+  max-width: 1012px;
 }
 .topnav {
   padding: 20px;
@@ -42,13 +42,16 @@
   text-align: center;
 }
 .diaitem {
+  border: 1px solid transparent;
   display: inline-block;
   margin: 0px;
-  padding-bottom: 20px;
 }
 .diaitem .svg svg.dvhip8 {
   width: 180px;
   height: 180px;
+}
+.diaitem .info {
+  padding-bottom: 20px;
 }
 .diaitem .info b {
   font-size: 13px;
@@ -61,7 +64,7 @@
   color: #999;
 }
 .diaitem:hover {
-  background-color: #f3f3f3;
+  border-color: #ffffff22;
   cursor: pointer;
 }
 #colors {

@@ -7,7 +7,6 @@
 }
 #channel .pcard .row {
   display: block;
-  border-top: 1px #eee dashed;
   padding: 10px 0;
 }
 #channel .pcard .row label {
@@ -66,9 +65,6 @@
 }
 #channel .pcard .row a.hei {
   font-size: 15px;
-}
-#channel .pcard .row.r1 {
-  border-top: none;
 }
 #channel .pcard .row.aps {
   background-color: #f8dff3;

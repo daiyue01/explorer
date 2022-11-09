@@ -119,9 +119,10 @@ var vAppDiamondPicsLast6 = new Vue({
                 // dvhip = 5
                 var diapic = CreateDiamondImageTagSVG(one.number, one.visual_gene, 140, "diaitem")
                 // dvhip = 8
+                var dbk = theme == 2 ? '#333' : 'white'; 
                 if(dvhip==8) {
                     // console.log(one.visual_gene)
-                    diapic = CreateDiamondBrillianceSVG(one.visual_gene, 'white')
+                    diapic = CreateDiamondBrillianceSVG(one.visual_gene, dbk)
                 }
                 picdivs[n].innerHTML = diapic
                     + '<h3 class="name">' + one.name + '</h3>'

@@ -1,0 +1,49 @@
+html, body {
+    background-color: #000;
+}
+
+#header, #footer {
+    background-color: #333;
+}
+
+
+/* main */
+
+.mtable {
+
+}
+.mtable .wrap {
+    background-color: #222;
+}
+.mtable .wrap h1 {
+    color: #a8cfcf;
+}
+
+.mtable .wrap .con {
+    background-color: #333;
+}
+
+.mtable .wrap .con table th {
+    background: none;
+}
+
+.mtable .wrap .con table td {
+    color: #888;
+}
+
+/* page */
+
+
+.ppage .crumb span {
+    color: #999;
+}
+
+.pcard .row {
+    color: #ddd;
+}
+
+/* */
+
+#address .info .li b {
+    color: #fff;
+}

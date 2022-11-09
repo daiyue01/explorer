@@ -5,8 +5,12 @@ var vAppFooter = new Vue({
     },
     methods:{
         choiseLang: function(lang) {
-            setCookie("lang", lang, "/", 1000) 
+            setCookie("lang", lang, "/", 5) 
             window.location.href += "" 
+        },
+        choiseTheme: function(theme) {
+            setCookie("theme", theme, "/", 300) 
+            window.location.href += ""
         },
     }
 })

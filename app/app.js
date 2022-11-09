@@ -31,6 +31,17 @@ module.exports = function(app)
         // console.log(res.lang)
         next()
     })
+    // theme
+    app.use(function(req, res, next){
+        let themeset = config.theme || '1' // 1:white  2:black
+        if(req.cookies){
+            if(req.cookies.theme) {
+                themeset = req.cookies.theme
+            }
+        }
+        res.theme = themeset
+        next()
+    })
     // routes
     for(let i in routes){
         var isPost = false

@@ -33,6 +33,10 @@
   border-radius: 4px;
   border: 1px #1c4882 solid;
   width: 300px;
+  background-color: #ffffffbb;
+}
+#header .search input:focus {
+  background-color: #fff;
 }
 #header .search button {
   display: inline-block;
@@ -46,6 +50,43 @@
   border-radius: 4px;
   margin-left: 5px;
   cursor: pointer;
+}
+.ppage .crumb {
+  padding-left: 14px;
+}
+.ppage .crumb * {
+  font-size: 14px;
+}
+.ppage .crumb i {
+  display: inline-block;
+  padding: 0 10px;
+  color: #bbb;
+}
+.ppage .crumb span {
+  color: #444;
+  word-break: break-all;
+}
+.ppage .pcard {
+  border: 1px solid #aaaaaa66;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+.ppage .pcard .row {
+  border-top: 1px dashed #88888844;
+}
+.ppage .pcard .row.r1,
+.ppage .pcard .row.first {
+  border: none;
+}
+.ppage .pcard .hdtt {
+  padding: 5px 15px;
+  border-radius: 5px 5px 0 0;
+  background: #afaf6c22;
+  color: #995;
+  font-size: 15px;
+}
+.ppage .pcard .content {
+  padding: 16px 16px;
 }
 .dvhipck {
   display: block;
@@ -67,9 +108,10 @@
   border-left: none;
   color: #999;
   font-weight: bold;
+  background-color: #ffffff66;
 }
 .dvhipck .btns a:hover {
-  background-color: #eee;
+  background-color: #fff;
   color: #666;
 }
 .dvhipck .btns .f {

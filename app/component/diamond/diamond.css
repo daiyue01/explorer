@@ -5,10 +5,12 @@
 #diamond a:hover {
   text-decoration: underline;
 }
+#diamond .pcard .row.first {
+  border: none;
+}
 #diamond .pcard .row {
   position: relative;
   display: block;
-  border-top: 1px #eee dashed;
   padding: 10px 0;
 }
 #diamond .pcard .row label {
@@ -64,9 +66,6 @@
   font-size: 15px;
   color: #996;
 }
-#diamond .pcard .row.r1 {
-  border-top: none;
-}
 #diamond .block .height {
   font-size: 14px;
 }
@@ -92,7 +91,7 @@
 }
 #diamond .diaitem {
   display: inline-block;
-  border: 1px solid #eee;
+  border: 1px solid #88888844;
 }
 #diamond .diaitem.big {
   border: none;

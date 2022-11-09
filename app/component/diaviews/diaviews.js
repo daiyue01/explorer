@@ -8,7 +8,8 @@ for(var i=0; i<svgs.length; i++){
         li.innerHTML = CreateDiamondImageTagSVG(i, gene, 200, "")
     }
     if(dvhip==8){
-        li.innerHTML = CreateDiamondBrillianceSVG(gene, 'white')
+        var backcl = theme == 2 ? 'black' : 'white';
+        li.innerHTML = CreateDiamondBrillianceSVG(gene, backcl)
     }
         
 }

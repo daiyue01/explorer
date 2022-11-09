@@ -62,7 +62,8 @@ function doSaveFile(value, type, name) {
 
     var diaimg = document.getElementById("hip8img")
     , vgstr = diaimg.getAttribute("visual_gene")
-    , svgtag = CreateDiamondBrillianceSVG(vgstr, "white")
+    , backcl = theme == 2 ? 'black' : 'white'
+    , svgtag = CreateDiamondBrillianceSVG(vgstr, backcl)
     ;
 
     var showbighip8 = document.getElementById("showbighip8")

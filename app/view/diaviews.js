@@ -63,6 +63,7 @@ exports.datas = async function(query, callback, req, res)
         dvhip: req.cookies?parseInt(req.cookies.dvhip):undefined,
         pagetitle: "Hacash Diamond Pictures - page " + page,
         show_fee: !(req.query.no_fee),
+        show_info: !(req.query.no_info),
         page: page,
         limit: limit,
         maxpage: maxpage,

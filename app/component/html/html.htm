@@ -10,6 +10,10 @@
 
     <link rel="stylesheet" href="/jscss/[:=this.page_vname||'html':].css?v=1">
 
+    [: if(this.theme && this.theme=='2'){ :]
+    <link rel="stylesheet" href="/jslib/theme.black.css?v=1">
+    [: } :]
+
     <script src="/jslib/vue.min.js?v=1"></script>
     <script src="/jslib/axios.min.js?v=1"></script>
 
