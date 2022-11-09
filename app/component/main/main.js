@@ -414,7 +414,7 @@ vAppBlocks.queryNewDatas(last_height, vAppBlocks.pagelimit)
 
 
 
-function drawDifficultyCharts(idname, data){
+function drawDifficultyCharts(idname, data, theme){
     // 绘制算力曲线
     //获取Canvas对象(画布)
     var cvs = document.getElementById(idname);
@@ -453,10 +453,13 @@ function drawDifficultyCharts(idname, data){
         });
 
         // 画网格
-        drawGrid(ctx, '#ccc', 20, 50);
+        var grcl = theme == 'white' ? '#ccc' : '#444';
+        drawGrid(ctx, grcl, 20, 50);
  
         // 画折线
         ctx.beginPath();
+        var pancl = theme == 'white' ? '#000' : '#fff';
+        ctx.strokeStyle = pancl
         ratioData.forEach( function( val, index ) {
             ctx.lineTo( origin.x + ( index * ratioX), origin.y - val );
         });
@@ -501,11 +504,11 @@ apiget("/api/difficulty/chartsv3", {}, function(data){
     // vAppDfcts.hashpower = data.hashpower
     // historys    days30
     // var nums = data.historys.concat(data.days30)
-    var nums = 
     // nums.pop()
     // console.log(nums)
-    drawDifficultyCharts("dfcts_canvas", data.days30)
-    drawDifficultyCharts("dfcts_canvas_all", data.daysall)
+    var thm = theme == 2 ? 'black' : 'white';
+    drawDifficultyCharts("dfcts_canvas", data.days30, thm)
+    drawDifficultyCharts("dfcts_canvas_all", data.daysall, thm)
 })
 
 setTimeout(function(){
