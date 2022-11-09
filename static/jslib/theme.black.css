@@ -42,8 +42,16 @@ html, body {
     color: #ddd;
 }
 
-/* */
+/* address */
 
 #address .info .li b {
+    color: #fff;
+}
+
+#address .alldmdns {
+    color: #fff;
+}
+
+#address .transfers .datas b, #address .channel .datas b {
     color: #fff;
 }
