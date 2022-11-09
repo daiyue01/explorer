@@ -106,13 +106,13 @@
   padding: 6px 18px;
   border: 1px solid #ddd;
   border-left: none;
-  color: #999;
+  color: #666;
   font-weight: bold;
-  background-color: #ffffff66;
+  background-color: #eee;
 }
 .dvhipck .btns a:hover {
   background-color: #fff;
-  color: #666;
+  color: #222;
 }
 .dvhipck .btns .f {
   border-left: 1px solid #ddd;
