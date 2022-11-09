@@ -344,9 +344,6 @@ div.pmore .button span {
 #lastdiampics .viewdias button:hover {
   background-color: #5079bb;
 }
-#operateactionlogs .con table td {
-  border-bottom: 1px solid #eee;
-}
 #operateactionlogs tr .t0 a {
   color: steelblue;
 }
