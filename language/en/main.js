@@ -1,6 +1,6 @@
 module.exports = {
 
-    hash_power_title: "<p>Whole network last target hashrate: <b>{{target_hashpower}}</b>, realtime hashrate: <b>{{current_hashpower}}</b>，fluctuation in recent 300 days & all histories:</p>",
+    hash_power_title: "<p>Latest wholel network target hash rate: <b>{{target_hashpower}}</b>. Real-time hash rate: <b>{{current_hashpower}}</b>. Last 300 days and all past hash rate fluctuation graph:</p>",
     diamond_mining_period: "The ranking table of diamond fees waiting for confirm period {{period}}, number {{number}} :",
     
     diamond_value: "Diamond Name",
@@ -44,16 +44,16 @@ module.exports = {
     oal_show: "Show all operate action logs",
     oal_show_more: "Show More",
 
-    ttspl_title: "Total supply statistics:",
-    ttspl_block_reward: "Block reward:",
-    ttspl_channel_interest: "Channel interest:",
-    ttspl_btcmove_subsidy: "BTC move subsidy:",
-    ttspl_burned_fee: "Burned fee:",
-    ttspl_located_in_channel: "Located in channel:",
-    ttspl_channel_of_opening: "Channel of opening:",
-    ttspl_minted_diamond: "Minted diamond:",
-    ttspl_transferred_bitcoin: "Transferred bitcoin:",
-    ttspl_current_circulation: "Current circulation:",
+    ttspl_title: "Hacash Data Overview:",
+    ttspl_block_reward: "Block Rewards:",
+    ttspl_channel_interest: "Channel Interests:",
+    ttspl_btcmove_subsidy: "BTC Transferred Rewards:",
+    ttspl_burned_fee: "Burning Fees:",
+    ttspl_located_in_channel: "Deposited in Channel:",
+    ttspl_channel_of_opening: "Opened Channels:",
+    ttspl_minted_diamond: "Minted Diamonds:",
+    ttspl_transferred_bitcoin: "Transferred Bitcoins:",
+    ttspl_current_circulation: "Current Circulation:",
 
     rk_title: "Account ranking",
     rk_tab_hacash: "Show top 100 HAC addresses",
