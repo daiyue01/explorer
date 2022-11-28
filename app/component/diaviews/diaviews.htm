@@ -2,6 +2,7 @@
 <script src="/jslib/diamondsvgimg.min.js?v=1"></script>
 <script src="/jslib/sha3.min.js?v=1"></script>
 <script src="/jslib/diamondbrilliance.min.js?v=1"></script>
+<script src="/jslib/diamondlifegame.min.js?v=1"></script>
 
 <script>
     var dvhip = [:=this.dvhip||5:] 
@@ -16,7 +17,8 @@
 <div class="dvhipck">
     <div class="btns" title="Toggle HACD visualization standard">
         <a dvhip="5" class="hipit h5 f [:=(!this.dvhip || this.dvhip==5)?'active':'':]">HIP-5</a>
-        <a dvhip="8" class="hipit h8 e [:=this.dvhip==8?'active':'':]">HIP-8</a>
+        <a dvhip="8" class="hipit h8   [:=this.dvhip==8?'active':'':]">HIP-8</a>
+        <a dvhip="9" class="hipit h9 e [:=this.dvhip==9?'active':'':]">HIP-9</a>
     </div>
     [:if(this.dvhip==8){:]
     <div class="browsertip">
@@ -33,7 +35,7 @@
 
     <div class="list" >[:for(var i in diamonds){ var one=diamonds[i]; :]<a 
         class="diaitem" href="/diamond/[:=one.name:]" target="_blank">
-            <div class="svg" gene="[:=one.visual_gene:]"></div>
+            <div class="svg" lgene="[:=one.life_gene:]" vgene="[:=one.visual_gene:]"></div>
             [:if(this.show_info){:]<div class="info"><b>[:=one.name:]</b><span>#[:=one.number:]</span>[:if(this.show_fee){:]<br/><span>fee: [:=one.bid_fee:]</span>[:}:]</div>[:}:]
     </a>[:}:]</div>
 
@@ -60,7 +62,7 @@
 
     <div class="list" >[:for(var i in diamonds){ var one=diamonds[i]; :]<a 
         class="diaitem" href="/diamond/[:=one.name:]" target="_blank">
-            <div class="svg" gene="[:=one.visual_gene:]"></div>
+            <div class="svg" lgene="[:=one.life_gene:]" vgene="[:=one.visual_gene:]"></div>
             [:if(this.show_info){:]<div class="info"><b>[:=one.name:]</b><span>#[:=one.number:]</span>[:if(this.show_fee){:]<br/><span>fee: [:=one.bid_fee:]</span>[:}:]</div>[:}:]
     </a>[:}:]</div>
 
@@ -86,6 +88,7 @@
 
 </div>
 
+[:if(this.dvhip==5){:]
 
 <div id="colors">
     <div class="item i0">W</div>
@@ -105,3 +108,6 @@
     <div class="item i14">Z</div>
     <div class="item i15">N</div>
 </div>
+
+
+[: } :]

@@ -13,9 +13,10 @@ module.exports = {
     belong_address: "当前所属地址",
     fee_offer: "竞价手续费",
     burn_price: "平均销毁",
+    life_gene: "生命基因",
     visual_gene: "可视化基因",
-    visual_hip5: "HIP-5 可视化",
-    visual_hip8: "hip-8 可视化",
+    visual_hip5: "HIP-5 展示",
+    visual_hip8: "HIP-8 展示",
     showbigimg: "查看钻石高清大图",
     downloadsvg: "下载SVG格式矢量高清图片",
 

@@ -91,7 +91,7 @@ var vAppHeader = new Vue({
     }
     // chrome tip
     var ua = window.navigator.userAgent
-    console.log(ua)
+    // console.log(ua)
     var bn = "Chrome"
     , bnn = ua.indexOf(bn)
     , isOk = bnn > -1

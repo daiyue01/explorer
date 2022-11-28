@@ -34,8 +34,8 @@ function CreateDiamondBrillianceSVG(vgene, backcolor) {
     var cidx = 0
     , artcells = []
     , ty = "UINT8ARRAY"
-    , newrets = SHA3_256_UINT8(vgene)
-    // , newrets = SHA3_256_UINT8(vgene + new Date().getTime()) // test
+    , newrets = SHA3_256_U8S(vgene)
+    // , newrets = SHA3_256_U8S(vgene + new Date().getTime()) // test
     for(var i=0;i<64;i++) {
         for(var k=0;k<32;k++) {
             artcells.push(newrets[k])
@@ -48,7 +48,7 @@ function CreateDiamondBrillianceSVG(vgene, backcolor) {
         return v % max + (base||0)
     }
     // console.log(artcells)
-    // return SHA3_256_UINT8(vgene)
+    // return SHA3_256_U8S(vgene)
 
     var svgobjs = ''
 

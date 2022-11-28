@@ -124,6 +124,9 @@ var vAppDiamondPicsLast6 = new Vue({
                     // console.log(one.visual_gene)
                     diapic = CreateDiamondBrillianceSVG(one.visual_gene, dbk)
                 }
+                if(dvhip==9) {
+                    diapic = CreateLifeGameInitialSVG(one.life_gene, 120, dbk)
+                }
                 picdivs[n].innerHTML = diapic
                     + '<h3 class="name">' + one.name + '</h3>'
                     + '<p class="num">#' + one.number + '</p>'
