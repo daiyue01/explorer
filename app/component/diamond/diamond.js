@@ -80,3 +80,47 @@ function doSaveFile(value, type, name) {
 
 
 })();
+
+
+
+// HIP-9
+;(function(){
+
+    var diaimg = document.getElementById("hip9img")
+    , lgene = diaimg.getAttribute("life_gene")
+    , backcl = theme == 2 ? 'black' : 'white'
+    , lifgameobj = CreateLifeGameInitialSVG(lgene, 800, backcl, true) // not border
+    , lgsvgtag = lifgameobj[0]
+    , lgcnf = lifgameobj[1]
+    ;
+
+    diaimg.innerHTML = lgsvgtag;
+
+    var playlg1 = document.getElementById("playlg")
+    , playlg2 = document.getElementById("playlgbtn")
+    , hip9wrap = document.getElementsByClassName("hip9wrap")[0]
+    , playLifeGame = function() {
+        diaimg.style.background = lgcnf.background||'none'
+        playlg1.style.display = 'none'
+        diaimg.classList.add('plrd')
+
+        setTimeout(function(){
+            StartPlayLifeGame(hip9wrap, lgcnf, 3, 5, backcl)
+        }, 1000)
+
+    }
+
+    playlg1.onclick = playLifeGame;
+    playlg2.onclick = playLifeGame;
+
+
+    // showbighip8.onclick = function(){
+    //     // console.log(svgtag)
+    //     // window.history.pushState({}, 'Big picture')
+    //     var bd = document.body
+    //     bd.innerHTML = '<div style="width: 1200px; margin: auto">'+CreateDiamondBrillianceSVG(vgstr, "black")+'</div>'
+    //     bd.style.backgroundColor = "black"
+    // }
+
+
+})();

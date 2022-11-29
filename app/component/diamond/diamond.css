@@ -121,7 +121,7 @@
   margin-left: 0px;
 }
 .vbtn {
-  padding-top: 20px;
+  padding-bottom: 20px;
   text-align: center;
 }
 .vbtn b {
@@ -154,6 +154,67 @@
 #hip8img svg {
   width: 800px;
   height: 800px;
+}
+#hip9img {
+  display: block;
+  width: 720px;
+  padding-top: 24px;
+  margin: auto;
+}
+#hip9img svg {
+  transition: all 1s;
+  width: 720px;
+  height: 720px;
+}
+#hip9img.plrd {
+  padding: 24px;
+}
+#hip9img.plrd svg {
+  transform: scale(0.075);
+}
+.hip9wrap {
+  position: relative;
+  padding-top: 20px;
+  margin-bottom: 40px;
+}
+.hip9wrap #lgret {
+  display: block;
+  font-size: 18px;
+  text-align: CENTER;
+  margin: 20px auto 40px;
+  padding: 10px 0;
+  max-width: 768px;
+  color: darkgreen;
+  background: #c6d6d6;
+}
+.hip9wrap .lgcvs {
+  display: block;
+  margin: auto;
+}
+.hip9wrap .pbtn {
+  display: none;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  color: #ffffff99;
+  text-align: center;
+  line-height: 100px;
+  font-size: 40px;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  background-color: #ffffff66;
+  box-shadow: 2px 2px 4px #00000066;
+  cursor: pointer;
+}
+.hip9wrap .pbtn:hover {
+  background-color: #ffffff;
+  color: #000;
+}
+.hip9wrap:hover .pbtn {
+  display: block;
 }
 @media screen and (max-width: 512px) {
   .diapicwrap {

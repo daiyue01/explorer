@@ -17,8 +17,10 @@ module.exports = {
     visual_gene: "可视化基因",
     visual_hip5: "HIP-5 展示",
     visual_hip8: "HIP-8 展示",
+    visual_hip9: "HIP-9 展示",
     showbigimg: "查看钻石高清大图",
     downloadsvg: "下载SVG格式矢量高清图片",
+    playlifegame: "开始生命游戏",
 
     notfind: "对不起，钻石暂不存在",
 

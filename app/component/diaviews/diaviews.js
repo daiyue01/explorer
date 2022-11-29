@@ -13,7 +13,7 @@ for(var i=0; i<svgs.length; i++){
         li.innerHTML = CreateDiamondBrillianceSVG(vgene, backcl)
     }
     if(dvhip==9){
-        li.innerHTML = CreateLifeGameInitialSVG(lgene, 180, backcl)
+        li.innerHTML = CreateLifeGameInitialSVG(lgene, 180, backcl)[0]
     }
         
 }

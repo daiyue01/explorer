@@ -151,7 +151,7 @@
 
 
 .vbtn {
-    padding-top: 20px;
+    padding-bottom: 20px;
     text-align: center;
     b {
         display: inline-block;
@@ -192,6 +192,72 @@
     svg {
         width: 800px;
         height: 800px;
+    }
+}
+
+#hip9img {
+    display: block;
+    width: 720px;
+    padding-top: 24px;
+    margin: auto;
+    svg {
+        transition: all 1s;
+        width: 720px;
+        height: 720px;
+    }
+    &.plrd {
+        padding: 24px;
+        svg {
+            transform: scale(0.075);
+        }
+    }
+}
+
+.hip9wrap {
+    position: relative;
+    padding-top: 20px;
+    margin-bottom: 40px;
+    #lgret {
+        display: block;
+        font-size: 18px;
+        text-align: CENTER;
+        margin: 20px auto 40px;
+        padding: 10px 0;
+        max-width: 768px;
+        color: darkgreen;
+        background: #c6d6d6;
+    }
+    .lgcvs {
+        display: block;
+        margin: auto;
+    }
+    .pbtn {
+        display: none;
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        color: #ffffff99;
+        text-align: center;
+        line-height: 100px;
+        font-size: 40px;
+        top: 50%;
+        left: 50%;
+        margin-top: -50px;
+        margin-left: -50px;
+        background-color: #ffffff66;
+        box-shadow: 2px 2px 4px #00000066;
+        cursor: pointer;
+        &:hover {
+            background-color: #ffffff;
+            color: #000;
+        }
+    }
+    &:hover {
+        .pbtn {
+            display: block;
+        }
+
     }
 }
 

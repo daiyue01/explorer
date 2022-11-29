@@ -17,10 +17,12 @@ module.exports = {
     visual_gene: "Visual Gene",
     visual_hip5: "HIP-5 Visualization",
     visual_hip8: "HIP-8 Visualization",
+    visual_hip9: "HIP-9 Visualization",
     showbigimg: "View HD diamond picture",
     downloadsvg: "Download SVG format picture",
+    playlifegame: "Play game of life",
 
-    notfind: "Sorry，Not find.",
+    notfind: "Sorry, Not find.",
 
 
 }
