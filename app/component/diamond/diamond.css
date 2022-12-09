@@ -186,6 +186,7 @@
   max-width: 768px;
   color: darkgreen;
   background: #c6d6d6;
+  opacity: 0;
 }
 .hip9wrap .lgcvs {
   display: block;
@@ -221,6 +222,9 @@
     zoom: 0.5;
   }
   #hip8img {
+    zoom: 0.4;
+  }
+  .hip9wrap {
     zoom: 0.4;
   }
 }
