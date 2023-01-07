@@ -113,16 +113,18 @@ var vAppDiamondPicsLast6 = new Vue({
             var more =  document.getElementById('lastdiampics').getElementsByClassName("more")[0]
             for(var n=0; n<datalist.length; n++){
                 var one = datalist[n]
-                , li = picdivs[n];
+                , li = picdivs[n]
+                , visual_gene = DiamondLifeGeneConvertVisualGene(one.life_gene, one.name)
+                ;
                 li.setAttribute("href", '/diamond/' + one.name)
                 more.setAttribute("href", '/diaviews/last?curdianum=' + (pendding_dianum-1))
                 // dvhip = 5
-                var diapic = CreateDiamondImageTagSVG(one.number, one.visual_gene, 140, "diaitem")
+                var diapic = CreateDiamondImageTagSVG(one.number, visual_gene, 140, "diaitem")
                 // dvhip = 8
                 var dbk = theme == 2 ? '#333' : 'white'; 
                 if(dvhip==8) {
-                    // console.log(one.visual_gene)
-                    diapic = CreateDiamondBrillianceSVG(one.visual_gene, dbk)
+                    // console.log(visual_gene)
+                    diapic = CreateDiamondBrillianceSVG(visual_gene, dbk)
                 }
                 if(dvhip==9) {
                     diapic = CreateLifeGameInitialSVG(one.life_gene, 120, dbk)[0]

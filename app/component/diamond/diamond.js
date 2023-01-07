@@ -34,7 +34,9 @@ function doSaveFile(value, type, name) {
     var sbp = document.getElementById("showbigimg")
     var dlsvg = document.getElementById("downloadsvg")
     
-    var vgstr = diaimg.getAttribute("visual_gene")
+    var lgene = diaimg.getAttribute("life_gene")
+    , dianm = diaimg.getAttribute("dia_name")
+    , vgstr = DiamondLifeGeneConvertVisualGene(lgene, dianm)
     var svgtag = CreateDiamondImageTagSVG(1, vgstr, 600, "diaitem")
 
     diaimg.innerHTML = svgtag
@@ -61,7 +63,9 @@ function doSaveFile(value, type, name) {
 ;(function(){
 
     var diaimg = document.getElementById("hip8img")
-    , vgstr = diaimg.getAttribute("visual_gene")
+    , lgene = diaimg.getAttribute("life_gene")
+    , dianm = diaimg.getAttribute("dia_name")
+    , vgstr = DiamondLifeGeneConvertVisualGene(lgene, dianm)
     , backcl = theme == 2 ? 'black' : 'white'
     , svgtag = CreateDiamondBrillianceSVG(vgstr, backcl)
     ;

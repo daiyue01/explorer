@@ -4,7 +4,8 @@ var svgs = document.getElementsByClassName("svg")
 for(var i=0; i<svgs.length; i++){
     var li = svgs[i]
     , lgene = li.getAttribute("lgene")
-    , vgene = li.getAttribute("vgene")
+    , dianm = li.getAttribute("dianm")
+    , vgene = DiamondLifeGeneConvertVisualGene(lgene, dianm)
     var backcl = theme == 2 ? 'black' : 'white';
     if(dvhip==5){
         li.innerHTML = CreateDiamondImageTagSVG(i, vgene, 200, "")
