@@ -93,7 +93,7 @@
   display: inline-block;
   border: 1px solid #88888844;
 }
-#diamond .diaitem.big {
+#diamond #showbigimg .diaitem {
   border: none;
 }
 #diamond .dnnv {

@@ -37,13 +37,13 @@ function doSaveFile(value, type, name) {
     var lgene = diaimg.getAttribute("life_gene")
     , dianm = diaimg.getAttribute("dia_name")
     , vgstr = DiamondLifeGeneConvertVisualGene(lgene, dianm)
-    var svgtag = CreateDiamondImageTagSVG(1, vgstr, 600, "diaitem")
+    var svgtag = CreateDiamondImageTagSVG(vgstr, 600)
 
     diaimg.innerHTML = svgtag
 
     // 查看高清大图
     function showbigpic(){
-        sbp.getElementsByTagName("div")[0].innerHTML = CreateDiamondImageTagSVGFullShow(vgstr, "diaitem big")
+        sbp.getElementsByTagName("div")[0].innerHTML = CreateDiamondImageTagSVGFullShow(vgstr)
     }
     sbp.onclick = showbigpic
     // showbigpic();
@@ -67,7 +67,7 @@ function doSaveFile(value, type, name) {
     , dianm = diaimg.getAttribute("dia_name")
     , vgstr = DiamondLifeGeneConvertVisualGene(lgene, dianm)
     , backcl = theme == 2 ? 'black' : 'white'
-    , svgtag = CreateDiamondBrillianceSVG(vgstr, backcl)
+    , svgtag = CreateDiamondBrillianceSVG(vgstr, 800, backcl)
     ;
 
     var showbighip8 = document.getElementById("showbighip8")
@@ -78,7 +78,7 @@ function doSaveFile(value, type, name) {
         // console.log(svgtag)
         // window.history.pushState({}, 'Big picture')
         var bd = document.body
-        bd.innerHTML = '<div style="width: 1200px; margin: auto">'+CreateDiamondBrillianceSVG(vgstr, "black")+'</div>'
+        bd.innerHTML = '<div style="width: 1200px; margin: auto">'+CreateDiamondBrillianceSVG(vgstr, 1200, "black")+'</div>'
         bd.style.backgroundColor = "black"
     }
 
@@ -122,7 +122,7 @@ function doSaveFile(value, type, name) {
     //     // console.log(svgtag)
     //     // window.history.pushState({}, 'Big picture')
     //     var bd = document.body
-    //     bd.innerHTML = '<div style="width: 1200px; margin: auto">'+CreateDiamondBrillianceSVG(vgstr, "black")+'</div>'
+    //     bd.innerHTML = '<div style="width: 1200px; margin: auto">'+CreateDiamondBrillianceSVG(vgstr, 1200, "black")+'</div>'
     //     bd.style.backgroundColor = "black"
     // }
 

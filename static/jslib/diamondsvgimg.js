@@ -1,4 +1,4 @@
-
+;(function(){
 
 
 var DiamondImageColorListDefs = [
@@ -549,10 +549,12 @@ var DiamondImageTagSvgPointStuffDatas = [
  * 创建 HACD 的可视化svg 图片
  * @param {*} imgstuffhex 
  * @param {*} wdsize 
+ * diaitem
  */
 var isFirstCreateDiamondImageTagSVG = true
-function CreateDiamondImageTagSVG(index, imgstuffhex, wdsize, divclassname) {
-
+var diaimgsvgidx = 0
+function CreateDiamondImageTagSVG(imgstuffhex, wdsize) {
+    diaimgsvgidx++;
     var hex2nums = function(hex) {
         var size = imgstuffhex.length;
         var nums = new Array(size);
@@ -603,7 +605,7 @@ function CreateDiamondImageTagSVG(index, imgstuffhex, wdsize, divclassname) {
 
     var stuffnums = hex2nums(imgstuffhex)
     var itemNo = stuffnums[0] * 16 + stuffnums[1]
-    /* console.log(imgstuffhex, itemNo) */
+    //  console.log(imgstuffhex, itemNo)
     if(itemNo > 8) {
         itemNo = 0 // 普通钻石形状
     }
@@ -628,7 +630,7 @@ function CreateDiamondImageTagSVG(index, imgstuffhex, wdsize, divclassname) {
         }
         var ip = one[1]
         , lps = ''
-        , svgid = `SVGID_`+index+`_`+itemNo+`_`+i
+        , svgid = `SVGID_`+diaimgsvgidx+`_`+itemNo+`_`+i
         , structlines = '<g>';
         if(typeof il === 'string') {
             lps = il
@@ -668,31 +670,27 @@ function CreateDiamondImageTagSVG(index, imgstuffhex, wdsize, divclassname) {
         }
     }
     structlines += '<g>';
-    var basestyle = '';
     if(isFirstCreateDiamondImageTagSVG){
         isFirstCreateDiamondImageTagSVG = false;
-        basestyle = `<style>.diait .st16{fill:none;stroke:#F5E1DA;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}</style>`;
+        var sty = document.createElement('style')
+        sty.innerHTML = `svg.dvhip5 .st16{fill:none;stroke:#F5E1DA;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}`;
+        document.body.appendChild(sty)
     }
     /* div */
-    var divcons = '';
-    divcons += `<div class="`+(divclassname||'')+`" >
-        `+basestyle+`
-        <div class="diait" style="width: `+wdsize+`px; height: `+wdsize+`px;">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                viewBox="125 100 500 500"  xml:space="preserve">
-                <g>
-                `+linearGradientTags+`   
-                `+polygonTags+`   
-                `+structlines+`   
-                <g>
-            </svg>
-        </div></div>`
+    var divcons = `<svg class="dvhip5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="125 100 500 500" width="${wdsize}" height="${wdsize}" xml:space="preserve">
+        <g>
+        `+linearGradientTags+`   
+        `+polygonTags+`   
+        `+structlines+`   
+        <g>
+    </svg>`
     /* 成功返回 */
     return divcons;
 
 }
 
-
+window.CreateDiamondImageTagSVG = CreateDiamondImageTagSVG;
 
 
 
@@ -706,7 +704,7 @@ function closeDiamondImageFullShow(e){
     e.stopPropagation();
     return false;
 }
-function CreateDiamondImageTagSVGFullShow(imgstuffhex, divclassname) {
+function CreateDiamondImageTagSVGFullShow(imgstuffhex) {
 
     var wiw = window.innerWidth
     , wih = window.innerHeight
@@ -716,7 +714,7 @@ function CreateDiamondImageTagSVGFullShow(imgstuffhex, divclassname) {
     }
     // svg tag
     wih -= 40
-    var picon = CreateDiamondImageTagSVG(0, imgstuffhex, wih, divclassname)
+    var picon = CreateDiamondImageTagSVG(0, imgstuffhex, wih)
 
     var html = `<div id="diabigshow" style="position: fixed; z-index: 9999; left: 0; top: 0; background: #ffffff66; width: 100%; height: 100%; text-align: center;">
         <div style="display: inline-block; position: relative; margin-top: 20px; background: #ffffff; box-shadow: 2px 2px 12px #00000099; border-radius: 10px;">
@@ -730,12 +728,13 @@ function CreateDiamondImageTagSVGFullShow(imgstuffhex, divclassname) {
 }
 
 
+window.CreateDiamondImageTagSVGFullShow = CreateDiamondImageTagSVGFullShow;
 
 
 
 
 
-
+/*
 
 
 function t1() {
@@ -767,14 +766,16 @@ for(var i in l2.children) {
         lists += `'${one.getAttribute("d").replace(/\s+/ig, ' ').trimEnd()}'],`
     }
 }
-console.log(lists)
-
-
-
-
-
-
+// console.log(lists)
 
 
 
 }
+
+
+*/
+
+
+
+})();
+

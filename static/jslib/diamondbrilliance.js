@@ -3,7 +3,7 @@
 
 // canvas wide = 1000px
 var DiamondBrillianceDrawAutoNum = 0;
-function CreateDiamondBrillianceSVG(vgene, backcolor) {
+function CreateDiamondBrillianceSVG(vgene, width, backcolor) {
     var drid = (DiamondBrillianceDrawAutoNum += 1)
 
     vgene = vgene.toLowerCase()
@@ -216,7 +216,7 @@ function CreateDiamondBrillianceSVG(vgene, backcolor) {
 
 
     // ok mask
-    return `<svg class="dvhip8" version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" style="background-image: linear-gradient(to top, ${maincols[0]}${lights[0]}, ${maincols[1]}${lights[1]})"><g>${svgobjs}<circle cx="600" cy="600" r="700" stroke="${backcolor}" stroke-width="400" fill="none" /></g></svg>`
+    return `<svg class="dvhip8" version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="${width}" height="${width}" style="background-image: linear-gradient(to top, ${maincols[0]}${lights[0]}, ${maincols[1]}${lights[1]})"><g>${svgobjs}<circle cx="600" cy="600" r="700" stroke="${backcolor}" stroke-width="400" fill="none" /></g></svg>`
 
 
 }
