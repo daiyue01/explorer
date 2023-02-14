@@ -134,6 +134,37 @@ div.pmore .button span {
   width: auto;
   display: block;
 }
+#ranking .dtshow .box {
+  margin: 0 40px 40px;
+  text-align: center;
+}
+#ranking .dtshow table {
+  display: table !important;
+  width: 100% !important;
+  max-width: 500px !important;
+  margin: auto;
+  border-collapse: collapse !important;
+  border: 1px solid lightblue !important;
+}
+#ranking .dtshow table td {
+  border: 1px solid lightblue !important;
+  padding: 5px 10px;
+  color: #666;
+  font-size: 14px;
+  text-align: right;
+}
+#ranking .dtshow table td.l {
+  text-align: left;
+}
+#ranking .dtshow table tr.hd {
+  background-color: #c0e5f1;
+}
+#ranking .dtshow table tr.hd td {
+  text-align: center;
+  color: #999;
+  font-weight: bold;
+  padding: 10px;
+}
 #ranking .rktable {
   margin-top: 20px;
 }
@@ -482,6 +513,12 @@ div.pmore .button span {
     top: 50px;
     border: none !important;
     padding: 0;
+  }
+  #ranking .dtshow .box {
+    margin: 0 5px 20px;
+  }
+  #ranking .dtshow table td {
+    padding: 5px !important;
   }
   #ranking .rktable a.addr {
     line-height: 12px;

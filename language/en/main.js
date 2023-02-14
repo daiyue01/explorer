@@ -55,7 +55,10 @@ module.exports = {
     ttspl_transferred_bitcoin: "Transferred Bitcoins:",
     ttspl_current_circulation: "Current Circulation:",
 
-    rk_title: "Account ranking",
+    rk_title: "On-chain statistics",
+    rk_accnum: "Total Accounts",
+    rk_nonempty: "Valuable addresses",
+    rk_turnover: "Asset moving",
     rk_tab_hacash: "Show top 100 HAC addresses",
     rk_tab_diamond: "Show top 100 HACD addresses",
     rk_tab_bitcoin: "Show top 100 BTC addresses",

@@ -228,6 +228,66 @@
 </div>
 
 
+
+[: if(ranking_api_url){ :]
+<div id="ranking" class="mtable">
+    <div class="container">
+        <div class="wrap">
+            <h1 class="pt">[:=lang.main.rk_title || "持仓排名":]:</h1>
+            <div class="con">
+
+                <div class="dtshow">
+                    <div class="box t1">
+                        <table>
+                            [: var rda = ranking_data.accounts; :]
+                            <tr class="hd"><td>[:=lang.main.rk_accnum || "账户总计":]</td><td>HAC</td><td>HACD</td><td>BTC</td></tr>
+                            <tr><td class="l">[:=lang.main.rk_nonempty || "非零地址数":]:</td><td>[:=rda.hac:]</td><td>[:=rda.hacd:]</td><td>[:=rda.btc:]</td></tr>
+                        </table>
+                    </div>
+                    <div class="box t2">
+                        <table>
+                            [: var rdt = ranking_data.turnover; 
+                                var frthei = ranking_data.turnfirsthei;
+                            :]
+                            <tr class="hd"><td>[:=lang.main.rk_turnover|| "换手统计":]</td><td>HAC</td><td>HACD</td><td>BTC</td></tr>
+                            [: for(var i in rdt.hac){ var showhei = frthei - (i*2000); :]
+                            <tr><td class="">[:=showhei:] ~ [:=showhei+2000:]</td><td>[:=rdt.hac[i]:]</td><td>[:=rdt.hacd[i]:]</td><td>[:=rdt.btc[i]:]</td></tr>
+                            [: } :]
+                        </table>
+                    </div>
+                </div>
+
+
+                <button class="tab t1" v-bind:class="{active: tabn=='hacash'}" @click="selectTab('hacash')">[:=lang.main.rk_tab_hacash:]</button>
+                <button class="tab t2" v-bind:class="{active: tabn=='diamond'}"  @click="selectTab('diamond')">[:=lang.main.rk_tab_diamond:]</button>
+                <button class="tab t3" v-bind:class="{active: tabn=='bitcoin'}"  @click="selectTab('bitcoin')">[:=lang.main.rk_tab_bitcoin:]</button>
+
+                <div v-if="list && list.length==0">
+                    <p style="color: #999;">- empty -</p>
+                </div>
+
+                <table class="rktable" v-if="list && list.length > 0">
+                    <tr>
+                        <th>#</th>
+                        <th>Address</th>
+                        <th>Balance</th>
+                        <th>Percent</th>
+                    </tr>
+                    <tr class="row" v-for="li in list">
+                        <td class="n">{{li.num}}</td>
+                        <td><a class="addr" target="_blank" :href="'/address/'+li.address">{{li.address}}</a></td>
+                        <td>{{li.value}}</td>
+                        <td class="pc">{{li.percent}}%</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+[: } :]
+
+
 <div id="operateactionlogs" class="mtable mbfix" >
     <div class="container">
         <div class="wrap">
@@ -261,40 +321,4 @@
         </div>
     </div>    
 </div>
-
-
-[: if(ranking_api_url){ :]
-<div id="ranking" class="mtable">
-    <div class="container">
-        <div class="wrap">
-            <h1 class="pt">[:=lang.main.rk_title || "持仓排名":]:</h1>
-            <div class="con">
-                <button class="tab t1" v-bind:class="{active: tabn=='hacash'}" @click="selectTab('hacash')">[:=lang.main.rk_tab_hacash:]</button>
-                <button class="tab t2" v-bind:class="{active: tabn=='diamond'}"  @click="selectTab('diamond')">[:=lang.main.rk_tab_diamond:]</button>
-                <button class="tab t3" v-bind:class="{active: tabn=='bitcoin'}"  @click="selectTab('bitcoin')">[:=lang.main.rk_tab_bitcoin:]</button>
-
-                <div v-if="list && list.length==0">
-                    <p style="color: #999;">- empty -</p>
-                </div>
-
-                <table class="rktable" v-if="list && list.length > 0">
-                    <tr>
-                        <th>#</th>
-                        <th>Address</th>
-                        <th>Balance</th>
-                        <th>Percent</th>
-                    </tr>
-                    <tr class="row" v-for="li in list">
-                        <td class="n">{{li.num}}</td>
-                        <td><a class="addr" target="_blank" :href="'/address/'+li.address">{{li.address}}</a></td>
-                        <td>{{li.value}}</td>
-                        <td class="pc">{{li.percent}}%</td>
-                    </tr>
-                </table>
-
-            </div>
-        </div>
-    </div>
-</div>
-[: } :]
 

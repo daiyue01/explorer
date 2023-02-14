@@ -126,5 +126,55 @@ exports.getBlocks = async function(last, limit, clean_cache){
     return getBlocks(last, limit)
 }
 
+////////////////////////////////////////////////
+
+let rankingShowDataCache = null 
+let rankingShowDataUphour = new Date().getHours()
+exports.getRankingShowData = async function() {
+    let isovertime = rankingShowDataUphour != new Date().getHours()
+    if(!rankingShowDataCache || isovertime){
+        // console.log('getRankingShowData from req')
+        // req data from ranking
+        let retdata = {
+            accounts: {},
+            turnover: {},
+        }
+        // accounts
+        try{
+            let jsonobj = await http_tool.json(config.miner_api_url+"/query?action=totalnonemptyaccount")
+            // console.log(jsonobj)
+            retdata.accounts = jsonobj
+        }catch(e){
+            console.log(e)
+        }
+        // last turnover from ranking
+        if(lastblockdata && lastblockdata.height){
+            let end_week_num = parseInt(lastblockdata.height / 2000)
+            let limit = 25
+            try{
+                let jsonobj = await http_tool.json(config.ranking_api_url+"/query", {
+                    action: "transfer_turnover",
+                    end_week_num: end_week_num,
+                    limit: limit,
+                })
+                // console.log(end_week_num, jsonobj)
+                retdata.turnfirsthei = end_week_num * 2000
+                retdata.turnover = jsonobj
+                // ok
+            }catch(e){
+                console.log(e)
+            }
+        }
+        // ok
+        rankingShowDataCache = retdata
+        rankingShowDataUphour = new Date().getHours()
+    }
+
+    // cache
+    return rankingShowDataCache
+
+
+}
+
 
 

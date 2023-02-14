@@ -24,6 +24,7 @@ exports.datas = async function(query, callback, req, res)
         pagetitle: "Hacash Block Explorer",
         last_height: (await module_block.getLastBlock()).height,
         ranking_api_url: config.ranking_api_url,
+        ranking_data: (await module_block.getRankingShowData())
     }, req, res)
 }
 
