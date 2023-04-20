@@ -9,6 +9,7 @@ const model_initmysql = appload('model/initmysql')
 async function startScanOneBlockOfTransferLog(scanheight) {
     let jsonobj = await http_tool.json(config.miner_api_url+"/query", {
         action: "getalltransferlogbyblockheight",
+        must_confirm: 4,
         include_btc_hacd: "true",
         block_height: scanheight,
     })
@@ -37,8 +38,13 @@ async function startScanOneBlockOfOperateActionLog(scanheight) {
 
     let jsonobj = await http_tool.json(config.miner_api_url+"/query", {
         action: "getalloperateactionlogbyblockheight",
+        must_confirm: 4,
         block_height: scanheight,
     })
+    if(parseInt(jsonobj.ret) > 0 || jsonobj.err){
+        // 表示等待最新的出块
+        return jsonobj.err || "error"
+    }
     if(jsonobj && jsonobj.datas) {
         let datas = jsonobj.datas
         // 插入数据
@@ -77,13 +83,17 @@ async function startScanLog() {
             // console.log(jsonobj)
             if (errmsg){
                 // 表示等待最新的出块
-                setTimeout(startScanLog, 1000*13)
+                setTimeout(startScanLog, 1000*21)
                 return
             }
 
             /**************************** 扫描通道开启记录 ****************************/
-
-            await startScanOneBlockOfOperateActionLog(scanheight)
+            errmsg = await startScanOneBlockOfOperateActionLog(scanheight)
+            if (errmsg){
+                // 表示等待最新的出块
+                setTimeout(startScanLog, 1000*21)
+                return
+            }
 
             // 保存状态，扫描下一个区块
             await model_initmysql.saveSetting(scankey, scanheight)
@@ -91,7 +101,7 @@ async function startScanLog() {
                 // throw "insert one"
                 console.log("scan_block_height - " + scanheight)
             }
-            setTimeout(startScanLog, 11)
+            setTimeout(startScanLog, 1)
         }catch(e){
             console.log(e)
             // 5 分钟之后重启扫描

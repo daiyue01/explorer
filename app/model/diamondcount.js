@@ -58,8 +58,10 @@ async function startScanDiamondCount() {
             // 保存状态，扫描下一个区块
             await model_initmysql.saveSetting(scankey, scannumber)
             // throw "insert one"
-            console.log(scankey + " - " + scannumber)
-            setTimeout(startScanDiamondCount, 1234)
+            if(scannumber % 25 == 0){
+                console.log(scankey + " - " + scannumber)
+            }
+            setTimeout(startScanDiamondCount, 5)
         }catch(e){
             console.log(e)
             return
