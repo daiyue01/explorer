@@ -14,13 +14,17 @@ const model_initmysql = appload('model/initmysql')
 // 查询数量
 exports.getCount = async function(address)
 {
-    let pool = model_initmysql.pool()
-    let sql = `SELECT count FROM diamondcount WHERE address=${pool.escape(address)} LIMIT 1`
-    // console.log(sql)
-    let res = await model_initmysql.sql_execute(sql)
-    if(res.results.length > 0) {
-        return res.results[0].count
-    }else{
+    try{
+        let pool = model_initmysql.pool()
+        let sql = `SELECT count FROM diamondcount WHERE address=${pool.escape(address)} LIMIT 1`
+        // console.log(sql)
+        let res = await model_initmysql.sql_execute(sql)
+        if(res.results.length > 0) {
+            return res.results[0].count
+        }else{
+            return 0
+        }
+    }catch(e){
         return 0
     }
 }
@@ -31,6 +35,8 @@ exports.getCount = async function(address)
 
 // 开始钻石序号
 async function startScanDiamondCount() {
+    try{
+
     const scankey = "diamondcount_scan_diamond_number"
     // 读取本地的 setting 状态
     let scannumberstr = await model_initmysql.getSetting(scankey)
@@ -66,6 +72,11 @@ async function startScanDiamondCount() {
             console.log(e)
             return
         }
+    }
+
+    }catch(e) {
+        console.log(e)
+        setTimeout(startScanDiamondCount, 1000*60*7)
     }
 }
 
